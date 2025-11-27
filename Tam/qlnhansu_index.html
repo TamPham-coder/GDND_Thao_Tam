@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý nhân sự - KTX Văn Lang</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="qlnhansu_style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Van_Lang_University_Logo.png/1200px-Van_Lang_University_Logo.png" alt="VLU Logo" class="vlu-logo">
+            </div>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-house"></i> Tổng quan (Toàn KTX)</a></li>
+                    <li class="active"><a href="#"><i class="fa-solid fa-user-tie"></i> Quản lý Nhân sự</a></li>
+                    <li><a href="#"><i class="fa-solid fa-file-contract"></i> Quản lý Hợp đồng</a></li>
+                    <li><a href="#"><i class="fa-solid fa-chart-pie"></i> Báo cáo Tổng hợp</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="main-panel">
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+                    <h1 class="page-title">Ký Túc Xá Trường đại học Văn Lang</h1>
+                </div>
+                <div class="user-info">
+                    <span class="user-name">Mai Văn Nam - 71K29CNTT03</span>
+                    <span class="user-role">Quản lý Ký túc xá</span>
+                    <div class="user-avatar"><i class="fa-solid fa-user"></i></div>
+                </div>
+            </header>
+
+            <div class="content-body">
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <div class="card-img"><img src="https://img.freepik.com/free-vector/business-team-concept-illustration_114360-3875.jpg" alt="img"></div>
+                        <div class="card-text"><h3>Tổng nhân sự</h3><div class="stat-number">2</div></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-img"><img src="https://img.freepik.com/free-photo/young-man-working-laptop_23-2148436745.jpg" alt="img"></div>
+                        <div class="card-text"><h3>Nhân viên phòng</h3><div class="stat-number">1</div></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-img"><img src="https://img.freepik.com/free-photo/financial-manager-analyzing-stock-market_23-2149264042.jpg" alt="img"></div>
+                        <div class="card-text"><h3>Nhân viên tài chính</h3><div class="stat-number">1</div></div>
+                    </div>
+                </div>
+
+                <div class="hr-section">
+                    <div class="section-header"><i class="fa-solid fa-users"></i> Quản lý Nhân sự</div>
+                    
+                    <button class="btn-add-hr">+ Thêm Nhân sự</button>
+
+                    <div class="filter-bar">
+                        <div class="filter-item"><label>Vai trò</label><select><option>Tất cả</option></select></div>
+                        <div class="filter-item search-item"><label>Tìm kiếm</label><input type="text" placeholder="Tìm theo tên, email..."></div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>HỌ TÊN</th>
+                                    <th>EMAIL</th>
+                                    <th>SỐ ĐIỆN THOẠI</th>
+                                    <th>VAI TRÒ</th>
+                                    <th>TRẠNG THÁI</th>
+                                    <th>THAO TÁC</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#1</td>
+                                    <td>
+                                        <div class="user-cell">
+                                            <div class="avatar-circle bg-orange">P</div>
+                                            <div class="user-text"><strong>Phạm Chí Tâm</strong><span>@nhanvienphong</span></div>
+                                        </div>
+                                    </td>
+                                    <td>tamg@ktx.edu.vn</td>
+                                    <td>0900000000</td>
+                                    <td><span class="badge-role">Nhân viên Phòng</span></td>
+                                    <td><span class="badge-status">Dang Online</span></td>
+                                    <td>
+                                        <button class="btn-action btn-detail">Chi tiết</button>
+                                        <button class="btn-action btn-delete">Xóa</button>
+                                        <button class="btn-action btn-edit">Khóa</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#2</td>
+                                    <td>
+                                        <div class="user-cell">
+                                            <div class="avatar-circle bg-orange">H</div>
+                                            <div class="user-text"><strong>Hồ Thị Phương Thảo</strong><span>@nhanvientaichinh</span></div>
+                                        </div>
+                                    </td>
+                                    <td>thao@ktx.edu.vn</td>
+                                    <td>0901233333</td>
+                                    <td><span class="badge-role">Nhân viên Tài chính</span></td>
+                                    <td><span class="badge-offline">Dang Offline</span></td>
+                                    <td>
+                                        <button class="btn-action btn-detail">Chi tiết</button>
+                                        <button class="btn-action btn-delete">Xóa</button>
+                                        <button class="btn-action btn-edit">Khóa</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

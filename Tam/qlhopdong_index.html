@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý hợp đồng - KTX Văn Lang</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="qlhopdong_style.css">
+
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+
+    <div class="app-container" id="main-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Van_Lang_University_Logo.png/1200px-Van_Lang_University_Logo.png" alt="VLU Logo" class="vlu-logo">
+            </div>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-house"></i> Tổng quan (Toàn KTX)</a></li>
+                    <li><a href="#"><i class="fa-solid fa-user-tie"></i> Quản lý Nhân sự</a></li>
+                    <li class="active"><a href="#"><i class="fa-solid fa-file-contract"></i> Quản lý hợp đồng</a></li>
+                    <li><a href="#"><i class="fa-solid fa-chart-pie"></i> Báo cáo tổng hợp</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="main-panel">
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+                    <h1 class="page-title">Ký Túc Xá Trường đại học Văn Lang</h1>
+                </div>
+                <div class="user-info">
+                    <span class="user-name">Mai Văn Nam - 71K29CNTT03</span>
+                    <span class="user-role">Quản lý Ký túc xá</span>
+                    <div class="user-avatar"><i class="fa-solid fa-user"></i></div>
+                </div>
+            </header>
+
+            <div class="content-body">
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <div class="card-img"><img src="https://img.freepik.com/free-photo/business-partners-shaking-hands-agreement_53876-25164.jpg" alt="Tổng"></div>
+                        <div class="card-text"><h3>Tổng hợp đồng</h3><div class="stat-number">3</div></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-img"><img src="https://img.freepik.com/free-photo/close-up-business-people-working-with-documents_1098-1263.jpg" alt="Hiệu lực"></div>
+                        <div class="card-text"><h3>Đang hiệu lực</h3><div class="stat-number">3</div></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-img"><img src="https://img.freepik.com/free-vector/signing-contract-concept-illustration_114360-4832.jpg" alt="Sắp hết hạn"></div>
+                        <div class="card-text"><h3>Sắp hết hạn</h3><div class="stat-number">0</div></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-img"><img src="https://t3.ftcdn.net/jpg/02/25/65/24/360_F_225652493_a4q9h9h9h9h9h9h9h9h9h9h9h9h9h9h9.jpg" alt="Kết thúc" style="filter: grayscale(100%);"></div>
+                        <div class="card-text"><h3>Đã kết thúc</h3><div class="stat-number">3</div></div>
+                    </div>
+                </div>
+
+                <div class="card-section">
+                    <div class="section-header"><i class="fa-regular fa-file"></i> Quản lý hợp đồng</div>
+                    <a href="tao-hop-dong.html" class="btn-create-big">+ Tạo hợp đồng</a>
+
+                    <div class="filter-bar">
+                        <div class="filter-item" style="width: 250px;">
+                            <label><i class="fa-solid fa-filter"></i> Trạng thái</label>
+                            <select><option>Tất cả</option></select>
+                        </div>
+                        <div class="filter-item search-group">
+                            <label><i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm</label>
+                            <input type="text" placeholder="Tìm theo tên, MSSV...">
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table id="contract-table">
+                            <thead>
+                                <tr>
+                                    <th>MÃ HĐ</th>
+                                    <th>SINH VIÊN</th>
+                                    <th>PHÒNG</th>
+                                    <th>THỜI HẠN</th>
+                                    <th>GIÁ</th>
+                                    <th>TRẠNG THÁI</th>
+                                    <th>THAO TÁC</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>HD00001</strong></td>
+                                    <td><div class="student-info"><span class="student-name">Phạm Thị Diệu</span><span class="student-code">SV001</span></div></td>
+                                    <td><span class="room-info">Phòng A101</span><span class="room-sub">Tòa A</span></td>
+                                    <td><div class="time-range"><span>01/09/2024</span><span>-> 30/06/2025</span></div></td>
+                                    <td class="price">1.500.000 ₫</td>
+                                    <td><span class="badge-expired"><span class="badge-dot"></span> Đã hết hạn</span></td>
+                                    <td>
+                                        <div class="action-group">
+                                            <button class="btn-icon-excel" onclick="exportToExcel()"><i class="fa-solid fa-file-excel"></i></button>
+                                            
+                                            <button class="btn-detail-red" onclick="openDetailModal('Phạm Thị Diệu', 'SV001')">Chi tiết</button>
+                                            <button class="btn-notify-green" onclick="openNotifyModal('Phạm Thị Diệu')"><i class="fa-regular fa-clock"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><strong>HD00002</strong></td>
+                                    <td><div class="student-info"><span class="student-name">Hoàng Văn Em</span><span class="student-code">SV002</span></div></td>
+                                    <td><span class="room-info">Phòng A101</span><span class="room-sub">Tòa A</span></td>
+                                    <td><div class="time-range"><span>01/09/2024</span><span>-> 30/06/2025</span></div></td>
+                                    <td class="price">1.500.000 ₫</td>
+                                    <td><span class="badge-expired"><span class="badge-dot"></span> Đã hết hạn</span></td>
+                                    <td>
+                                        <div class="action-group">
+                                            <button class="btn-icon-excel" onclick="exportToExcel()"><i class="fa-solid fa-file-excel"></i></button>
+                                            
+                                            <button class="btn-detail-red" onclick="openDetailModal('Hoàng Văn Em', 'SV002')">Chi tiết</button>
+                                            <button class="btn-notify-green" onclick="openNotifyModal('Hoàng Văn Em')"><i class="fa-regular fa-clock"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-detail">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>Hồ sơ cá nhân</h3>
+                <button class="close-btn" onclick="closeModal('modal-detail')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="profile-grid-container">
+                    <div class="info-column">
+                        <h4 class="section-header text-red"><i class="fa-regular fa-file-lines"></i> Thông tin hợp đồng</h4>
+                        <div class="info-row"><span class="label">Loại hợp đồng :</span><span class="value">12 tháng</span></div>
+                        <div class="info-row"><span class="label">Trạng thái:</span><span class="value">Đã hết hạn</span></div>
+                        <div class="info-row"><span class="label">Ngày vào:</span><span class="value">01/09/2024</span></div>
+                        <div class="info-row"><span class="label">Ngày kết thúc:</span><span class="value">30/06/2025</span></div>
+                    </div>
+                    <div class="info-column">
+                        <h4 class="section-header text-red"><i class="fa-solid fa-user-graduate"></i> Thông tin sinh viên</h4>
+                        <div class="info-row"><span class="label">Họ tên:</span><span class="value" id="detail-name">...</span></div>
+                        <div class="info-row"><span class="label">MSSV:</span><span class="value" id="detail-mssv">...</span></div>
+                        <div class="info-row"><span class="label">Khóa:</span><span class="value">K29</span></div>
+                        <div class="info-row"><span class="label">Ngành:</span><span class="value">Quản trị kinh doanh</span></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-close-modal" onclick="closeModal('modal-detail')">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-notify">
+        <div class="modal-box small-box">
+            <div class="modal-header" style="border-bottom: none; padding-bottom: 0;">
+                <h3 style="color: #ff0000;"><i class="fa-solid fa-bell"></i> Gửi thông báo</h3>
+                <button class="close-btn" onclick="closeModal('modal-notify')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="notify-icon-large"><i class="fa-regular fa-clock"></i></div>
+                <p style="font-size: 15px; margin: 15px 0;">
+                    Bạn có muốn gửi thông báo <strong>nhắc nhở gia hạn hợp đồng</strong> đến sinh viên <strong id="notify-name" style="color:#ff0000">...</strong> không?
+                </p>
+                <div class="modal-footer-center">
+                    <button class="btn-cancel-modal" onclick="closeModal('modal-notify')">Hủy</button>
+                    <button class="btn-confirm-notify" onclick="sendNotification()">Gửi ngay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Hàm Xuất Excel ---
+        function exportToExcel() {
+            // Lấy bảng theo ID
+            const table = document.getElementById("contract-table");
+            
+            // Tạo WorkSheet từ bảng
+            const wb = XLSX.utils.table_to_sheet(table);
+            
+            // Tạo WorkBook mới
+            const wbook = XLSX.utils.book_new();
+            
+            // Thêm Sheet vào Book
+            XLSX.utils.book_append_sheet(wbook, wb, "DanhSachHopDong");
+            
+            // Tải file xuống
+            XLSX.writeFile(wbook, "Danh_Sach_Hop_Dong_KTX.xlsx");
+        }
+
+        // --- Hàm Modal cũ ---
+        function openDetailModal(name, mssv) {
+            document.getElementById('detail-name').innerText = name;
+            document.getElementById('detail-mssv').innerText = mssv;
+            document.getElementById('modal-detail').style.display = 'flex';
+            document.getElementById('main-container').classList.add('blur-effect');
+        }
+
+        function openNotifyModal(name) {
+            document.getElementById('notify-name').innerText = name;
+            document.getElementById('modal-notify').style.display = 'flex';
+            document.getElementById('main-container').classList.add('blur-effect');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.getElementById('main-container').classList.remove('blur-effect');
+        }
+
+        function sendNotification() {
+            alert("Đã gửi thông báo nhắc nhở thành công!");
+            closeModal('modal-notify');
+        }
+    </script>
+
+</body>
+</html>

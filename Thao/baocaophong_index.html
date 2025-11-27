@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo cáo (Phòng) - KTX Văn Lang</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="baocaophong_style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Van_Lang_University_Logo.png/1200px-Van_Lang_University_Logo.png" alt="VLU Logo" class="vlu-logo">
+            </div>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-house"></i> Tổng quan (Phòng)</a></li>
+                    <li><a href="#"><i class="fa-solid fa-door-open"></i> Quản lý phòng</a></li>
+                    <li><a href="#"><i class="fa-solid fa-file-signature"></i> Xét duyệt đơn</a></li>
+                    <li><a href="#"><i class="fa-solid fa-file-export"></i> Đề xuất duyệt hồ sơ</a></li>
+                    <li class="active"><a href="#"><i class="fa-solid fa-chart-line"></i> Báo cáo (Phòng)</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="main-panel">
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+                    <h1 class="page-title">Ký Túc Xá Trường đại học Văn Lang</h1>
+                </div>
+                <div class="user-info">
+                    <span class="user-name">Trần Minh Huy - 71K29CNTT04</span>
+                    <span class="user-role">Sinh viên</span>
+                    <div class="user-avatar"><i class="fa-solid fa-user"></i></div>
+                </div>
+            </header>
+
+            <div class="content-body">
+                
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <div class="card-img">
+                            <img src="https://img.freepik.com/free-photo/accounting-concept-with-calculator_23-2147836271.jpg" alt="Tổng số phòng">
+                        </div>
+                        <div class="card-text">
+                            <h3>Tổng số phòng</h3>
+                            <div class="stat-number">4</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-img">
+                            <img src="https://img.freepik.com/free-photo/close-up-hands-holding-money_23-2148866314.jpg" alt="Có người ở">
+                        </div>
+                        <div class="card-text">
+                            <h3>Có người ở</h3>
+                            <div class="stat-number">3</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-img">
+                            <img src="https://img.freepik.com/free-vector/contactless-payment-concept-illustration_114360-3048.jpg" alt="Phòng trống">
+                        </div>
+                        <div class="card-text">
+                            <h3>Phòng trống</h3>
+                            <div class="stat-number">4</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-img">
+                            <img src="https://img.freepik.com/free-vector/credit-card-payment-concept-illustration_114360-174.jpg" alt="Vi phạm">
+                        </div>
+                        <div class="card-text">
+                            <h3>Vi phạm</h3>
+                            <div class="stat-number">1</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-section">
+                    <div class="card-header-row">
+                        <h3 class="section-title">Báo cáo & Thống kê</h3>
+                        <div class="action-buttons">
+                            <button class="btn-outline-red">Xuất<br>Excel</button>
+                            <button class="btn-outline-red">Xuất<br>PDF<br><span style="font-size: 10px;">(Soon)</span></button>
+                            <button class="btn-solid-red">In báo cáo</button>
+                        </div>
+                    </div>
+
+                    <div class="tabs-nav">
+                        <a href="#" class="tab-item active">Theo tháng</a>
+                        <a href="#" class="tab-item">Theo quý</a>
+                        <a href="#" class="tab-item">Theo năm</a>
+                    </div>
+                    <hr class="divider">
+
+                    <div class="filter-row">
+                        <div class="filter-item">
+                            <label>Năm</label>
+                            <select><option>2025</option></select>
+                        </div>
+                        <div class="filter-item">
+                            <label>Tháng</label>
+                            <select><option>Tháng 11</option></select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-section">
+                    <h3 class="section-title">Thống kê chi tiết</h3>
+                    <div class="table-responsive">
+                        <table class="stats-table">
+                            <thead>
+                                <tr>
+                                    <th>TÒA</th>
+                                    <th>TỔNG PHÒNG</th>
+                                    <th>ĐANG Ở</th>
+                                    <th>CÒN TRỐNG</th>
+                                    <th>BẢO TRÌ</th>
+                                    <th style="width: 30%;">TỶ LỆ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Tòa A</strong></td>
+                                    <td>2</td>
+                                    <td>2</td>
+                                    <td>2</td>
+                                    <td>0</td>
+                                    <td>
+                                        <div class="progress-wrapper">
+                                            <div class="progress-bar"><div class="progress-fill" style="width: 100%;"></div></div>
+                                            <span class="progress-text">100.0%</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Tòa B</strong></td>
+                                    <td>2</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>0</td>
+                                    <td>
+                                        <div class="progress-wrapper">
+                                            <div class="progress-bar"><div class="progress-fill" style="width: 50%;"></div></div>
+                                            <span class="progress-text">50.0%</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Tòa C</strong></td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>
+                                        <div class="progress-wrapper">
+                                            <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
+                                            <span class="progress-text">0.0%</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Tòa D</strong></td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>
+                                        <div class="progress-wrapper">
+                                            <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
+                                            <span class="progress-text">0.0%</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card-section">
+                    <h3 class="section-title text-violation">
+                        <i class="fa-solid fa-ban"></i> Vi phạm gần đây
+                    </h3>
+                    <div class="table-responsive">
+                        <table class="violation-table">
+                            <thead>
+                                <tr>
+                                    <th>MÃ VP</th>
+                                    <th>SINH VIÊN</th>
+                                    <th>LOẠI VI PHẠM</th>
+                                    <th>NGÀY GHI NHẬN</th>
+                                    <th>TRẠNG THÁI</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>#00001</strong></td>
+                                    <td>
+                                        <div class="student-simple">
+                                            <strong>Trần Văn Hùng</strong>
+                                            <span>SV004</span>
+                                        </div>
+                                    </td>
+                                    <td>Sử dụng thiết bị điện trái phép</td>
+                                    <td>22:00 20/10/2024</td>
+                                    <td><span class="badge pending">Chờ xử lý</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

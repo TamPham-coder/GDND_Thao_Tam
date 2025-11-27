@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Hóa đơn - KTX Văn Lang</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="quanlyhoadon_style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+    <div class="app-container" id="main-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Van_Lang_University_Logo.png/1200px-Van_Lang_University_Logo.png" alt="VLU Logo" class="vlu-logo">
+            </div>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-house"></i> Tổng quan (Tài chính)</a></li>
+                    <li class="active"><a href="#"><i class="fa-solid fa-file-invoice-dollar"></i> Quản lý Hóa đơn</a></li>
+                    <li><a href="#"><i class="fa-solid fa-file-contract"></i> Duyệt đơn Giảm/Hoàn</a></li>
+                    <li><a href="#"><i class="fa-solid fa-building-columns"></i> Báo cáo Thu Chi</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="main-panel">
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+                    <h1 class="page-title">Ký Túc Xá Trường đại học Văn Lang</h1>
+                </div>
+                <div class="user-info">
+                    <span class="user-name">Hồ Thị Phương Thảo - 71K29CNTT03</span>
+                    <span class="user-role">Nhân viên tài chính</span>
+                    <div class="user-avatar"><i class="fa-solid fa-user"></i></div>
+                </div>
+            </header>
+
+            <div class="content-body" id="content-to-export">
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <div class="card-img"><img src="https://img.freepik.com/free-vector/invoice-concept-illustration_114360-2411.jpg" alt="img"></div>
+                        <div class="card-text"><h3>Tổng hóa đơn</h3><div class="stat-number">10</div></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-img"><img src="https://img.freepik.com/free-photo/close-up-hands-holding-money_23-2148866314.jpg" alt="img"></div>
+                        <div class="card-text"><h3>Đã thanh toán</h3><div class="stat-number">3</div></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-img"><img src="https://img.freepik.com/free-vector/contactless-payment-concept-illustration_114360-3048.jpg" alt="img"></div>
+                        <div class="card-text"><h3>Chưa thanh toán</h3><div class="stat-number">6</div></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-img"><img src="https://img.freepik.com/free-vector/credit-card-payment-concept-illustration_114360-174.jpg" alt="img"></div>
+                        <div class="card-text"><h3>Quá hạn</h3><div class="stat-number">1</div></div>
+                    </div>
+                </div>
+
+                <div class="card-section">
+                    <div class="card-header-row">
+                        <h3 class="section-title"><i class="fa-solid fa-file-invoice"></i> Quản lý hóa đơn</h3>
+                        <div class="action-buttons" data-html2canvas-ignore="true">
+                            <button class="btn-outline-blue" onclick="exportPDF()"><i class="fa-solid fa-file-pdf"></i> Xuất báo cáo PDF</button>
+                            <button class="btn-solid-red" onclick="openModal()">+ Tạo hóa đơn</button>
+                        </div>
+                    </div>
+
+                    <div class="filter-bar">
+                        <div class="filter-item"><label>Trạng thái</label><select><option>Tất cả</option></select></div>
+                        <div class="filter-item"><label>Tháng</label><input type="month"></div>
+                        <div class="filter-item search-group"><label>Tìm kiếm</label><input type="text" placeholder="Tìm theo tên, MSSV..."></div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="invoice-table">
+                            <thead>
+                                <tr>
+                                    <th>MÃ HĐ</th>
+                                    <th>SINH VIÊN</th>
+                                    <th>PHÒNG</th>
+                                    <th>THÁNG</th>
+                                    <th>TỔNG TIỀN</th>
+                                    <th>HẠN THANH TOÁN</th>
+                                    <th>TRẠNG THÁI</th>
+                                    <th style="text-align: center;">THAO TÁC</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>#00001</strong></td>
+                                    <td><div class="student-info"><strong>Mai Văn Nam</strong><span>SV001</span></div></td>
+                                    <td><div class="room-info"><strong>Phòng A101</strong><span>Tòa A</span></div></td>
+                                    <td>10/2024</td><td class="money">1.500.000 ₫</td><td>15/11/2024</td>
+                                    <td><span class="badge badge-overdue"><span class="dot red"></span> Quá hạn 365 ngày</span></td>
+                                    <td>
+                                        <div class="action-group">
+                                            <button class="btn-icon-edit"><i class="fa-regular fa-pen-to-square"></i></button>
+                                            <button class="btn-solid-green">Chi tiết</button>
+                                            <button class="btn-icon-bell"><i class="fa-regular fa-bell"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>#00002</strong></td>
+                                    <td><div class="student-info"><strong>Hồ Thị Phương Thảo</strong><span>SV002</span></div></td>
+                                    <td><div class="room-info"><strong>Phòng A101</strong><span>Tòa A</span></div></td>
+                                    <td>09/2024</td><td class="money">1.500.000 ₫</td><td>15/10/2024</td>
+                                    <td><span class="badge badge-paid"><i class="fa-solid fa-check"></i> Đã thanh toán</span></td>
+                                    <td>
+                                        <div class="action-group">
+                                            <button class="btn-icon-edit"><i class="fa-regular fa-pen-to-square"></i></button>
+                                            <button class="btn-solid-green">Chi tiết</button>
+                                            <button class="btn-icon-bell disabled"><i class="fa-regular fa-bell-slash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>#00003</strong></td>
+                                    <td><div class="student-info"><strong>Trần Minh Huy</strong><span>SV002</span></div></td>
+                                    <td><div class="room-info"><strong>Phòng A101</strong><span>Tòa A</span></div></td>
+                                    <td>10/2024</td><td class="money">1.500.000 ₫</td><td>15/11/2024</td>
+                                    <td><span class="badge badge-overdue"><span class="dot red"></span> Quá hạn 366 ngày</span></td>
+                                    <td>
+                                        <div class="action-group">
+                                            <button class="btn-icon-edit"><i class="fa-regular fa-pen-to-square"></i></button>
+                                            <button class="btn-solid-green">Chi tiết</button>
+                                            <button class="btn-icon-bell"><i class="fa-regular fa-bell"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>#00004</strong></td>
+                                    <td><div class="student-info"><strong>Trần Minh Quân</strong><span>SV002</span></div></td>
+                                    <td><div class="room-info"><strong>Phòng A101</strong><span>Tòa A</span></div></td>
+                                    <td>09/2024</td><td class="money">1.500.000 ₫</td><td>15/10/2024</td>
+                                    <td><span class="badge badge-paid"><i class="fa-solid fa-check"></i> Đã thanh toán</span></td>
+                                    <td>
+                                        <div class="action-group">
+                                            <button class="btn-icon-edit"><i class="fa-regular fa-pen-to-square"></i></button>
+                                            <button class="btn-solid-green">Chi tiết</button>
+                                            <button class="btn-icon-bell disabled"><i class="fa-regular fa-bell-slash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>#00005</strong></td>
+                                    <td><div class="student-info"><strong>Đoàn Nhật Khôi</strong><span>SV003</span></div></td>
+                                    <td><div class="room-info"><strong>Phòng B201</strong><span>Tòa B</span></div></td>
+                                    <td>10/2024</td><td class="money">1.500.000 ₫</td><td>15/11/2024</td>
+                                    <td><span class="badge badge-overdue"><span class="dot red"></span> Quá hạn 366 ngày</span></td>
+                                    <td>
+                                        <div class="action-group">
+                                            <button class="btn-icon-edit"><i class="fa-regular fa-pen-to-square"></i></button>
+                                            <button class="btn-solid-green">Chi tiết</button>
+                                            <button class="btn-icon-bell"><i class="fa-regular fa-bell"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>#00006</strong></td>
+                                    <td><div class="student-info"><strong>Võ Ngọc Thảo Vy</strong><span>SV003</span></div></td>
+                                    <td><div class="room-info"><strong>Phòng B201</strong><span>Tòa B</span></div></td>
+                                    <td>09/2024</td><td class="money">1.500.000 ₫</td><td>15/10/2024</td>
+                                    <td><span class="badge badge-paid"><i class="fa-solid fa-check"></i> Đã thanh toán</span></td>
+                                    <td>
+                                        <div class="action-group">
+                                            <button class="btn-icon-edit"><i class="fa-regular fa-pen-to-square"></i></button>
+                                            <button class="btn-solid-green">Chi tiết</button>
+                                            <button class="btn-icon-bell disabled"><i class="fa-regular fa-bell-slash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>#00007</strong></td>
+                                    <td><div class="student-info"><strong>Ngô Mai Bảo Trân</strong><span>SV004</span></div></td>
+                                    <td><div class="room-info"><strong>Phòng A102</strong><span>Tòa A</span></div></td>
+                                    <td>10/2024</td><td class="money">1.500.000 ₫</td><td>15/10/2024</td>
+                                    <td><span class="badge badge-overdue"><span class="dot red"></span> Quá hạn 391 ngày</span></td>
+                                    <td>
+                                        <div class="action-group">
+                                            <button class="btn-icon-edit"><i class="fa-regular fa-pen-to-square"></i></button>
+                                            <button class="btn-solid-green">Chi tiết</button>
+                                            <button class="btn-icon-bell"><i class="fa-regular fa-bell"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>#00008</strong></td>
+                                    <td><div class="student-info"><strong>Phạm Chí Tâm</strong><span>SV005</span></div></td>
+                                    <td><div class="room-info"><strong>Phòng B201</strong><span>Tòa B</span></div></td>
+                                    <td>10/2024</td><td class="money">1.500.000 ₫</td><td>15/11/2024</td>
+                                    <td><span class="badge badge-overdue"><span class="dot red"></span> Quá hạn 366 ngày</span></td>
+                                    <td>
+                                        <div class="action-group">
+                                            <button class="btn-icon-edit"><i class="fa-regular fa-pen-to-square"></i></button>
+                                            <button class="btn-solid-green">Chi tiết</button>
+                                            <button class="btn-icon-bell"><i class="fa-regular fa-bell"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>#00009</strong></td>
+                                    <td><div class="student-info"><strong>Cầu Vàng</strong><span>SV001</span></div></td>
+                                    <td><div class="room-info"><strong>Phòng A101</strong><span>Tòa A</span></div></td>
+                                    <td>11/2025</td><td class="money">1.500.000 ₫</td><td>14/12/2025</td>
+                                    <td><span class="badge badge-pending"><i class="fa-regular fa-clock"></i> Còn 30 ngày</span></td>
+                                    <td>
+                                        <div class="action-group">
+                                            <button class="btn-icon-edit"><i class="fa-regular fa-pen-to-square"></i></button>
+                                            <button class="btn-solid-green">Chi tiết</button>
+                                            <button class="btn-icon-bell"><i class="fa-regular fa-bell"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>#00010</strong></td>
+                                    <td><div class="student-info"><strong>Anh Hai Fa</strong><span>SV002</span></div></td>
+                                    <td><div class="room-info"><strong>Phòng A101</strong><span>Tòa A</span></div></td>
+                                    <td>11/2025</td><td class="money">1.500.000 ₫</td><td>14/12/2025</td>
+                                    <td><span class="badge badge-pending"><i class="fa-regular fa-clock"></i> Còn 35 ngày</span></td>
+                                    <td>
+                                        <div class="action-group">
+                                            <button class="btn-icon-edit"><i class="fa-regular fa-pen-to-square"></i></button>
+                                            <button class="btn-solid-green">Chi tiết</button>
+                                            <button class="btn-icon-bell"><i class="fa-regular fa-bell"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="invoice-modal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>+ Tạo hóa đơn mới</h3>
+                <button class="close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="modal-body">
+                <form id="invoiceForm" onsubmit="return false;">
+                    
+                    <div class="form-group">
+                        <label>Chọn sinh viên <span class="required">*</span></label>
+                        <div class="multi-select-box custom-scroll">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="student" value="SV001">
+                                <div class="item-content">
+                                    <div class="user-icon"><i class="fa-solid fa-user"></i></div>
+                                    <div class="text-info">
+                                        <span class="name">Mai Văn Nam</span>
+                                        <span class="detail">SV001 - Phòng A101</span>
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="student" value="SV002">
+                                <div class="item-content">
+                                    <div class="user-icon"><i class="fa-solid fa-user"></i></div>
+                                    <div class="text-info">
+                                        <span class="name">Trần Minh Quân</span>
+                                        <span class="detail">SV002 - Phòng A101</span>
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="student" value="SV003">
+                                <div class="item-content">
+                                    <div class="user-icon"><i class="fa-solid fa-user"></i></div>
+                                    <div class="text-info">
+                                        <span class="name">Hồ Thị Phương Thảo</span>
+                                        <span class="detail">SV003 - Phòng B201</span>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                        <span class="hint-text">Đã chọn: <b id="selected-count" style="color:red">0</b> sinh viên</span>
+                    </div>
+
+                    <div class="row-2-col">
+                        <div class="form-group">
+                            <label>Tháng <span class="required">*</span></label>
+                            <input type="month" value="2025-11">
+                        </div>
+                        <div class="form-group">
+                            <label>Hạn thanh toán <span class="required">*</span></label>
+                            <input type="date" value="2025-12-14">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Số tiền (VNĐ) <span class="required">*</span></label>
+                        <select class="price-select">
+                            <option value="1500000" selected>1.500.000 ₫ (Phí phòng tiêu chuẩn)</option>
+                            <option value="2000000">2.000.000 ₫ (Phí phòng dịch vụ)</option>
+                            <option value="500000">500.000 ₫ (Phí điện nước phụ thu)</option>
+                            <option value="0">Khác (Nhập tay sau)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Ghi chú</label>
+                        <textarea placeholder="Nhập ghi chú..."></textarea>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeModal()"><i class="fa-solid fa-xmark"></i> Hủy</button>
+                <button class="btn-submit" onclick="addInvoice()">Thêm hóa đơn</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('invoice-modal').style.display = 'flex';
+            document.getElementById('main-container').classList.add('blur-effect');
+        }
+
+        function closeModal() {
+            document.getElementById('invoice-modal').style.display = 'none';
+            document.getElementById('main-container').classList.remove('blur-effect');
+        }
+
+        const checkboxes = document.querySelectorAll('.multi-select-box input[type="checkbox"]');
+        const countSpan = document.getElementById('selected-count');
+
+        checkboxes.forEach(cb => {
+            cb.addEventListener('change', function() {
+                const count = document.querySelectorAll('.multi-select-box input[type="checkbox"]:checked').length;
+                countSpan.innerText = count;
+                
+                const parentLabel = this.closest('.checkbox-item');
+                if(this.checked) {
+                    parentLabel.classList.add('active-item');
+                } else {
+                    parentLabel.classList.remove('active-item');
+                }
+            });
+        });
+
+        // Hàm Thêm Hóa Đơn (Sửa lại thông báo)
+        function addInvoice() {
+            const count = document.querySelectorAll('.multi-select-box input[type="checkbox"]:checked').length;
+            if (count === 0) {
+                alert("Vui lòng chọn ít nhất một sinh viên!");
+            } else {
+                // Lấy giá trị tiền đang chọn
+                const price = document.querySelector('.price-select option:checked').text;
+                alert(`Đã THÊM hóa đơn thành công cho ${count} sinh viên!\nMức phí: ${price}`);
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo cáo Theo Quý - KTX Văn Lang</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="baocao_theothanng_style.css">
+
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Van_Lang_University_Logo.png/1200px-Van_Lang_University_Logo.png" alt="VLU Logo" class="vlu-logo">
+            </div>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-house"></i> Tổng quan (Toàn KTX)</a></li>
+                    <li><a href="#"><i class="fa-solid fa-user-tie"></i> Quản lý Nhân sự</a></li>
+                    <li><a href="#"><i class="fa-solid fa-file-contract"></i> Quản lý Hợp đồng</a></li>
+                    <li class="active"><a href="#"><i class="fa-solid fa-chart-pie"></i> Báo cáo Tổng hợp</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="main-panel">
+            <header class="top-header">
+                <div class="header-left"><button class="menu-toggle"><i class="fa-solid fa-bars"></i></button><h1 class="page-title">Ký Túc Xá Trường đại học Văn Lang</h1></div>
+                <div class="user-info"><span class="user-name">Mai Văn Nam - 71K29CNTT04</span><span class="user-role">Quản lý Ký túc xá</span><div class="user-avatar"><i class="fa-solid fa-user"></i></div></div>
+            </header>
+
+            <div class="content-body" id="report-area">
+                
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <div class="card-img"><img src="https://img.freepik.com/free-photo/red-stamp-concept-still-life_23-2150276763.jpg" alt="img"></div>
+                        <div class="card-text"><h3>Đơn chờ duyệt</h3><div class="stat-number" id="stat-requests">loading...</div></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-img"><img src="https://img.freepik.com/free-photo/group-diverse-students-using-digital-devices_53876-101160.jpg" alt="img"></div>
+                        <div class="card-text"><h3>Sinh viên</h3><div class="stat-number" id="stat-students">loading...</div></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-img"><img src="https://img.freepik.com/free-photo/empty-classroom-university-college-concept_1150-6279.jpg" alt="img"></div>
+                        <div class="card-text"><h3>Tổng phòng</h3><div class="stat-number" id="stat-rooms">loading...</div></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-img"><img src="https://img.freepik.com/free-vector/money-bag-concept-illustration_114360-1250.jpg" alt="img"></div>
+                        <div class="card-text"><h3>Doanh thu</h3><div class="stat-number" id="stat-revenue">loading...</div></div>
+                    </div>
+                </div>
+
+                <div class="card-section">
+                    <div class="card-header-row">
+                        <h3 class="section-title"><i class="fa-solid fa-chart-column"></i> Báo cáo & Thống kê</h3>
+                        
+                        <div class="action-buttons" data-html2canvas-ignore="true">
+                            <button class="btn-outline-red" onclick="exportExcel()"><i class="fa-solid fa-file-excel"></i> Xuất Excel</button>
+                            <button class="btn-outline-red" onclick="exportPDF()"><i class="fa-solid fa-file-pdf"></i> Xuất PDF</button>
+                            <button class="btn-solid-red" onclick="printReport()"><i class="fa-solid fa-print"></i> In báo cáo</button>
+                        </div>
+                    </div>
+                    
+                    <div class="tabs-nav">
+                        <a href="bao-cao-tong-hop.html" class="tab-item">Theo tháng</a>
+                        <a href="#" class="tab-item active">Theo quý</a>
+                        <a href="bao-cao-theo-nam.html" class="tab-item">Theo năm</a>
+                    </div>
+                    <hr class="divider">
+                    
+                    <div class="filter-row">
+                        <div class="filter-item">
+                            <label>Năm</label>
+                            <select id="filter-year" onchange="updateData()">
+                                <option value="2025">2025</option>
+                                <option value="2024">2024</option>
+                            </select>
+                        </div>
+                        <div class="filter-item">
+                            <label>Quý</label>
+                            <select id="filter-quarter" onchange="updateData()">
+                                <option value="1">Quý 1</option>
+                                <option value="2">Quý 2</option>
+                                <option value="3">Quý 3</option>
+                                <option value="4">Quý 4</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-2-col">
+                    <div class="card-section">
+                        <h3 class="section-title"><i class="fa-solid fa-building"></i> Thống kê theo tòa nhà</h3>
+                        <table class="simple-table" id="table-building">
+                            <thead><tr><th>TÒA NHÀ</th><th>TỔNG</th><th>ĐANG Ở</th><th>TỶ LỆ</th></tr></thead>
+                            <tbody id="body-building">
+                                </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card-section">
+                        <h3 class="section-title"><i class="fa-regular fa-credit-card"></i> Thống kê thanh toán</h3>
+                        <table class="simple-table">
+                            <thead><tr><th>PHƯƠNG THỨC</th><th>SỐ LƯỢNG</th><th style="text-align: right;">TỶ LỆ</th></tr></thead>
+                            <tbody id="body-payment">
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 1. CƠ SỞ DỮ LIỆU GIẢ LẬP (MOCK DATA)
+        // Cấu trúc: data[Năm][Quý] = { ...thông tin... }
+        const db = {
+            "2025": {
+                "1": {
+                    req: 15, student: 80, rooms: 25, revenue: "750.000.000 ₫",
+                    buildings: [
+                        { name: "Tòa A", total: 2, used: 2, percent: 100 },
+                        { name: "Tòa B", total: 2, used: 1, percent: 50 }
+                    ],
+                    payments: [
+                        { type: "Tiền mặt", count: 2, percent: "10%" },
+                        { type: "Chuyển khoản", count: 18, percent: "90%" }
+                    ]
+                },
+                "2": {
+                    req: 22, student: 95, rooms: 28, revenue: "820.000.000 ₫",
+                    buildings: [
+                        { name: "Tòa A", total: 2, used: 2, percent: 100 },
+                        { name: "Tòa B", total: 2, used: 2, percent: 100 }
+                    ],
+                    payments: [
+                        { type: "Tiền mặt", count: 5, percent: "20%" },
+                        { type: "Chuyển khoản", count: 20, percent: "80%" }
+                    ]
+                },
+                "3": {
+                    req: 10, student: 105, rooms: 30, revenue: "300.250.000 ₫",
+                    buildings: [
+                        { name: "Tòa A", total: 2, used: 2, percent: 100 },
+                        { name: "Tòa B", total: 2, used: 1, percent: 50 }
+                    ],
+                    payments: [
+                        { type: "Tiền mặt", count: 0, percent: "0%" },
+                        { type: "Chuyển khoản", count: 1, percent: "100%" }
+                    ]
+                },
+                "4": { // Dữ liệu tương lai
+                    req: 5, student: 110, rooms: 30, revenue: "900.000.000 ₫",
+                    buildings: [
+                        { name: "Tòa A", total: 2, used: 1, percent: 50 },
+                        { name: "Tòa B", total: 2, used: 1, percent: 50 }
+                    ],
+                    payments: [
+                        { type: "Tiền mặt", count: 10, percent: "30%" },
+                        { type: "Chuyển khoản", count: 20, percent: "70%" }
+                    ]
+                }
+            },
+            "2024": {
+                "1": { req: 50, student: 200, rooms: 40, revenue: "1.200.000.000 ₫", buildings: [], payments: [] },
+                "2": { req: 45, student: 190, rooms: 38, revenue: "1.100.000.000 ₫", buildings: [], payments: [] },
+                "3": { req: 60, student: 210, rooms: 40, revenue: "1.500.000.000 ₫", buildings: [], payments: [] },
+                "4": { req: 55, student: 205, rooms: 40, revenue: "1.400.000.000 ₫", buildings: [], payments: [] }
+            }
+        };
+
+        // 2. HÀM CẬP NHẬT GIAO DIỆN
+        function updateData() {
+            const year = document.getElementById('filter-year').value;
+            const quarter = document.getElementById('filter-quarter').value;
+
+            // Lấy data từ DB giả, nếu không có thì lấy mặc định rỗng
+            const data = db[year] && db[year][quarter] ? db[year][quarter] : { 
+                req: 0, student: 0, rooms: 0, revenue: "0 ₫", buildings: [], payments: [] 
+            };
+
+            // Cập nhật 4 thẻ Stats
+            document.getElementById('stat-requests').innerText = "Tổng: " + data.req;
+            document.getElementById('stat-students').innerText = "Đang ở: " + data.student;
+            document.getElementById('stat-rooms').innerText = "Đang sử dụng: " + data.rooms;
+            document.getElementById('stat-revenue').innerText = data.revenue;
+
+            // Cập nhật Bảng Tòa Nhà
+            const buildingBody = document.getElementById('body-building');
+            buildingBody.innerHTML = ""; // Xóa cũ
+            if(data.buildings && data.buildings.length > 0) {
+                data.buildings.forEach(b => {
+                    const row = `
+                        <tr>
+                            <td><strong>${b.name}</strong></td>
+                            <td>${b.total}</td>
+                            <td>${b.used}</td>
+                            <td>
+                                <div class="progress-wrapper">
+                                    <div class="progress-bar"><div class="fill" style="width: ${b.percent}%;"></div></div>
+                                    <span class="percent">${b.percent}%</span>
+                                </div>
+                            </td>
+                        </tr>
+                    `;
+                    buildingBody.innerHTML += row;
+                });
+            } else {
+                buildingBody.innerHTML = "<tr><td colspan='4'>Không có dữ liệu tòa nhà</td></tr>";
+            }
+
+            // Cập nhật Bảng Thanh Toán
+            const paymentBody = document.getElementById('body-payment');
+            paymentBody.innerHTML = "";
+            if(data.payments && data.payments.length > 0) {
+                data.payments.forEach(p => {
+                    const row = `
+                        <tr>
+                            <td>${p.type}</td>
+                            <td>${p.count}</td>
+                            <td style="text-align: right;">${p.percent}</td>
+                        </tr>
+                    `;
+                    paymentBody.innerHTML += row;
+                });
+            } else {
+                paymentBody.innerHTML = "<tr><td colspan='3'>Chưa có giao dịch</td></tr>";
+            }
+        }
+
+        // 3. CHỨC NĂNG XUẤT EXCEL
+        function exportExcel() {
+            const wb = XLSX.utils.book_new();
+            const table = document.getElementById('table-building'); // Lấy bảng tòa nhà làm ví dụ
+            const ws = XLSX.utils.table_to_sheet(table);
+            XLSX.utils.book_append_sheet(wb, ws, "Thong_Ke_Quy");
+            XLSX.writeFile(wb, "Bao_Cao_Theo_Quy.xlsx");
+        }
+
+        // 4. CHỨC NĂNG XUẤT PDF
+        function exportPDF() {
+            const element = document.getElementById('report-area');
+            const opt = {
+                margin: 0.3,
+                filename: 'Bao_Cao_Quy.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf().set(opt).from(element).save();
+        }
+
+        // 5. CHỨC NĂNG IN
+        function printReport() {
+            window.print();
+        }
+
+        // Chạy hàm cập nhật lần đầu khi tải trang
+        window.onload = function() {
+            updateData();
+        }
+    </script>
+
+</body>
+</html>

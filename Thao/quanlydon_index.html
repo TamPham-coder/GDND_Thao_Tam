@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý đơn - Ký Túc Xá Đại học Văn Lang</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="quanlydon_style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-area">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Van_Lang_University_Logo.png/1200px-Van_Lang_University_Logo.png" alt="VLU Logo" class="vlu-logo">
+                </div>
+                <button class="menu-btn"><i class="fa-solid fa-bars"></i></button>
+            </div>
+
+            <nav class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="#"><i class="fa-solid fa-house"></i> Tổng quan</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa-solid fa-clipboard-user"></i> Hồ sơ cá nhân</a>
+                    </li>
+                    <li class="active">
+                        <a href="#"><i class="fa-solid fa-file-pen"></i> Quản lý đơn</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa-regular fa-bell"></i> Thông báo</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa-solid fa-hand-holding-dollar"></i> Hóa đơn & Phí</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="main-panel">
+            <header class="top-header">
+                <h1 class="page-title">Ký Túc Xá Trường đại học Văn Lang</h1>
+                <div class="user-info">
+                    <div class="user-details">
+                        <span class="user-name">Hồ Thị Phương Thảo - 71K29CNTT03</span>
+                        <span class="user-role">Sinh viên</span>
+                    </div>
+                    <div class="user-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-body">
+                <div class="card">
+                    <h2 class="card-title">Quản lý đơn</h2>
+                    
+                    <button class="btn-create">
+                        + Tạo đơn mới
+                    </button>
+
+                    <div class="filters-row">
+                        <div class="filter-group">
+                            <label>Loại đơn</label>
+                            <select>
+                                <option>Tất cả</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Trạng thái</label>
+                            <select>
+                                <option>Tất cả</option>
+                            </select>
+                        </div>
+                        <div class="filter-group search-group">
+                            <label>Tìm kiếm</label>
+                            <input type="text" placeholder="Tìm theo mã đơn, MSSV...">
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style="width: 10%;">MÃ ĐƠN</th>
+                                    <th style="width: 30%;">LOẠI ĐƠN</th>
+                                    <th style="width: 25%;">NGÀY TẠO</th>
+                                    <th style="width: 25%;">TRẠNG THÁI</th>
+                                    <th style="width: 10%;"></th> </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>01</strong></td>
+                                    <td>Đăng ký ở</td>
+                                    <td>10:30 01/10/2025</td>
+                                    <td>
+                                        <span class="badge success">
+                                            <i class="fa-solid fa-circle-check"></i> Đã duyệt
+                                        </span>
+                                    </td>
+                                    <td class="action-cell"><i class="fa-regular fa-pen-to-square edit-icon"></i></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>02</strong></td>
+                                    <td>Đăng ký chuyển phòng</td>
+                                    <td>15:45 10/10/2025</td>
+                                    <td>
+                                        <span class="badge pending">
+                                            <i class="fa-solid fa-hourglass-half"></i> Chờ xử lý
+                                        </span>
+                                    </td>
+                                    <td class="action-cell"><i class="fa-regular fa-pen-to-square edit-icon"></i></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>03</strong></td>
+                                    <td>Đăng ký thân nhân</td>
+                                    <td>10:00 20/10/2025</td>
+                                    <td>
+                                        <span class="badge pending">
+                                            <i class="fa-solid fa-hourglass-half"></i> Chờ xử lý
+                                        </span>
+                                    </td>
+                                    <td class="action-cell"><i class="fa-regular fa-pen-to-square edit-icon"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

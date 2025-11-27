@@ -1,0 +1,353 @@
+/* style-auth.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+/* --- TRANG 1: LƯU Ý (HEADER BAR) --- */
+.top-header-bar {
+    background-color: #ff0000;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 10;
+}
+
+.logo-box {
+    background: white;
+    padding: 5px 15px;
+    border-radius: 4px;
+    margin-right: 20px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.logo-box img {
+    height: 35px;
+}
+
+.header-title {
+    font-size: 24px;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-left: 1px solid rgba(255,255,255,0.3);
+    padding-left: 20px;
+}
+
+/* Background mờ phía sau modal */
+.blur-bg-container {
+    position: absolute;
+    top: 80px; /* Trừa header */
+    left: 0;
+    width: 100%;
+    height: calc(100% - 80px);
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Van_Lang_University_Logo.png/1200px-Van_Lang_University_Logo.png') no-repeat center center; /* Dùng tạm logo làm nền hoặc ảnh trường */
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Lớp phủ mờ đục đè lên ảnh nền */
+.overlay-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+/* --- MODAL LƯU Ý (CARD) --- */
+.notice-card {
+    position: relative;
+    width: 800px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    overflow: hidden;
+    z-index: 20;
+    animation: fadeInUp 0.4s ease-out;
+}
+
+.notice-header {
+    background: linear-gradient(135deg, #ff0000 0%, #6a1b9a 100%); /* Gradient Đỏ -> Tím */
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.notice-body {
+    padding: 25px;
+}
+
+/* Box thông báo xanh nhạt */
+.info-box {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Danh sách 1, 2, 3, 4 */
+.req-list {
+    list-style: none;
+}
+
+.req-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+
+.num-badge {
+    background-color: #ff0000;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.req-text h4 {
+    font-size: 14px;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.req-text p {
+    font-size: 12px;
+    color: #666;
+}
+
+/* Box Lưu ý màu hồng */
+.warning-box {
+    background-color: #ffebee;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #d32f2f;
+    margin-top: 10px;
+}
+
+.warning-title {
+    color: #d32f2f;
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.warning-list {
+    padding-left: 20px;
+    font-size: 12px;
+    color: #d32f2f;
+    line-height: 1.6;
+}
+
+.notice-footer {
+    padding: 15px 25px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-next {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.btn-next:hover {
+    background-color: #d60000;
+}
+
+/* --- TRANG 2: ĐĂNG NHẬP (LOGIN) --- */
+.login-bg {
+    width: 100%;
+    height: 100vh;
+    /* Link ảnh trường VLU làm nền */
+    background: url('https://reviewedu.net/wp-content/uploads/2021/09/CS3-VLU-1.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.login-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(255, 255, 255, 0.4); /* Phủ trắng mờ */
+    backdrop-filter: blur(3px);
+}
+
+.login-card {
+    position: relative;
+    z-index: 5;
+    background: white;
+    width: 400px;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.login-title {
+    color: #d32f2f;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.login-form {
+    text-align: left;
+}
+
+.input-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Stack các ô chọn tài khoản giả lập giống ảnh */
+.account-select-stack {
+    margin-bottom: 20px;
+}
+
+.fake-select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #eee;
+    background: white;
+    font-size: 13px;
+    color: #333;
+    text-align: center;
+    margin-bottom: -1px; /* Để viền chồng lên nhau */
+    cursor: pointer;
+}
+
+/* Ô đầu tiên được chọn (Viền đỏ) */
+.fake-select.active {
+    border: 1px solid #d32f2f;
+    color: #333;
+    position: relative;
+    z-index: 2;
+    border-radius: 20px; /* Bo tròn mạnh giống ảnh */
+}
+
+/* Các ô dưới chỉ là giả lập danh sách */
+.fake-select.option {
+    border: none;
+    color: #333;
+    background: transparent;
+    font-weight: 600;
+    padding: 8px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.custom-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #eee;
+    background: #f9f9f9;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-login:hover {
+    background-color: #d00000;
+}
+
+.register-link {
+    display: block;
+    margin-top: 15px;
+    font-size: 13px;
+    color: #333;
+    text-align: center;
+}
+
+.register-link a {
+    color: #d32f2f;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.vlu-text-bg {
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    z-index: 4;
+    opacity: 0.9;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

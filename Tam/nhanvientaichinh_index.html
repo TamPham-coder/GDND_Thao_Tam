@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tổng quan Tài chính - KTX Văn Lang</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="nhanvientaichinh_style.css">
+</head>
+<body>
+
+    <div class="app-container" id="main-container">
+        
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Van_Lang_University_Logo.png/1200px-Van_Lang_University_Logo.png" alt="VLU Logo" class="vlu-logo">
+            </div>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li class="active"><a href="#"><i class="fa-solid fa-house"></i> Tổng quan (Tài chính)</a></li>
+                    <li><a href="#"><i class="fa-solid fa-file-invoice-dollar"></i> Quản lý Hóa đơn</a></li>
+                    <li><a href="#"><i class="fa-solid fa-file-contract"></i> Duyệt đơn Giảm/Hoàn</a></li>
+                    <li><a href="#"><i class="fa-solid fa-building-columns"></i> Báo cáo Thu Chi</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="main-panel">
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+                    <h1 class="page-title">Ký Túc Xá Trường đại học Văn Lang</h1>
+                </div>
+                <div class="user-info">
+                    <span class="user-name">Hồ Thị Phương Thảo - 71K29CNTT03</span>
+                    <span class="user-role">Nhân viên tài chính</span>
+                    <div class="user-avatar"><i class="fa-solid fa-user"></i></div>
+                </div>
+            </header>
+
+            <div class="content-body">
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <div class="card-img"><img src="https://img.freepik.com/free-photo/accounting-concept-with-calculator_23-2147836271.jpg" alt="Doanh thu"></div>
+                        <div class="card-text"><h3>Tổng doanh thu</h3><div class="stat-number">500.530.000 ₫</div></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-img"><img src="https://img.freepik.com/free-photo/close-up-hands-holding-money_23-2148866314.jpg" alt="Đã thu"></div>
+                        <div class="card-text"><h3>Đã thu</h3><div class="stat-number">200.300.000 ₫</div></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-img"><img src="https://img.freepik.com/free-vector/contactless-payment-concept-illustration_114360-3048.jpg" alt="Chưa thu"></div>
+                        <div class="card-text"><h3>Chưa thu</h3><div class="stat-number">200.730.000 ₫</div></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-img"><img src="https://img.freepik.com/free-vector/credit-card-payment-concept-illustration_114360-174.jpg" alt="Quá hạn"></div>
+                        <div class="card-text"><h3>Quá hạn</h3><div class="stat-number">0 ₫</div></div>
+                    </div>
+                </div>
+
+                <button class="btn-create-invoice" onclick="openModal()">+ Tạo hóa đơn</button>
+
+                <div class="section-card">
+                    <div class="section-header"><i class="fa-solid fa-chart-simple" style="color: green; margin-right: 10px;"></i> Biểu đồ thu phí</div>
+                    <div class="chart-container">
+                        <div class="chart-left">
+                            <div class="chart-item">
+                                <div class="chart-label"><span><i class="fa-solid fa-square-check" style="color: #00c853;"></i> Đã thu (0.0%)</span><strong>200.300.000 ₫</strong></div>
+                                <div class="progress-bg"><div class="progress-fill" style="width: 0%; background: #00c853;"></div></div>
+                            </div>
+                            <div class="chart-item">
+                                <div class="chart-label"><span><i class="fa-solid fa-hourglass-half" style="color: #ef6c00;"></i> Chưa thu (100.0%)</span><strong>200.730.000 ₫</strong></div>
+                                <div class="progress-bg"><div class="progress-fill" style="width: 100%; background: #ffa726;"></div></div>
+                            </div>
+                        </div>
+                        <div class="chart-right">
+                            <div class="summary-box">
+                                <span class="sum-title">Tổng doanh thu tháng</span>
+                                <span class="sum-value">500.530.000 ₫</span>
+                                <div class="percent-box"><span>Tỷ lệ thu</span><strong>48,6%</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <div class="section-header"><i class="fa-solid fa-file-invoice" style="color: #8d6e63; margin-right: 10px;"></i> Đơn giảm/hoàn phí</div>
+                    <div class="request-list">
+                        <div class="request-item">
+                            <div class="req-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                            <div class="req-info"><h4>Giảm phí</h4><span>Trần Minh Huy - SV002</span><span class="time"><i class="fa-regular fa-clock"></i> 09:20 18/10/2024</span></div>
+                            <span class="badge pending">Chờ duyệt</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="invoice-modal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>+ Tạo hóa đơn mới</h3>
+                <button class="close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="modal-body">
+                <form id="invoiceForm" onsubmit="return false;">
+                    
+                    <div class="form-group full-width-group">
+                        <label>Chọn sinh viên <span class="required">*</span></label>
+                        
+                        <div class="multi-select-box custom-scroll">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="student" value="SV001">
+                                <div class="item-content">
+                                    <div class="user-icon"><i class="fa-solid fa-user"></i></div>
+                                    <div class="text-info">
+                                        <span class="name">Mai Văn Nam</span>
+                                        <span class="detail">SV001 - Phòng A101</span>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="student" value="SV002">
+                                <div class="item-content">
+                                    <div class="user-icon"><i class="fa-solid fa-user"></i></div>
+                                    <div class="text-info">
+                                        <span class="name">Trần Minh Quân</span>
+                                        <span class="detail">SV002 - Phòng A101</span>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="student" value="SV003">
+                                <div class="item-content">
+                                    <div class="user-icon"><i class="fa-solid fa-user"></i></div>
+                                    <div class="text-info">
+                                        <span class="name">Hồ Thị Phương Thảo</span>
+                                        <span class="detail">SV003 - Phòng B201</span>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="student" value="SV004">
+                                <div class="item-content">
+                                    <div class="user-icon"><i class="fa-solid fa-user"></i></div>
+                                    <div class="text-info">
+                                        <span class="name">Trần Minh Huy</span>
+                                        <span class="detail">SV004 - Phòng A102</span>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="student" value="SV005">
+                                <div class="item-content">
+                                    <div class="user-icon"><i class="fa-solid fa-user"></i></div>
+                                    <div class="text-info">
+                                        <span class="name">Phạm Chí Tâm</span>
+                                        <span class="detail">SV005 - Phòng B201</span>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                        <span class="hint-text">Đã chọn: <b id="selected-count" style="color:red">0</b> sinh viên</span>
+                    </div>
+
+                    <div class="row-2-col">
+                        <div class="form-group">
+                            <label>Tháng <span class="required">*</span></label>
+                            <input type="month" value="2025-11">
+                        </div>
+                        <div class="form-group">
+                            <label>Hạn thanh toán <span class="required">*</span></label>
+                            <input type="date" value="2025-12-14">
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width-group">
+                        <label>Ghi chú</label>
+                        <textarea placeholder="Ghi chú về hóa đơn (nếu có)..."></textarea>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeModal()"><i class="fa-solid fa-xmark"></i> Hủy</button>
+                <button class="btn-submit" onclick="sendInvoice()">Gửi hóa đơn</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mở/Đóng Modal
+        function openModal() {
+            document.getElementById('invoice-modal').style.display = 'flex';
+            document.getElementById('main-container').classList.add('blur-effect');
+        }
+
+        function closeModal() {
+            document.getElementById('invoice-modal').style.display = 'none';
+            document.getElementById('main-container').classList.remove('blur-effect');
+        }
+
+        // Đếm số lượng sinh viên
+        const checkboxes = document.querySelectorAll('.multi-select-box input[type="checkbox"]');
+        const countSpan = document.getElementById('selected-count');
+
+        checkboxes.forEach(cb => {
+            cb.addEventListener('change', function() {
+                const count = document.querySelectorAll('.multi-select-box input[type="checkbox"]:checked').length;
+                countSpan.innerText = count;
+                
+                // Thêm hiệu ứng đổi màu nền khi chọn
+                const parentLabel = this.closest('.checkbox-item');
+                if(this.checked) {
+                    parentLabel.classList.add('active-item');
+                } else {
+                    parentLabel.classList.remove('active-item');
+                }
+            });
+        });
+
+        // Gửi hóa đơn
+        function sendInvoice() {
+            const count = document.querySelectorAll('.multi-select-box input[type="checkbox"]:checked').length;
+            if (count === 0) {
+                alert("Vui lòng chọn ít nhất một sinh viên!");
+            } else {
+                alert(`Đã gửi hóa đơn cho ${count} sinh viên!`);
+                closeModal();
+            }
+        }
+    </script>
+
+</body>
+</html>

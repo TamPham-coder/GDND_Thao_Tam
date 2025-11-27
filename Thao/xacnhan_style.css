@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    background-color: #e0e0e0;
+}
+
+/* --- HEADER --- */
+.top-header {
+    background-color: #ff0000;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.logo-box {
+    background: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-right: 20px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+}
+
+.logo-box img {
+    height: 30px;
+}
+
+.header-title {
+    font-size: 22px;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-left: 1px solid rgba(255,255,255,0.3);
+    padding-left: 20px;
+}
+
+/* --- MAIN WRAPPER & BACKGROUND --- */
+.main-wrapper {
+    position: relative;
+    height: 100vh;
+    padding-top: 70px; /* Tránh header đè */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto; /* Cho phép cuộn nếu màn hình nhỏ */
+}
+
+/* Ảnh nền mờ */
+.background-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* Ảnh nền VLU giả lập */
+    background: url('https://reviewedu.net/wp-content/uploads/2021/09/CS3-VLU-1.jpg') no-repeat center center;
+    background-size: cover;
+    filter: blur(3px); /* Làm mờ ảnh nền */
+    z-index: 0;
+}
+
+/* --- CONTRACT CARD --- */
+.contract-card {
+    position: relative;
+    width: 750px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    z-index: 10;
+    overflow: hidden;
+    margin: 40px 0; /* Khoảng cách trên dưới để cuộn */
+    animation: fadeInUp 0.4s ease-out;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Thanh chúc mừng gradient */
+.congrats-bar {
+    background: linear-gradient(90deg, #ff0000 0%, #512da8 100%); /* Đỏ sang Tím */
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.card-body {
+    padding: 20px 40px;
+}
+
+/* Header Hợp đồng */
+.contract-header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.contract-header h2 {
+    color: #4a148c; /* Màu tím đậm icon */
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.contract-code {
+    font-size: 12px;
+    color: #333;
+    font-weight: 600;
+    display: block;
+    margin-top: 5px;
+}
+
+.divider {
+    border: 0;
+    border-top: 1px solid #512da8;
+    margin: 15px 0 20px 0;
+    opacity: 0.5;
+}
+
+/* Grid 2 Cột Thông tin */
+.info-grid-2-col {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+.info-column {
+    flex: 1;
+}
+
+.col-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #3f51b5; /* Xanh tím */
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.info-row {
+    font-size: 12px;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.info-row .label {
+    font-weight: 700;
+    margin-right: 3px;
+}
+
+.price-text {
+    color: #2962ff; /* Xanh dương giá tiền */
+    font-weight: 700;
+}
+
+/* Box Điều khoản (Xám xanh nhạt) */
+.terms-box {
+    background-color: #f3f4f6; /* Màu nền nhạt giống ảnh */
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.terms-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    font-size: 12px;
+}
+
+.term-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.term-icon {
+    font-weight: 700;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Thanh toán */
+.payment-section {
+    margin-bottom: 20px;
+}
+
+/* Box Lưu ý (Đỏ) */
+.note-box {
+    background-color: #ff3b3b;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.note-title {
+    font-weight: 700;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.note-box ul {
+    padding-left: 20px;
+    line-height: 1.6;
+}
+
+/* Footer Buttons */
+.card-footer {
+    padding: 15px 40px 25px 40px;
+    display: flex;
+    justify-content: space-between; /* Cách xa 2 nút */
+    gap: 15px;
+}
+
+.btn-close {
+    background: white;
+    border: 1px solid #d32f2f;
+    color: #d32f2f;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    transition: all 0.2s;
+}
+
+.btn-close:hover {
+    background: #ffebee;
+}
+
+.btn-confirm {
+    flex-grow: 1; /* Nút xác nhận dài hơn */
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: background 0.2s;
+}
+
+.btn-confirm:hover {
+    background-color: #d60000;
+}

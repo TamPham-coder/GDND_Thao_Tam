@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xếp phòng - KTX Văn Lang</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="xepphong_style.css">
+</head>
+<body>
+
+    <div class="app-container blur-effect">
+        
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Van_Lang_University_Logo.png/1200px-Van_Lang_University_Logo.png" alt="VLU Logo" class="vlu-logo">
+            </div>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-house"></i> Tổng quan (Phòng)</a></li>
+                    <li class="active"><a href="#"><i class="fa-solid fa-door-open"></i> Quản lý phòng</a></li>
+                    <li><a href="#"><i class="fa-solid fa-file-signature"></i> Xét duyệt đơn</a></li>
+                    <li><a href="#"><i class="fa-solid fa-file-export"></i> Đề xuất duyệt hồ sơ</a></li>
+                    <li><a href="#"><i class="fa-solid fa-chart-line"></i> Báo cáo (Phòng)</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="main-panel">
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+                    <h1 class="page-title">Ký Túc Xá Trường đại học Văn Lang</h1>
+                </div>
+                <div class="user-info">
+                    <span class="user-name">Trần Minh Huy - 71K29CNTT04</span>
+                    <span class="user-role">Sinh viên</span>
+                    <div class="user-avatar"><i class="fa-solid fa-user"></i></div>
+                </div>
+            </header>
+
+            <div class="content-body">
+                
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <div class="card-img"><img src="https://img.freepik.com/free-photo/accounting-concept-with-calculator_23-2147836271.jpg" alt="img"></div>
+                        <div class="card-text"><h3>Tổng số phòng</h3><div class="stat-number">4</div></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-img"><img src="https://img.freepik.com/free-photo/close-up-hands-holding-money_23-2148866314.jpg" alt="img"></div>
+                        <div class="card-text"><h3>Doanh thu</h3><div class="stat-number">85.000.000 ₫</div></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-img"><img src="https://img.freepik.com/free-vector/contactless-payment-concept-illustration_114360-3048.jpg" alt="img"></div>
+                        <div class="card-text"><h3>Chưa thu</h3><div class="stat-number">0 ₫</div></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-img"><img src="https://img.freepik.com/free-vector/credit-card-payment-concept-illustration_114360-174.jpg" alt="img"></div>
+                        <div class="card-text"><h3>Quá hạn</h3><div class="stat-number">0 ₫</div></div>
+                    </div>
+                </div>
+
+                <div class="management-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Quản lý phòng</h2>
+                        <button class="btn-add-room">+ Xếp phòng</button>
+                    </div>
+
+                    <div class="filter-bar">
+                        <div class="filter-group"><label>Tòa nhà</label><select><option>Tất cả</option></select></div>
+                        <div class="filter-group"><label>Trạng thái</label><select><option>-- Tất cả --</option></select></div>
+                        <div class="filter-group search-group"><label>Tìm kiếm</label><input type="text" placeholder="Tìm tên phòng..."></div>
+                    </div>
+
+                    <div class="room-grid">
+                        <div class="room-card">
+                            <div class="room-header">
+                                <div class="room-info"><h4>Tòa A - Tầng 1</h4><span>Phòng A: 001</span></div>
+                                <button class="btn-detail">Xem chi tiết</button>
+                            </div>
+                            <div class="room-stats"><span>Số lượng</span><span class="count">2/4</span></div>
+                            <div class="room-price">20.000.000 ₫ <span class="unit">/tháng</span></div>
+                            <button class="btn-add-student">Thêm sinh viên</button>
+                        </div>
+                        <div class="room-card">
+                            <div class="room-header">
+                                <div class="room-info"><h4>Tòa B - Tầng 1</h4><span>Phòng B: 001</span></div>
+                                <button class="btn-detail">Xem chi tiết</button>
+                            </div>
+                            <div class="room-stats"><span>Số lượng</span><span class="count">1/4</span></div>
+                            <div class="room-price">15.000.000 ₫ <span class="unit">/tháng</span></div>
+                            <button class="btn-add-student">Thêm sinh viên</button>
+                        </div>
+                         <div class="room-card">
+                            <div class="room-header">
+                                <div class="room-info"><h4>Tòa B - Tầng 2</h4><span>Phòng B: 002</span></div>
+                                <button class="btn-detail">Xem chi tiết</button>
+                            </div>
+                            <div class="room-stats"><span>Số lượng</span><span class="count">2/4</span></div>
+                            <div class="room-price">15.000.000 ₫ <span class="unit">/tháng</span></div>
+                            <button class="btn-add-student">Thêm sinh viên</button>
+                        </div>
+                         <div class="room-card">
+                            <div class="room-header">
+                                <div class="room-info"><h4>Tòa C - Tầng 1</h4><span>Phòng C: 001</span></div>
+                                <button class="btn-detail">Xem chi tiết</button>
+                            </div>
+                            <div class="room-stats"><span>Số lượng</span><span class="count">0/4</span></div>
+                            <div class="room-price">10.000.000 ₫ <span class="unit">/tháng</span></div>
+                            <button class="btn-add-student">Thêm sinh viên</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay show">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>Xếp phòng</h3>
+                <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="form-group">
+                    <select class="custom-select">
+                            <option>-- Chọn phòng --</option>
+                            <option>#0001 - 2374802010190 - Trần Minh Huy</option>
+                            <option>#0002 - 2374802010322 - Mai Văn Nam</option>
+                            <option>#0003 - 2374802010417 - Trần Minh Quân</option>
+                            <option>#0004 - 2374802010462 - Hồ Thị Phương Thảo</option>
+                            <option>#0005 - 2374802010449 - Phạm Chí Tâm</option>
+                            <option>#0006 - 2274802010146 - Lê Duy Đan</option>
+                        </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Chọn phòng</label>
+                    <div class="custom-select-wrapper">
+                        <select class="custom-select">
+                            <option>-- Chọn phòng --</option>
+                            <option>Tòa A - Tầng 1 - Phòng A001 (2/4)</option>
+                            <option>Tòa B - Tầng 1 - Phòng B001 (1/4)</option>
+                            <option>Tòa B - Tầng 2 - Phòng B002 (2/4)</option>
+                            <option>Tòa C - Tầng 1 - Phòng C001 (0/4)</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label>Ghi chú</label>
+                    <textarea placeholder="Ghi chú xếp phòng...."></textarea>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-cancel">Hủy</button>
+                <button class="btn-confirm">Xác nhận xếp phòng</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

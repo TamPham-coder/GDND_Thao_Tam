@@ -1,0 +1,147 @@
+/* Reset & Base */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Arial, sans-serif; }
+body { background-color: #f5f7fa; height: 100vh; overflow: hidden; }
+
+/* Layout */
+.app-container { display: flex; height: 100%; }
+
+/* Sidebar */
+.sidebar {
+    width: 260px; background: white; border-right: 1px solid #e0e0e0;
+    display: flex; flex-direction: column; flex-shrink: 0;
+}
+.sidebar-header {
+    height: 70px; display: flex; align-items: center; justify-content: center;
+    padding: 0 15px; border-bottom: 1px solid #f0f0f0;
+}
+.vlu-logo { height: 40px; object-fit: contain; }
+.sidebar-menu ul { list-style: none; padding-top: 20px; }
+.sidebar-menu li { margin-bottom: 5px; }
+.sidebar-menu a {
+    display: flex; align-items: center; padding: 12px 20px;
+    text-decoration: none; color: #333; font-weight: 500; font-size: 14px;
+    transition: all 0.2s;
+}
+.sidebar-menu a i { width: 25px; margin-right: 10px; font-size: 16px; }
+/* Active State */
+.sidebar-menu li.active a { background-color: #ff0000; color: white; }
+.sidebar-menu li:not(.active) a:hover { background-color: #f9f9f9; }
+
+/* Main Panel */
+.main-panel { flex-grow: 1; display: flex; flex-direction: column; }
+
+/* Top Header */
+.top-header {
+    height: 60px; background-color: #ff0000; color: white;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 20px; flex-shrink: 0;
+}
+.header-left { display: flex; align-items: center; gap: 15px; }
+.menu-toggle { background: none; border: none; color: white; font-size: 20px; }
+.page-title { font-size: 18px; font-weight: 700; text-transform: uppercase; }
+.user-info { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+.user-name { font-weight: 700; }
+.user-role { opacity: 0.9; font-size: 11px; }
+.user-avatar { width: 30px; height: 30px; background-color: rgba(255,255,255,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+
+/* Content Body */
+.content-body { padding: 30px; overflow-y: auto; flex-grow: 1; }
+
+/* 1. Stats Cards */
+.stats-row {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px;
+    margin-bottom: 30px;
+}
+.stat-card {
+    background: white; border-radius: 15px; overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex; flex-direction: column; height: 220px;
+}
+.card-img { height: 65%; width: 100%; background: #eee; }
+.card-img img { width: 100%; height: 100%; object-fit: cover; }
+.card-text {
+    height: 35%; background-color: #ffebee; /* Nền hồng nhạt */
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.card-text h3 { font-size: 16px; font-weight: 700; margin-bottom: 5px; color: #000; }
+.stat-number { font-size: 18px; font-weight: 700; color: #000; }
+
+/* 2. General Card Section */
+.card-section {
+    background: white; border-radius: 8px; padding: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 30px;
+}
+.card-header-row {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 20px;
+}
+.section-title { font-size: 16px; font-weight: 700; color: #333; }
+.text-violation { color: #333; display: flex; align-items: center; gap: 8px; }
+.text-violation i { color: #d32f2f; }
+
+/* Buttons */
+.action-buttons { display: flex; gap: 10px; }
+.btn-outline-red {
+    background: white; border: 1px solid #d32f2f; color: #d32f2f;
+    padding: 5px 15px; border-radius: 5px; font-weight: 600; font-size: 12px;
+    text-align: center; cursor: pointer;
+}
+.btn-solid-red {
+    background: #ff0000; border: none; color: white;
+    padding: 10px 20px; border-radius: 5px; font-weight: 600; font-size: 13px;
+    cursor: pointer; height: fit-content; align-self: center;
+}
+
+/* Tabs & Filters */
+.tabs-nav { display: flex; gap: 30px; margin-bottom: 10px; }
+.tab-item {
+    text-decoration: none; color: #666; font-size: 13px; font-weight: 500;
+    padding-bottom: 10px; border-bottom: 2px solid transparent;
+}
+.tab-item.active { color: #3f51b5; border-bottom-color: #3f51b5; font-weight: 700; }
+
+.divider { border: 0; border-top: 1px solid #eee; margin-bottom: 20px; }
+
+.filter-row { display: flex; gap: 20px; }
+.filter-item { display: flex; flex-direction: column; gap: 5px; width: 150px; }
+.filter-item label { font-size: 12px; font-weight: 700; color: #555; }
+.filter-item select {
+    padding: 8px; border: 1px solid #eee; border-radius: 5px;
+    background: #f9f9f9; outline: none; font-size: 13px;
+}
+
+/* 3. Stats Table (Detailed) */
+.table-responsive { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th {
+    text-align: left; font-size: 11px; color: #666; text-transform: uppercase; font-weight: 700;
+    padding: 15px 10px; border-bottom: 1px solid #eee; background-color: #fafafa;
+}
+td {
+    padding: 15px 10px; font-size: 13px; color: #333; border-bottom: 1px solid #eee;
+}
+tr:last-child td { border-bottom: none; }
+
+/* Progress Bar */
+.progress-wrapper {
+    display: flex; align-items: center; gap: 10px;
+}
+.progress-bar {
+    flex-grow: 1; height: 8px; background-color: #e0e0e0; border-radius: 10px;
+    overflow: hidden;
+}
+.progress-fill {
+    height: 100%; background-color: #512da8; /* Màu tím xanh giống ảnh */
+    border-radius: 10px;
+}
+.progress-text { font-size: 12px; font-weight: 700; color: #333; min-width: 45px; text-align: right; }
+
+/* 4. Violation Table */
+.student-simple { display: flex; flex-direction: column; }
+.student-simple strong { font-weight: 600; font-size: 13px; }
+.student-simple span { font-size: 11px; color: #888; }
+
+.badge {
+    padding: 5px 12px; border-radius: 4px; font-size: 11px; font-weight: 600;
+}
+.badge.pending { background-color: #fff3e0; color: #5d4037; border: 1px solid #ffe0b2; }
