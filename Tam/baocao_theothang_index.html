@@ -9,6 +9,14 @@
 
     <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        /* CSS bổ sung để ẩn/hiện các tab (nếu chưa có trong file css cũ) */
+        .tab-content { display: none; animation: fadeIn 0.3s ease-in-out; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .tab-item { cursor: pointer; }
+    </style>
 </head>
 <body>
 
@@ -30,173 +38,125 @@
 
         <div class="main-panel">
             <header class="top-header">
-                <div class="header-left">
-                    <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
-                    <h1 class="page-title">Ký Túc Xá Trường đại học Văn Lang</h1>
-                </div>
-                <div class="user-info">
-                    <span class="user-name">Mai Văn Nam - 71K29CNTT04</span>
-                    <span class="user-role">Quản lý Ký túc xá</span>
-                    <div class="user-avatar"><i class="fa-solid fa-user"></i></div>
-                </div>
+                <div class="header-left"><button class="menu-toggle"><i class="fa-solid fa-bars"></i></button><h1 class="page-title">Ký Túc Xá Trường đại học Văn Lang</h1></div>
+                <div class="user-info"><span class="user-name">Mai Văn Nam - 71K29CNTT04</span><span class="user-role">Quản lý Ký túc xá</span><div class="user-avatar"><i class="fa-solid fa-user"></i></div></div>
             </header>
 
-            <div class="content-body" id="main-report-content">
+            <div class="content-body" id="main-export-area">
                 
-                <div class="stats-row">
-                    <div class="stat-card">
-                        <div class="card-img"><img src="https://img.freepik.com/free-photo/red-stamp-concept-still-life_23-2150276763.jpg" alt="Đơn chờ"></div>
-                        <div class="card-text"><h3>Đơn chờ duyệt</h3><div class="stat-number">Tổng: 10</div></div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="card-img"><img src="https://img.freepik.com/free-photo/group-diverse-students-using-digital-devices_53876-101160.jpg" alt="Sinh viên"></div>
-                        <div class="card-text"><h3>Sinh viên</h3><div class="stat-number">Đang ở : 105</div></div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="card-img"><img src="https://img.freepik.com/free-photo/empty-classroom-university-college-concept_1150-6279.jpg" alt="Phòng"></div>
-                        <div class="card-text"><h3>Tổng phòng</h3><div class="stat-number">Đang sử dụng: 30</div></div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="card-img"><img src="https://img.freepik.com/free-vector/money-bag-concept-illustration_114360-1250.jpg" alt="Doanh thu"></div>
-                        <div class="card-text"><h3>Doanh thu tháng</h3><div class="stat-number">300.250.000 ₫</div></div>
-                    </div>
-                </div>
-
                 <div class="card-section">
                     <div class="card-header-row">
                         <h3 class="section-title"><i class="fa-solid fa-chart-column"></i> Báo cáo & Thống kê</h3>
-                        
-                        <div class="action-buttons" data-html2canvas-ignore="true"> <button class="btn-outline-red" onclick="exportExcel()">
-                                <i class="fa-solid fa-file-excel"></i> Xuất<br>Excel
-                            </button>
-                            <button class="btn-outline-red" onclick="exportPDF()">
-                                <i class="fa-solid fa-file-pdf"></i> Xuất<br>PDF
-                            </button>
-                            <button class="btn-solid-red" onclick="printReport()">
-                                <i class="fa-solid fa-print"></i> In báo cáo
-                            </button>
+                        <div class="action-buttons" data-html2canvas-ignore="true">
+                            <button class="btn-outline-red" onclick="exportExcel()"><i class="fa-solid fa-file-excel"></i> Xuất Excel</button>
+                            <button class="btn-outline-red" onclick="exportPDF()"><i class="fa-solid fa-file-pdf"></i> Xuất PDF</button>
+                            <button class="btn-solid-red" onclick="window.print()"><i class="fa-solid fa-print"></i> In báo cáo</button>
                         </div>
                     </div>
 
                     <div class="tabs-nav">
-                        <a href="#" class="tab-item active">Theo tháng</a>
-                        <a href="#" class="tab-item">Theo quý</a>
-                        <a href="#" class="tab-item">Theo năm</a>
-                    </div>
-                    <hr class="divider">
-                    <div class="filter-row">
-                        <div class="filter-item"><label>Năm</label><select><option>2025</option></select></div>
-                        <div class="filter-item"><label>Tháng</label><select><option>Tháng 11</option></select></div>
+                        <a onclick="switchTab('month', this)" class="tab-item active">Theo tháng</a>
+                        <a onclick="switchTab('quarter', this)" class="tab-item">Theo quý</a>
+                        <a onclick="switchTab('year', this)" class="tab-item">Theo năm</a>
                     </div>
                 </div>
 
-                <div class="grid-2-col">
-                    <div class="card-section">
-                        <h3 class="section-title"><i class="fa-solid fa-building"></i> Thống kê theo tòa nhà</h3>
-                        <table class="simple-table" id="table-building">
-                            <thead>
-                                <tr><th>TÒA NHÀ</th><th>TỔNG PHÒNG</th><th>ĐANG SỬ DỤNG</th><th>TỶ LỆ</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Tòa A</strong></td><td>2</td><td>2</td>
-                                    <td><div class="progress-wrapper"><div class="progress-bar"><div class="fill" style="width: 100%;"></div></div><span class="percent">100.0%</span></div></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Tòa B</strong></td><td>2</td><td>1</td>
-                                    <td><div class="progress-wrapper"><div class="progress-bar"><div class="fill" style="width: 50%;"></div></div><span class="percent">50.0%</span></div></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Tòa C</strong></td><td>0</td><td>0</td>
-                                    <td><div class="progress-wrapper"><div class="progress-bar"><div class="fill" style="width: 0%;"></div></div><span class="percent">0.0%</span></div></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Tòa D</strong></td><td>0</td><td>0</td>
-                                    <td><div class="progress-wrapper"><div class="progress-bar"><div class="fill" style="width: 0%;"></div></div><span class="percent">0.0%</span></div></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div id="view-month" class="tab-content active">
+                    
+                    <div class="stats-row">
+                        <div class="stat-card"><div class="card-img"><img src="https://img.freepik.com/free-photo/red-stamp-concept-still-life_23-2150276763.jpg"></div><div class="card-text"><h3>Đơn chờ duyệt</h3><div class="stat-number">Tổng: 10</div></div></div>
+                        <div class="stat-card"><div class="card-img"><img src="https://img.freepik.com/free-photo/group-diverse-students-using-digital-devices_53876-101160.jpg"></div><div class="card-text"><h3>Sinh viên</h3><div class="stat-number">Đang ở : 105</div></div></div>
+                        <div class="stat-card"><div class="card-img"><img src="https://img.freepik.com/free-photo/empty-classroom-university-college-concept_1150-6279.jpg"></div><div class="card-text"><h3>Tổng phòng</h3><div class="stat-number">Đang sử dụng: 30</div></div></div>
+                        <div class="stat-card"><div class="card-img"><img src="https://img.freepik.com/free-vector/money-bag-concept-illustration_114360-1250.jpg"></div><div class="card-text"><h3>Doanh thu tháng</h3><div class="stat-number">300.250.000 ₫</div></div></div>
                     </div>
 
                     <div class="card-section">
-                        <h3 class="section-title"><i class="fa-regular fa-credit-card"></i> Thống kê thanh toán</h3>
-                        <table class="simple-table">
-                            <thead>
-                                <tr><th>PHƯƠNG THỨC</th><th>SỐ LƯỢNG</th><th style="text-align: right;">TỶ LỆ</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>Tiền mặt</td><td>0</td><td style="text-align: right;">0.0%</td></tr>
-                                <tr><td>Chuyển khoản</td><td>1</td><td style="text-align: right;">33.3%</td></tr>
-                                <tr><td>Ví điện tử</td><td>0</td><td style="text-align: right;">0.0%</td></tr>
-                            </tbody>
-                        </table>
+                        <div class="filter-row">
+                            <div class="filter-item"><label>Năm</label><select><option>2025</option></select></div>
+                            <div class="filter-item"><label>Tháng</label><select><option>Tháng 11</option></select></div>
+                        </div>
+                    </div>
+
+                    <div class="grid-2-col">
+                        <div class="card-section">
+                            <h3 class="section-title"><i class="fa-solid fa-building"></i> Thống kê theo tòa nhà</h3>
+                            <table class="simple-table" id="table-month-building">
+                                <thead><tr><th>TÒA NHÀ</th><th>TỔNG</th><th>ĐANG Ở</th><th>TỶ LỆ</th></tr></thead>
+                                <tbody>
+                                    <tr><td><strong>Tòa A</strong></td><td>2</td><td>2</td><td><div class="progress-wrapper"><div class="progress-bar"><div class="fill" style="width: 100%;"></div></div><span class="percent">100%</span></div></td></tr>
+                                    <tr><td><strong>Tòa B</strong></td><td>2</td><td>1</td><td><div class="progress-wrapper"><div class="progress-bar"><div class="fill" style="width: 50%;"></div></div><span class="percent">50%</span></div></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-section">
+                            <h3 class="section-title"><i class="fa-regular fa-credit-card"></i> Thống kê thanh toán</h3>
+                            <table class="simple-table">
+                                <thead><tr><th>PHƯƠNG THỨC</th><th>SL</th><th style="text-align: right;">TỶ LỆ</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Tiền mặt</td><td>0</td><td style="text-align: right;">0.0%</td></tr>
+                                    <tr><td>Chuyển khoản</td><td>1</td><td style="text-align: right;">33.3%</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card-section">
-                    <h3 class="section-title"><i class="fa-solid fa-file-invoice"></i> Thống kê đơn đăng ký</h3>
-                    <div class="table-responsive">
-                        <table class="stats-table">
-                            <thead>
-                                <tr>
-                                    <th style="width: 20%">LOẠI ĐƠN</th>
-                                    <th style="width: 10%">TỔNG</th>
-                                    <th>CHỜ XỬ LÝ</th>
-                                    <th>ĐÃ DUYỆT</th>
-                                    <th>TỪ CHỐI</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>Đăng ký ở</td><td>4</td><td><span class="num-badge orange">1</span></td><td><span class="num-badge green">3</span></td><td><span class="num-badge red">0</span></td></tr>
-                                <tr><td>Chuyển phòng</td><td>1</td><td><span class="num-badge orange">1</span></td><td><span class="num-badge green">0</span></td><td><span class="num-badge red">0</span></td></tr>
-                                <tr><td>Trả phòng</td><td>1</td><td><span class="num-badge orange">1</span></td><td><span class="num-badge green">0</span></td><td><span class="num-badge red">0</span></td></tr>
-                                <tr><td>Gia hạn</td><td>1</td><td><span class="num-badge orange">1</span></td><td><span class="num-badge green">0</span></td><td><span class="num-badge red">0</span></td></tr>
-                            </tbody>
-                        </table>
+                <div id="view-quarter" class="tab-content">
+                    
+                    <div class="stats-row">
+                        <div class="stat-card"><div class="card-img"><img src="https://img.freepik.com/free-photo/red-stamp-concept-still-life_23-2150276763.jpg"></div><div class="card-text"><h3>Đơn Quý</h3><div class="stat-number">Tổng: 25</div></div></div>
+                        <div class="stat-card"><div class="card-img"><img src="https://img.freepik.com/free-photo/group-diverse-students-using-digital-devices_53876-101160.jpg"></div><div class="card-text"><h3>Sinh viên mới</h3><div class="stat-number">Tiếp nhận: 15</div></div></div>
+                        <div class="stat-card"><div class="card-img"><img src="https://img.freepik.com/free-photo/empty-classroom-university-college-concept_1150-6279.jpg"></div><div class="card-text"><h3>Sự cố</h3><div class="stat-number">Đã xử lý: 5</div></div></div>
+                        <div class="stat-card"><div class="card-img"><img src="https://img.freepik.com/free-vector/money-bag-concept-illustration_114360-1250.jpg"></div><div class="card-text"><h3>Doanh thu Quý</h3><div class="stat-number">900.000.000 ₫</div></div></div>
                     </div>
-                </div>
 
-                <div class="card-section">
-                    <h3 class="section-title"><i class="fa-solid fa-star" style="color: gold;"></i> Sinh viên đóng phí đầy đủ</h3>
-                    <table class="simple-table" id="table-student-fee">
-                        <thead>
-                            <tr><th>STT</th><th>SINH VIÊN</th><th>MSSV</th><th>SỐ HÓA ĐƠN</th><th>TỔNG TIỀN</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>1</td><td>Mai Văn Nam</td><td>SV001</td><td>1</td><td class="text-green">1.500.000 ₫</td></tr>
-                            <tr><td>2</td><td>Trần Minh Huy</td><td>SV002</td><td>1</td><td class="text-green">1.500.000 ₫</td></tr>
-                            <tr><td>3</td><td>Trần Minh Quân</td><td>SV003</td><td>1</td><td class="text-green">1.500.000 ₫</td></tr>
-                            <tr><td>4</td><td>Phạm Chí Tâm</td><td>SV004</td><td>0</td><td class="text-green">0 ₫</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="grid-2-col">
                     <div class="card-section">
-                        <h3 class="section-title"><i class="fa-solid fa-chart-column" style="color: green;"></i> Biểu đồ doanh thu</h3>
-                        <div class="chart-list">
-                            <div class="chart-item">
-                                <div class="chart-header"><span class="c-label">Đã thu (1 hóa đơn)</span><span class="c-val">50.0%</span></div>
-                                <div class="c-progress"><div class="c-fill bg-green" style="width: 50%"></div></div>
-                            </div>
-                            <div class="chart-item">
-                                <div class="chart-header"><span class="c-label">Chưa thu (1 hóa đơn)</span><span class="c-val">50.0%</span></div>
-                                <div class="c-progress"><div class="c-fill bg-orange" style="width: 50%"></div></div>
-                            </div>
+                        <div class="filter-row">
+                            <div class="filter-item"><label>Năm</label><select><option>2025</option></select></div>
+                            <div class="filter-item"><label>Quý</label><select><option>Quý 4</option></select></div>
                         </div>
                     </div>
 
                     <div class="card-section">
-                        <h3 class="section-title"><i class="fa-solid fa-chart-pie" style="color: orange;"></i> Tỷ lệ phòng</h3>
-                        <div class="chart-list">
-                            <div class="chart-item">
-                                <div class="chart-header"><span class="c-label">Đang sử dụng</span><span class="c-val">3 (75.0%)</span></div>
-                                <div class="c-progress"><div class="c-fill bg-purple" style="width: 75%"></div></div>
-                            </div>
-                            <div class="chart-item">
-                                <div class="chart-header"><span class="c-label">Còn trống</span><span class="c-val">4 (100.0%)</span></div>
-                                <div class="c-progress"><div class="c-fill bg-teal" style="width: 100%"></div></div>
-                            </div>
+                        <h3 class="section-title"><i class="fa-solid fa-chart-area"></i> Chi tiết các tháng trong Quý</h3>
+                        <table class="simple-table" id="table-quarter">
+                            <thead><tr><th>THÁNG</th><th>DOANH THU</th><th>SINH VIÊN</th><th>SỰ CỐ</th><th>TIẾN ĐỘ</th></tr></thead>
+                            <tbody>
+                                <tr><td>Tháng 10</td><td class="text-green">300.000.000 ₫</td><td>5</td><td>2</td><td><div class="progress-bar"><div class="fill purple" style="width: 90%;"></div></div></td></tr>
+                                <tr><td>Tháng 11</td><td class="text-green">300.000.000 ₫</td><td>5</td><td>1</td><td><div class="progress-bar"><div class="fill purple" style="width: 85%;"></div></div></td></tr>
+                                <tr><td>Tháng 12</td><td class="text-green">300.000.000 ₫</td><td>5</td><td>2</td><td><div class="progress-bar"><div class="fill purple" style="width: 95%;"></div></div></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="view-year" class="tab-content">
+                    
+                    <div class="stats-row">
+                        <div class="stat-card"><div class="card-img"><img src="https://img.freepik.com/free-photo/red-stamp-concept-still-life_23-2150276763.jpg"></div><div class="card-text"><h3>Tổng đơn năm</h3><div class="stat-number">Tổng: 120</div></div></div>
+                        <div class="stat-card"><div class="card-img"><img src="https://img.freepik.com/free-photo/group-diverse-students-using-digital-devices_53876-101160.jpg"></div><div class="card-text"><h3>Sinh viên</h3><div class="stat-number">Tiếp nhận: 300</div></div></div>
+                        <div class="stat-card"><div class="card-img"><img src="https://img.freepik.com/free-photo/empty-classroom-university-college-concept_1150-6279.jpg"></div><div class="card-text"><h3>Hiệu suất</h3><div class="stat-number">Trung bình: 95%</div></div></div>
+                        <div class="stat-card"><div class="card-img"><img src="https://img.freepik.com/free-vector/money-bag-concept-illustration_114360-1250.jpg"></div><div class="card-text"><h3>Tổng Doanh thu</h3><div class="stat-number">3.6 Tỷ</div></div></div>
+                    </div>
+
+                    <div class="card-section">
+                        <div class="filter-row">
+                            <div class="filter-item"><label>Chọn Năm</label><select><option>2025</option></select></div>
+                        </div>
+                    </div>
+
+                    <div class="card-section">
+                        <h3 class="section-title"><i class="fa-solid fa-chart-line"></i> Tổng hợp 4 Quý</h3>
+                        <div class="table-responsive">
+                            <table class="simple-table" id="table-year">
+                                <thead><tr><th>THỜI GIAN</th><th>DOANH THU</th><th>CHI PHÍ</th><th>LỢI NHUẬN</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Quý 1</td><td>900 Tr</td><td style="color:red">-200 Tr</td><td style="color:green">700 Tr</td></tr>
+                                    <tr><td>Quý 2</td><td>850 Tr</td><td style="color:red">-250 Tr</td><td style="color:green">600 Tr</td></tr>
+                                    <tr><td>Quý 3</td><td>950 Tr</td><td style="color:red">-200 Tr</td><td style="color:green">750 Tr</td></tr>
+                                    <tr><td>Quý 4</td><td>900 Tr</td><td style="color:red">-200 Tr</td><td style="color:green">700 Tr</td></tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -206,45 +166,49 @@
     </div>
 
     <script>
-        // 1. IN BÁO CÁO
-        function printReport() {
-            window.print();
+        // 1. Chuyển Tab
+        function switchTab(viewId, element) {
+            // Ẩn hết nội dung cũ
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            // Bỏ active nút cũ
+            document.querySelectorAll('.tab-item').forEach(el => el.classList.remove('active'));
+            
+            // Hiện nội dung mới & Active nút mới
+            document.getElementById('view-' + viewId).classList.add('active');
+            element.classList.add('active');
         }
 
-        // 2. XUẤT PDF
+        // 2. Xuất Excel (Thông minh theo Tab)
+        function exportExcel() {
+            let tableId = '';
+            let fileName = '';
+
+            if(document.getElementById('view-month').classList.contains('active')) {
+                tableId = 'table-month-building'; fileName = 'Bao_Cao_Thang.xlsx';
+            } else if(document.getElementById('view-quarter').classList.contains('active')) {
+                tableId = 'table-quarter'; fileName = 'Bao_Cao_Quy.xlsx';
+            } else {
+                tableId = 'table-year'; fileName = 'Bao_Cao_Nam.xlsx';
+            }
+
+            const table = document.getElementById(tableId);
+            const ws = XLSX.utils.table_to_sheet(table);
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+            XLSX.writeFile(wb, fileName);
+        }
+
+        // 3. Xuất PDF
         function exportPDF() {
-            const element = document.getElementById('main-report-content');
+            const element = document.getElementById('main-export-area');
             const opt = {
-                margin: 0.3,
-                filename: 'Bao_Cao_KTX.pdf',
+                margin: 0.2,
+                filename: 'Bao_Cao_Tong_Hop.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { scale: 2 },
-                jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+                jsPDF: { unit: 'in', format: 'a4', orientation: 'landscape' }
             };
             html2pdf().set(opt).from(element).save();
-        }
-
-        // 3. XUẤT EXCEL
-        function exportExcel() {
-            const wb = XLSX.utils.book_new();
-
-            // Sheet 1: Thống kê Tòa nhà
-            const tableBuilding = document.getElementById('table-building');
-            if (tableBuilding) {
-                // Clone table để loại bỏ cột progress bar khi xuất excel (chỉ lấy text)
-                const ws1 = XLSX.utils.table_to_sheet(tableBuilding);
-                XLSX.utils.book_append_sheet(wb, ws1, "Thong_Ke_Toa_Nha");
-            }
-
-            // Sheet 2: Sinh viên đóng phí
-            const tableFee = document.getElementById('table-student-fee');
-            if (tableFee) {
-                const ws2 = XLSX.utils.table_to_sheet(tableFee);
-                XLSX.utils.book_append_sheet(wb, ws2, "Sinh_Vien_Dong_Phi");
-            }
-
-            // Xuất file
-            XLSX.writeFile(wb, "Du_Lieu_Bao_Cao_KTX.xlsx");
         }
     </script>
 
