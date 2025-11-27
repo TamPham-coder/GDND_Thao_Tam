@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duyệt đơn Giảm/Hoàn phí - KTX Văn Lang</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="giam_hoan_style.css">
+</head>
+<body>
+
+    <div class="app-container" id="main-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Van_Lang_University_Logo.png/1200px-Van_Lang_University_Logo.png" alt="VLU Logo" class="vlu-logo">
+            </div>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-house"></i> Tổng quan (Tài chính)</a></li>
+                    <li><a href="#"><i class="fa-solid fa-file-invoice-dollar"></i> Quản lý Hóa đơn</a></li>
+                    <li class="active"><a href="#"><i class="fa-solid fa-file-contract"></i> Duyệt đơn Giảm/Hoàn</a></li>
+                    <li><a href="#"><i class="fa-solid fa-building-columns"></i> Báo cáo Thu Chi</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="main-panel">
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+                    <h1 class="page-title">Ký Túc Xá Trường đại học Văn Lang</h1>
+                </div>
+                <div class="user-info">
+                    <span class="user-name">Hồ Thị Phương Thảo - 71K29CNTT03</span>
+                    <span class="user-role">Nhân viên tài chính</span>
+                    <div class="user-avatar"><i class="fa-solid fa-user"></i></div>
+                </div>
+            </header>
+
+            <div class="content-body">
+                <div class="card">
+                    <h2 class="card-title"><i class="fa-solid fa-file-invoice" style="color: #78909c; margin-right: 10px;"></i> Đơn giảm/hoàn phí</h2>
+
+                    <div class="table-responsive">
+                        <table class="approval-table">
+                            <thead>
+                                <tr>
+                                    <th>MÃ ĐƠN</th>
+                                    <th>SINH VIÊN</th>
+                                    <th>LOẠI</th>
+                                    <th>NỘI DUNG</th>
+                                    <th>NGÀY TẠO</th>
+                                    <th>THAO TÁC</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>#00006</strong></td>
+                                    <td>
+                                        <div class="student-info">
+                                            <strong>Trần Minh Huy</strong>
+                                            <span>SV002</span>
+                                        </div>
+                                    </td>
+                                    <td>Giảm phí</td>
+                                    <td>Hoàn cảnh gia đình khó khăn</td>
+                                    <td>09:20 18/10/2024</td>
+                                    <td>
+                                        <div class="action-group">
+                                            <button class="btn-detail" 
+                                                onclick="openDetailModal('#00006', 'Trần Minh Huy (SV002)', 'Xin giảm lệ phí KTX', 'Gia đình em thuộc hộ nghèo tại địa phương, hiện tại gặp khó khăn về tài chính. Em xin nhà trường xem xét giảm phí KTX học kỳ này.', 'Giay_chung_nhan_ho_ngheo.pdf')">
+                                                Chi tiết
+                                            </button>
+                                            
+                                            <button class="btn-reject" onclick="openRejectModal('#00006')">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td><strong>#00007</strong></td>
+                                    <td>
+                                        <div class="student-info">
+                                            <strong>Nguyễn Thị Lan</strong>
+                                            <span>SV005</span>
+                                        </div>
+                                    </td>
+                                    <td>Hoàn phí</td>
+                                    <td>Đóng dư tiền điện</td>
+                                    <td>10:00 19/10/2024</td>
+                                    <td>
+                                        <div class="action-group">
+                                            <button class="btn-detail" 
+                                                onclick="openDetailModal('#00007', 'Nguyễn Thị Lan (SV005)', 'Xin hoàn tiền đóng dư', 'Do sơ suất thao tác, em đã chuyển khoản đóng tiền điện tháng 10/2024 hai lần. Mong ban quản lý xem xét hoàn lại số tiền thừa.', 'Bien_lai_chuyen_tien.png')">
+                                                Chi tiết
+                                            </button>
+                                            
+                                            <button class="btn-reject" onclick="openRejectModal('#00007')">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="detail-modal">
+        <div class="modal-box detail-box">
+            <div class="modal-header">
+                <h3>Chi tiết đơn <span id="modal-title-id"></span></h3>
+                <button class="close-btn" onclick="closeModal('detail-modal')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="info-row">
+                    <span class="label">Sinh viên:</span>
+                    <span class="value" id="modal-student-name">...</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Loại đơn:</span>
+                    <span class="value" id="modal-type">...</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Lý do:</span>
+                    <div class="value box-content" id="modal-reason">...</div>
+                </div>
+                <div class="info-row">
+                    <span class="label">Minh chứng:</span>
+                    <a href="#" class="link-file">
+                        <i class="fa-solid fa-paperclip"></i> <span id="modal-file">file.pdf</span>
+                    </a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeModal('detail-modal')">Đóng</button>
+                <button class="btn-approve" onclick="openApproveModal()">Duyệt đơn</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="reject-modal">
+        <div class="modal-box confirm-box">
+            <div class="icon-wrapper">
+                <div class="icon-circle bg-red-light">
+                    <i class="fa-solid fa-trash-can text-red"></i>
+                </div>
+            </div>
+            <h2 class="confirm-title">Từ chối đơn <span id="reject-id-text">...</span>?</h2>
+            <p class="confirm-desc">Bạn có chắc chắn muốn từ chối yêu cầu này không?</p>
+            <p class="confirm-warning"><strong>Lưu ý:</strong> Đơn sẽ bị hủy và sinh viên sẽ nhận được thông báo.</p>
+            <div class="confirm-actions">
+                <button class="btn-back" onclick="closeModal('reject-modal')">Không, quay lại</button>
+                <button class="btn-confirm-red" onclick="confirmReject()">Đồng ý Từ chối</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="approve-modal">
+        <div class="modal-box confirm-box">
+            <div class="icon-wrapper">
+                <div class="icon-circle bg-green-light">
+                    <i class="fa-solid fa-check text-green"></i>
+                </div>
+            </div>
+            <h2 class="confirm-title">Duyệt đơn <span id="approve-id-text">...</span>?</h2>
+            <p class="confirm-desc">Bạn có chắc chắn muốn chấp thuận yêu cầu này không?</p>
+            <p class="confirm-warning"><strong>Lưu ý:</strong> Hệ thống sẽ cập nhật trạng thái hồ sơ sinh viên.</p>
+            <div class="confirm-actions">
+                <button class="btn-back" onclick="closeModal('approve-modal')">Xem lại</button>
+                <button class="btn-confirm-green" onclick="confirmApprove()">Đồng ý Duyệt</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentId = '';
+
+        // 1. Mở Chi tiết (Nhận dữ liệu động)
+        function openDetailModal(id, name, type, reason, file) {
+            currentId = id;
+            document.getElementById('modal-title-id').innerText = id;
+            document.getElementById('modal-student-name').innerText = name;
+            document.getElementById('modal-type').innerText = type;
+            document.getElementById('modal-reason').innerText = reason;
+            document.getElementById('modal-file').innerText = file;
+
+            document.getElementById('detail-modal').style.display = 'flex';
+            document.getElementById('main-container').classList.add('blur-effect');
+        }
+
+        // 2. Mở Từ chối (Nút X)
+        function openRejectModal(id) {
+            currentId = id;
+            document.getElementById('reject-id-text').innerText = id;
+            document.getElementById('reject-modal').style.display = 'flex';
+            document.getElementById('main-container').classList.add('blur-effect');
+        }
+
+        // 3. Mở Duyệt (Nút Duyệt trong chi tiết)
+        function openApproveModal() {
+            document.getElementById('detail-modal').style.display = 'none'; // Đóng chi tiết
+            document.getElementById('approve-id-text').innerText = currentId; // Cập nhật ID
+            document.getElementById('approve-modal').style.display = 'flex'; // Mở duyệt
+            document.getElementById('main-container').classList.add('blur-effect');
+        }
+
+        // Đóng Modal
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+            document.getElementById('main-container').classList.remove('blur-effect');
+        }
+
+        // Xác nhận
+        function confirmReject() {
+            alert("Đã từ chối đơn " + currentId + " thành công!");
+            closeModal('reject-modal');
+        }
+
+        function confirmApprove() {
+            alert("Đã duyệt đơn " + currentId + " thành công!");
+            closeModal('approve-modal');
+        }
+    </script>
+
+</body>
+</html>
