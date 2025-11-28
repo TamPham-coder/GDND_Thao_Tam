@@ -9,97 +9,275 @@
 </head>
 <body>
 
-    <aside class="sidebar">
-        <div class="sidebar-header">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Van_Lang_University_Logo.png/1200px-Van_Lang_University_Logo.png" alt="Logo" class="logo-img">
-        </div>
-        <ul class="menu-list">
-            <li class="menu-item"><a href="#"><i class="fa-solid fa-house"></i> Tổng quan</a></li>
-            <li class="menu-item"><a href="#"><i class="fa-solid fa-clipboard-user"></i> Hồ sơ cá nhân</a></li>
-            <li class="menu-item"><a href="#"><i class="fa-solid fa-file-pen"></i> Quản lý đơn</a></li>
-            <li class="menu-item"><a href="#"><i class="fa-regular fa-bell"></i> Thông báo</a></li>
-            <li class="menu-item active"><a href="#"><i class="fa-solid fa-hand-holding-dollar"></i> Hóa đơn & Phí</a></li>
-        </ul>
-    </aside>
-
-    <div class="main-content">
-        <header class="top-header">
-            <div class="header-left">
-                <i class="fa-solid fa-bars hamburger-btn"></i>
-                <h1 class="page-title">Ký Túc Xá Trường đại học Văn Lang</h1>
+    <div class="app-container">
+        
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="img/logoVLU.png" alt="VLU Logo" class="vlu-logo">
             </div>
-            <div class="user-info">
-                <div>
-                    <span class="user-name">Hồ Thị Phương Thảo - 71K29CNTT03</span>
-                    <span class="user-role">Sinh viên</span>
-                </div>
-                <div class="user-avatar">
-                    <i class="fa-solid fa-user"></i>
-                </div>
-            </div>
-        </header>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="tongquan_index.html"><i class="fa-solid fa-house"></i> Tổng quan</a>
+                    </li>
+                    <li>
+                        <a href="hosocanhan_index.html"><i class="fa-solid fa-clipboard-user"></i> Hồ sơ cá nhân</a>
+                    </li>
+                    <li>
+                        <a href="quanlydon_index.html"><i class="fa-solid fa-file-pen"></i> Quản lý đơn</a>
+                    </li>
+                    <li>
+                        <a href="thongbao_index.html"><i class="fa-regular fa-bell"></i> Thông báo</a>
+                    </li>
+                    <li class="active">
+                        <a href="hoadon_index.html"><i class="fa-solid fa-hand-holding-dollar"></i> Hóa đơn & Phí</a>
+                    </li>
+                       <li>
+                        <a href="dangnhap_index.html"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
 
-        <div class="content-body">
-            <div class="card">
-                <h2 class="card-title">Quản lý hóa đơn</h2>
-
-                <div class="filters">
-                    <div class="filter-group">
-                        <label>Trạng thái</label>
-                        <select class="filter-input">
-                            <option>Tất cả</option>
-                        </select>
+        <div class="main-panel">
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle"></button>
+                    <h1 class="page-title">Ký Túc Xá Trường đại học Văn Lang</h1>
+                </div>
+                <div class="user-info">
+                    <div class="user-text">
+                        <span class="user-name">Hồ Thị Phương Thảo - 71K29CNTT03</span>
+                        <span class="user-role">Sinh viên</span>
                     </div>
-                    <div class="filter-group">
-                        <label>Tháng</label>
-                        <input type="text" class="filter-input" placeholder="-- Chọn tháng --"> 
+                    <div class="user-avatar">
+                        <i class="fa-solid fa-user"></i>
                     </div>
                 </div>
+            </header>
 
-                <table class="invoice-table">
-                    <thead>
-                        <tr>
-                            <th>MÃ HĐ</th>
-                            <th>PHÒNG</th>
-                            <th>THÁNG</th>
-                            <th>TỔNG TIỀN</th>
-                            <th>HẠN THANH TOÁN</th>
-                            <th>TRẠNG THÁI</th>
-                            <th style="width: 150px;">THAO TÁC</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>01</strong></td>
-                            <td><div class="room-info">I504 <span class="room-sub">Tòa I</span></div></td>
-                            <td class="date-highlight">10/2024</td>
-                            <td class="money">900.000 đ</td>
-                            <td>15/11/2024</td>
-                            <td><span class="badge badge-overdue"><span class="badge-dot-red"></span> &nbsp; Quá hạn 365 ngày</span></td>
-                            <td><button class="btn-action">Thanh toán</button></td>
-                        </tr>
-                        <tr>
-                            <td><strong>02</strong></td>
-                            <td><div class="room-info">I504 <span class="room-sub">Tòa I</span></div></td>
-                            <td class="date-highlight">09/2024</td>
-                            <td class="money">893.000 đ</td>
-                            <td>15/10/2025</td>
-                            <td><span class="badge badge-paid"><i class="fa-solid fa-check"></i> &nbsp; Đã thanh toán</span></td>
-                            <td><button class="btn-action">Chi tiết</button></td>
-                        </tr>
-                        <tr>
-                            <td><strong>03</strong></td>
-                            <td><div class="room-info">I504 <span class="room-sub">Tòa I</span></div></td>
-                            <td class="date-highlight">11/2025</td>
-                            <td class="money">1.633.632 đ</td>
-                            <td>31/12/2025</td>
-                            <td><span class="badge badge-pending"><i class="fa-regular fa-clock"></i> &nbsp; Còn 49 ngày</span></td>
-                            <td><button class="btn-action">Thanh toán</button></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="content-body">
+                <div class="card">
+                    <h2 class="card-title">Quản lý hóa đơn</h2>
+
+                    <div class="filters-row">
+                        <div class="filter-item">
+                            <label>Trạng thái</label>
+                            <select>
+                                <option>Tất cả</option>
+                                <option>Đã thanh toán</option>
+                                <option>Chưa thanh toán</option>
+                            </select>
+                        </div>
+                        <div class="filter-item search-group">
+                            <label>Tháng</label>
+                            <div class="input-with-icon">
+                                <input type="text" placeholder="-- Chọn tháng --">
+                                <i class="fa-regular fa-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="invoice-table">
+                            <thead>
+                                <tr>
+                                    <th>MÃ HĐ</th>
+                                    <th>PHÒNG</th>
+                                    <th>THÁNG</th>
+                                    <th>TỔNG TIỀN</th>
+                                    <th>HẠN THANH TOÁN</th>
+                                    <th>TRẠNG THÁI</th>
+                                    <th>THAO TÁC</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>01</strong></td>
+                                    <td>
+                                        <div class="room-info">
+                                            <strong>I504</strong>
+                                            <span>Tòa I</span>
+                                        </div>
+                                    </td>
+                                    <td><strong>10/2024</strong></td>
+                                    <td class="money">900.000 ₫</td>
+                                    <td>15/11/2024</td>
+                                    <td>
+                                        <span class="badge badge-overdue">
+                                            <span class="dot red"></span> Quá hạn 365 ngày
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <button class="btn-action btn-pay">Thanh toán</button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td><strong>02</strong></td>
+                                    <td>
+                                        <div class="room-info">
+                                            <strong>I504</strong>
+                                            <span>Tòa I</span>
+                                        </div>
+                                    </td>
+                                    <td><strong>09/2024</strong></td>
+                                    <td class="money">893.000 ₫</td>
+                                    <td>15/10/2025</td>
+                                    <td>
+                                        <span class="badge badge-paid">
+                                            <i class="fa-solid fa-check"></i> Đã thanh toán
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <button class="btn-action btn-detail">Chi tiết</button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td><strong>03</strong></td>
+                                    <td>
+                                        <div class="room-info">
+                                            <strong>I504</strong>
+                                            <span>Tòa I</span>
+                                        </div>
+                                    </td>
+                                    <td><strong>11/2025</strong></td>
+                                    <td class="money">1.633.632 ₫</td>
+                                    <td>31/12/2025</td>
+                                    <td>
+                                        <span class="badge badge-pending">
+                                            <i class="fa-solid fa-hourglass-half"></i> Còn 49 ngày
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <button class="btn-action btn-pay">Thanh toán</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
+<div id="paymentModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal('paymentModal')">&times;</span>
+        <h3>💰 Thanh toán Hóa đơn #<span id="invoiceIdPayment"></span></h3>
+        <p>Tổng tiền cần thanh toán: <strong id="totalAmountPayment"></strong></p>
+        
+        <label for="bankSelect">Chọn Ngân hàng:</label>
+        <select id="bankSelect">
+            <option value="vcb">Vietcombank</option>
+            <option value="tcb">Techcombank</option>
+            <option value="momo">Momo</option>
+            <option value="zalo">ZaloPay</option>
+        </select>
+        
+        <button class="btn-action btn-pay full-width-btn" style="margin-top: 15px;">Thực hiện Thanh toán</button>
+    </div>
+</div>
+
+<div id="detailModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal('detailModal')">&times;</span>
+        <h3>📑 Chi tiết Hóa đơn #<span id="invoiceIdDetail"></span></h3>
+        
+        <div id="invoiceDetailsContent">
+            </div>
+
+        <button class="btn-action btn-detail full-width-btn" onclick="closeModal('detailModal')" style="margin-top: 15px;">Đóng</button>
+    </div>
+</div>
+<script>
+    // Hàm mở Modal
+    function openModal(modalId) {
+        document.getElementById(modalId).style.display = "block";
+    }
+
+    // Hàm đóng Modal
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+    }
+
+    // Đóng Modal khi click ra ngoài
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = "none";
+        }
+    }
+
+    // Gán sự kiện cho các nút Thanh toán và Chi tiết
+    document.addEventListener('DOMContentLoaded', function() {
+        const tableBody = document.querySelector('.invoice-table tbody');
+
+        tableBody.addEventListener('click', function(e) {
+            
+            // 1. Xử lý nút THANH TOÁN
+            if (e.target.classList.contains('btn-pay')) {
+                const row = e.target.closest('tr');
+                // Lấy dữ liệu từ các cột
+                const invoiceId = row.children[0].textContent.trim(); // Mã HĐ
+                const totalAmount = row.children[3].textContent.trim(); // Tổng tiền
+                
+                // Cập nhật nội dung modal Thanh toán
+                document.getElementById('invoiceIdPayment').textContent = invoiceId;
+                document.getElementById('totalAmountPayment').textContent = totalAmount;
+
+                // Mở modal
+                openModal('paymentModal');
+            } 
+            
+            // 2. Xử lý nút CHI TIẾT
+            else if (e.target.classList.contains('btn-detail')) {
+                const row = e.target.closest('tr');
+                
+                // Lấy dữ liệu từ các cột
+                const invoiceId = row.children[0].textContent.trim();
+                const roomName = row.querySelector('.room-info strong').textContent.trim();
+                const roomBuilding = row.querySelector('.room-info span').textContent.trim();
+                const month = row.children[2].textContent.trim();
+                const totalAmount = row.children[3].textContent.trim();
+                const paymentDate = row.children[4].textContent.trim(); 
+                const status = row.querySelector('.badge-paid').textContent.trim();
+
+                // Cập nhật tiêu đề modal Chi tiết
+                document.getElementById('invoiceIdDetail').textContent = invoiceId;
+
+                // Tạo nội dung chi tiết
+                const detailContent = `
+                    <div class="detail-item">
+                        <span>Phòng/Tòa:</span>
+                        <strong>${roomName} (${roomBuilding})</strong>
+                    </div>
+                    <div class="detail-item">
+                        <span>Tháng:</span>
+                        <strong>${month}</strong>
+                    </div>
+                    <div class="detail-item">
+                        <span>Tổng tiền:</span>
+                        <strong class="money">${totalAmount}</strong>
+                    </div>
+                    <div class="detail-item">
+                        <span>Trạng thái:</span>
+                        <strong>${status}</strong>
+                    </div>
+                    <div class="detail-item">
+                        <span>Ngày thanh toán:</span>
+                        <strong>${paymentDate}</strong>
+                    </div>
+                `;
+
+                // Chèn nội dung vào modal
+                document.getElementById('invoiceDetailsContent').innerHTML = detailContent;
+
+                // Mở modal
+                openModal('detailModal');
+            }
+        });
+    });
+</script>
 </body>
 </html>
