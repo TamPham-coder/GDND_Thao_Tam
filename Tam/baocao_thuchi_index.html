@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Báo cáo Tổng hợp - KTX Văn Lang</title>
+    <title>Báo cáo Thu Chi - KTX Văn Lang</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="baocao_thuchi_style.css">
 
@@ -13,16 +13,17 @@
 <body>
 
     <div class="app-container">
+        
         <aside class="sidebar">
             <div class="sidebar-header">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Van_Lang_University_Logo.png/1200px-Van_Lang_University_Logo.png" alt="VLU Logo" class="vlu-logo">
+                <img src="image/logo.png" alt="VLU Logo" class="vlu-logo">
             </div>
             <nav class="sidebar-menu">
                 <ul>
-                    <li><a href="#"><i class="fa-solid fa-house"></i> Tổng quan (Toàn KTX)</a></li>
-                    <li><a href="#"><i class="fa-solid fa-user-tie"></i> Quản lý Nhân sự</a></li>
-                    <li><a href="#"><i class="fa-solid fa-file-contract"></i> Quản lý Hợp đồng</a></li>
-                    <li class="active"><a href="#"><i class="fa-solid fa-chart-pie"></i> Báo cáo Tổng hợp</a></li>
+                    <li><a href="tongquan_nhanvientaichinh_index.html"><i class="fa-solid fa-house"></i> Tổng quan (Tài chính)</a></li>
+                    <li><a href="quanlyhoadon_index.html"><i class="fa-solid fa-file-invoice-dollar"></i> Quản lý Hóa đơn</a></li>
+                    <li><a href="giam_hoan_index.html"><i class="fa-solid fa-file-contract"></i> Duyệt đơn Giảm/Hoàn</a></li>
+                    <li class="active"><a href="baocao_thuchi_index.html"><i class="fa-solid fa-building-columns"></i> Báo cáo Thu Chi</a></li>
                 </ul>
             </nav>
         </aside>
@@ -30,202 +31,230 @@
         <div class="main-panel">
             <header class="top-header">
                 <div class="header-left"><button class="menu-toggle"><i class="fa-solid fa-bars"></i></button><h1 class="page-title">Ký Túc Xá Trường đại học Văn Lang</h1></div>
-                <div class="user-info"><span class="user-name">Mai Văn Nam - 71K29CNTT04</span><span class="user-role">Quản lý Ký túc xá</span><div class="user-avatar"><i class="fa-solid fa-user"></i></div></div>
+                <div class="user-info"><span class="user-name">Phạm Chí Tâm - 71K29CNTT03</span><span class="user-role">Nhân viên tài chính</span><div class="user-avatar"><i class="fa-solid fa-user"></i></div></div>
             </header>
 
             <div class="content-body" id="main-export-area">
                 
                 <div class="stats-row">
                     <div class="stat-card">
-                        <div class="card-img"><img src="https://img.freepik.com/free-photo/red-stamp-concept-still-life_23-2150276763.jpg" alt="img"></div>
-                        <div class="card-text"><h3>Đơn chờ duyệt</h3><div class="stat-number">Tổng: 10</div></div>
+                        <div class="card-img"><img src="https://img.freepik.com/free-vector/invoice-concept-illustration_114360-2411.jpg"></div>
+                        <div class="card-text"><h3>Tổng hóa đơn</h3><div class="stat-number">10</div></div>
                     </div>
                     <div class="stat-card">
-                        <div class="card-img"><img src="https://img.freepik.com/free-photo/group-diverse-students-using-digital-devices_53876-101160.jpg" alt="img"></div>
-                        <div class="card-text"><h3>Sinh viên</h3><div class="stat-number">Đang ở : 105</div></div>
+                        <div class="card-img"><img src="https://img.freepik.com/free-photo/close-up-hands-holding-money_23-2148866314.jpg"></div>
+                        <div class="card-text"><h3>Đã thanh toán</h3><div class="stat-number">3</div></div>
                     </div>
                     <div class="stat-card">
-                        <div class="card-img"><img src="https://img.freepik.com/free-photo/empty-classroom-university-college-concept_1150-6279.jpg" alt="img"></div>
-                        <div class="card-text"><h3>Tổng phòng</h3><div class="stat-number">Đang sử dụng: 30</div></div>
+                        <div class="card-img"><img src="https://img.freepik.com/free-vector/contactless-payment-concept-illustration_114360-3048.jpg"></div>
+                        <div class="card-text"><h3>Chưa thanh toán</h3><div class="stat-number">7</div></div>
                     </div>
                     <div class="stat-card">
-                        <div class="card-img"><img src="https://img.freepik.com/free-vector/money-bag-concept-illustration_114360-1250.jpg" alt="img"></div>
-                        <div class="card-text"><h3>Doanh thu tháng</h3><div class="stat-number">300.250.000 ₫</div></div>
+                        <div class="card-img"><img src="https://img.freepik.com/free-vector/credit-card-payment-concept-illustration_114360-174.jpg"></div>
+                        <div class="card-text"><h3>Quá hạn</h3><div class="stat-number">5</div></div>
                     </div>
                 </div>
 
                 <div class="card-section">
                     <div class="card-header-row">
-                        <h3 class="section-title"><i class="fa-solid fa-chart-column"></i> Báo cáo & Thống kê</h3>
+                        <h3 class="section-title">Báo cáo & Thống kê</h3>
                         <div class="action-buttons" data-html2canvas-ignore="true">
-                            <button class="btn-icon-label" onclick="exportExcel()">
-                                <i class="fa-solid fa-file-excel"></i> <span>Xuất<br>Excel</span>
+                            <button class="btn-export-red" onclick="exportExcel()">
+                                <i class="fa-solid fa-file-excel"></i>
+                                <span>Xuất Excel</span>
                             </button>
-                            <button class="btn-icon-label" onclick="exportPDF()">
-                                <i class="fa-solid fa-file-pdf"></i> <span>Xuất<br>PDF<br>(Soon)</span>
+                            <button class="btn-export-red" onclick="exportPDF()">
+                                <i class="fa-solid fa-file-pdf"></i>
+                                <span>Xuất PDF</span>
                             </button>
-                            <button class="btn-solid-red" onclick="window.print()">In báo cáo</button>
+                            <button class="btn-print-solid" onclick="window.print()">
+                                In báo cáo
+                            </button>
                         </div>
                     </div>
 
                     <div class="tabs-nav">
-                        <a onclick="switchTab('month', this)" class="tab-item active"><i class="fa-solid fa-calendar-days"></i> Theo tháng</a>
-                        <a onclick="switchTab('quarter', this)" class="tab-item"><i class="fa-solid fa-chart-bar"></i> Theo quý</a>
-                        <a onclick="switchTab('year', this)" class="tab-item"><i class="fa-solid fa-chart-line"></i> Theo năm</a>
+                        <a onclick="switchTab('month', this)" class="tab-item active">Theo tháng</a>
+                        <a onclick="switchTab('quarter', this)" class="tab-item">Theo quý</a>
+                        <a onclick="switchTab('year', this)" class="tab-item">Theo năm</a>
                     </div>
                     <hr class="divider">
 
                     <div class="filter-row">
-                        <div class="filter-item">
-                            <label>Năm</label>
-                            <select class="custom-select"><option>2025</option><option>2024</option></select>
-                        </div>
-                        <div class="filter-item">
-                            <label>Tháng</label>
-                            <select class="custom-select"><option>Tháng 11</option><option>Tháng 10</option></select>
-                        </div>
+                        <div class="filter-item"><label>Năm</label><select><option>2025</option></select></div>
+                        <div class="filter-item"><label>Tháng</label><select><option>Tháng 11</option></select></div>
                     </div>
                 </div>
 
                 <div id="view-month" class="tab-content active">
-                    
-                    <div class="grid-2-col">
-                        <div class="card-section">
-                            <h3 class="section-title"><i class="fa-solid fa-building"></i> Thống kê theo tòa nhà</h3>
-                            <table class="simple-table">
-                                <thead><tr><th>TÒA NHÀ</th><th>TỔNG PHÒNG</th><th>ĐANG SỬ DỤNG</th><th>TỶ LỆ</th></tr></thead>
-                                <tbody>
-                                    <tr><td><strong>Tòa A</strong></td><td>2</td><td>2</td><td><div class="progress-bar"><div class="fill purple" style="width: 100%;"></div></div><span class="percent">100.0%</span></td></tr>
-                                    <tr><td><strong>Tòa B</strong></td><td>2</td><td>1</td><td><div class="progress-bar"><div class="fill purple" style="width: 50%;"></div></div><span class="percent">50.0%</span></td></tr>
-                                    <tr><td><strong>Tòa C</strong></td><td>0</td><td>0</td><td><div class="progress-bar"><div class="fill purple" style="width: 0%;"></div></div><span class="percent">0.0%</span></td></tr>
-                                    <tr><td><strong>Tòa D</strong></td><td>0</td><td>0</td><td><div class="progress-bar"><div class="fill purple" style="width: 0%;"></div></div><span class="percent">0.0%</span></td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="card-section">
-                            <h3 class="section-title"><i class="fa-regular fa-credit-card"></i> Thống kê thanh toán</h3>
-                            <table class="simple-table">
-                                <thead><tr><th>PHƯƠNG THỨC</th><th>SỐ LƯỢNG</th><th style="text-align: right;">TỶ LỆ</th></tr></thead>
-                                <tbody>
-                                    <tr><td>Tiền mặt</td><td>0</td><td style="text-align: right;">0.0%</td></tr>
-                                    <tr><td>Chuyển khoản</td><td>1</td><td style="text-align: right;">33.3%</td></tr>
-                                    <tr><td>Ví điện tử</td><td>0</td><td style="text-align: right;">0.0%</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
                     <div class="card-section">
-                        <h3 class="section-title"><i class="fa-solid fa-file-invoice"></i> Thống kê đơn đăng ký</h3>
+                        <h3 class="section-title"><i class="fa-solid fa-triangle-exclamation"></i> Hóa đơn cần xử lý</h3>
                         <div class="table-responsive">
-                            <table class="stats-table">
+                            <table class="invoice-table" id="table-month">
                                 <thead>
                                     <tr>
-                                        <th style="width: 25%">LOẠI ĐƠN</th>
-                                        <th style="width: 15%">TỔNG</th>
-                                        <th>CHỜ XỬ LÝ</th>
-                                        <th>ĐÃ DUYỆT</th>
-                                        <th>TỪ CHỐI</th>
+                                        <th>MÃ HĐ</th><th>SINH VIÊN</th><th>PHÒNG</th><th>SỐ TIỀN</th><th>HẠN THANH TOÁN</th><th>TRẠNG THÁI</th>
+                                        <th style="text-align: center;">THAO TÁC</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td>Đăng ký ở</td><td>4</td><td><span class="num-badge orange">1</span></td><td><span class="num-badge green">3</span></td><td><span class="num-badge red">0</span></td></tr>
-                                    <tr><td>Đăng ký tạm trú</td><td>1</td><td><span class="num-badge orange">1</span></td><td><span class="num-badge green">0</span></td><td><span class="num-badge red">0</span></td></tr>
-                                    <tr><td>Chuyển phòng</td><td>1</td><td><span class="num-badge orange">1</span></td><td><span class="num-badge green">0</span></td><td><span class="num-badge red">0</span></td></tr>
-                                    <tr><td>Trả phòng</td><td>1</td><td><span class="num-badge orange">1</span></td><td><span class="num-badge green">0</span></td><td><span class="num-badge red">0</span></td></tr>
-                                    <tr><td>Gia hạn hợp đồng</td><td>1</td><td><span class="num-badge orange">0</span></td><td><span class="num-badge green">1</span></td><td><span class="num-badge red">0</span></td></tr>
-                                    <tr><td>Đăng ký thân nhân</td><td>2</td><td><span class="num-badge orange">0</span></td><td><span class="num-badge green">2</span></td><td><span class="num-badge red">0</span></td></tr>
-                                    <tr><td>Báo cáo sự cố</td><td>1</td><td><span class="num-badge orange">1</span></td><td><span class="num-badge green">0</span></td><td><span class="num-badge red">0</span></td></tr>
-                                    <tr><td>Xin giảm phí</td><td>2</td><td><span class="num-badge orange">0</span></td><td><span class="num-badge green">1</span></td><td><span class="num-badge red">1</span></td></tr>
-                                    <tr><td>Khiếu nại</td><td>1</td><td><span class="num-badge orange">0</span></td><td><span class="num-badge green">1</span></td><td><span class="num-badge red">0</span></td></tr>
+                                    <tr>
+                                        <td class="id-col">#00001</td>
+                                        <td><div class="student-info"><strong>Mai Văn Nam</strong><span>SV001</span></div></td>
+                                        <td><div class="room-info"><strong>Phòng A101</strong><span>Tòa A</span></div></td>
+                                        <td class="money">1.500.000 ₫</td>
+                                        <td class="date-col">15/11/2024</td>
+                                        <td><span class="badge badge-overdue"><span class="dot red"></span> Quá hạn 360 ngày</span></td>
+                                        <td><div class="actions"><button class="btn-detail">Chi tiết</button><button class="btn-bell bell-red" onclick="openOverdue('#00001')"><i class="fa-regular fa-bell"></i></button></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="id-col">#00002</td>
+                                        <td><div class="student-info"><strong>Hồ Thị Phương Thảo</strong><span>SV002</span></div></td>
+                                        <td><div class="room-info"><strong>Phòng A101</strong><span>Tòa A</span></div></td>
+                                        <td class="money">1.500.000 ₫</td>
+                                        <td class="date-col">15/10/2024</td>
+                                        <td><span class="badge badge-paid"><i class="fa-solid fa-check"></i> Đã thanh toán</span></td>
+                                        <td><div class="actions"><button class="btn-detail">Chi tiết</button><button class="btn-bell bell-green" onclick="alert('Đã thanh toán hoàn tất!')"><i class="fa-regular fa-bell"></i></button></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="id-col">#00003</td>
+                                        <td><div class="student-info"><strong>Trần Minh Huy</strong><span>SV002</span></div></td>
+                                        <td><div class="room-info"><strong>Phòng A101</strong><span>Tòa A</span></div></td>
+                                        <td class="money">1.500.000 ₫</td>
+                                        <td class="date-col">15/11/2024</td>
+                                        <td><span class="badge badge-overdue"><span class="dot red"></span> Quá hạn 360 ngày</span></td>
+                                        <td><div class="actions"><button class="btn-detail">Chi tiết</button><button class="btn-bell bell-red" onclick="openOverdue('#00003')"><i class="fa-regular fa-bell"></i></button></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="id-col">#00007</td>
+                                        <td><div class="student-info"><strong>Ngô Mai Bảo Trân</strong><span>SV004</span></div></td>
+                                        <td><div class="room-info"><strong>Phòng A102</strong><span>Tòa A</span></div></td>
+                                        <td class="money">1.500.000 ₫</td>
+                                        <td class="date-col">15/10/2024</td>
+                                        <td><span class="badge badge-overdue"><span class="dot red"></span> Quá hạn 391 ngày</span></td>
+                                        <td><div class="actions"><button class="btn-detail">Chi tiết</button><button class="btn-bell bell-red" onclick="openOverdue('#00007')"><i class="fa-regular fa-bell"></i></button></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="id-col">#00009</td>
+                                        <td><div class="student-info"><strong>Cầu Vàng</strong><span>SV001</span></div></td>
+                                        <td><div class="room-info"><strong>Phòng A101</strong><span>Tòa A</span></div></td>
+                                        <td class="money">1.500.000 ₫</td>
+                                        <td class="date-col">14/12/2025</td>
+                                        <td><span class="badge badge-pending"><i class="fa-regular fa-clock"></i> Còn 35 ngày</span></td>
+                                        <td><div class="actions"><button class="btn-detail">Chi tiết</button><button class="btn-bell bell-green" onclick="openPayment('#00009')"><i class="fa-regular fa-bell"></i></button></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="id-col">#00010</td>
+                                        <td><div class="student-info"><strong>Anh Hai Fo</strong><span>SV002</span></div></td>
+                                        <td><div class="room-info"><strong>Phòng A101</strong><span>Tòa A</span></div></td>
+                                        <td class="money">1.500.000 ₫</td>
+                                        <td class="date-col">14/12/2025</td>
+                                        <td><span class="badge badge-pending"><i class="fa-regular fa-clock"></i> Còn 35 ngày</span></td>
+                                        <td><div class="actions"><button class="btn-detail">Chi tiết</button><button class="btn-bell bell-green" onclick="openPayment('#00010')"><i class="fa-regular fa-bell"></i></button></div></td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
-
-                    <div class="card-section">
-                        <h3 class="section-title"><i class="fa-solid fa-star" style="color: gold;"></i> Sinh viên đóng phí đầy đủ</h3>
-                        <table class="simple-table">
-                            <thead>
-                                <tr><th>STT</th><th>SINH VIÊN</th><th>MSSV</th><th>SỐ HÓA ĐƠN ĐÃ THANH TOÁN</th><th>TỔNG TIỀN ĐÃ ĐÓNG</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>1</td><td>Mai Văn Nam</td><td>SV001</td><td>1</td><td class="text-green">1.500.000 ₫</td></tr>
-                                <tr><td>2</td><td>Trần Minh Huy</td><td>SV002</td><td>1</td><td class="text-green">1.500.000 ₫</td></tr>
-                                <tr><td>3</td><td>Trần Minh Quân</td><td>SV003</td><td>1</td><td class="text-green">1.500.000 ₫</td></tr>
-                                <tr><td>4</td><td>Phạm Chí Tâm</td><td>SV004</td><td>0</td><td class="text-green">0 ₫</td></tr>
-                                <tr><td>5</td><td>Phạm Thị Nở</td><td>SV005</td><td>0</td><td class="text-green">0 ₫</td></tr>
-                                <tr><td>6</td><td>Lão Hạc</td><td>SV006</td><td>0</td><td class="text-green">0 ₫</td></tr>
-                                <tr><td>7</td><td>Nguyễn Thị Lan</td><td>SV007</td><td>1</td><td class="text-green">1.500.000 ₫</td></tr>
-                                <tr><td>8</td><td>Lê Duy Đan</td><td>SV008</td><td>1</td><td class="text-green">1.500.000 ₫</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="grid-2-col">
-                        <div class="card-section">
-                            <h3 class="section-title"><i class="fa-solid fa-chart-column" style="color: green;"></i> Biểu đồ doanh thu</h3>
-                            <div class="chart-list">
-                                <div class="chart-item">
-                                    <div class="chart-header"><span>Đã thu (3 hóa đơn)</span><span>30.0%</span></div>
-                                    <div class="progress-bg"><div class="fill green" style="width: 30%;"></div></div>
-                                </div>
-                                <div class="chart-item">
-                                    <div class="chart-header"><span>Chưa thu (7 hóa đơn)</span><span>70.0%</span></div>
-                                    <div class="progress-bg"><div class="fill orange" style="width: 70%;"></div></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-section">
-                            <h3 class="section-title"><i class="fa-solid fa-chart-pie" style="color: orange;"></i> Tỷ lệ phòng</h3>
-                            <div class="chart-list">
-                                <div class="chart-item">
-                                    <div class="chart-header"><span>Đang sử dụng</span><span>3 (75.0%)</span></div>
-                                    <div class="progress-bg"><div class="fill purple" style="width: 75%;"></div></div>
-                                </div>
-                                <div class="chart-item">
-                                    <div class="chart-header"><span>Còn trống</span><span>4 (100.0%)</span></div>
-                                    <div class="progress-bg"><div class="fill teal" style="width: 100%;"></div></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
 
                 <div id="view-quarter" class="tab-content">
-                    <div class="card-section"><h2 style="text-align:center; padding:50px; color:#888;">Dữ liệu Báo cáo Quý đang cập nhật...</h2></div>
+                    <div class="grid-2-col">
+                        <div class="card-section">
+                            <h3 class="section-title"><i class="fa-solid fa-chart-area"></i> Chi tiết Quý 4</h3>
+                            <table class="simple-table" id="table-quarter">
+                                <thead><tr><th>THÁNG</th><th>DOANH THU</th><th>TỶ LỆ</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Tháng 10</td><td class="text-green">300.000.000 ₫</td><td>96%</td></tr>
+                                    <tr><td>Tháng 11</td><td class="text-green">300.000.000 ₫</td><td>85%</td></tr>
+                                    <tr><td>Tháng 12</td><td class="text-green">300.000.000 ₫</td><td>95%</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
+
                 <div id="view-year" class="tab-content">
-                    <div class="card-section"><h2 style="text-align:center; padding:50px; color:#888;">Dữ liệu Báo cáo Năm đang cập nhật...</h2></div>
+                    <div class="card-section">
+                        <h3 class="section-title"><i class="fa-solid fa-chart-line"></i> Tổng hợp Năm 2025</h3>
+                        <table class="simple-table" id="table-year">
+                            <thead><tr><th>QUÝ</th><th>DOANH THU</th><th>CHI PHÍ</th><th>LỢI NHUẬN</th></tr></thead>
+                            <tbody>
+                                <tr><td>Quý 1</td><td>900 Tr</td><td style="color:red">-200 Tr</td><td style="color:green">700 Tr</td></tr>
+                                <tr><td>Quý 2</td><td>850 Tr</td><td style="color:red">-250 Tr</td><td style="color:green">600 Tr</td></tr>
+                                <tr><td>Quý 3</td><td>950 Tr</td><td style="color:red">-200 Tr</td><td style="color:green">750 Tr</td></tr>
+                                <tr><td>Quý 4</td><td>900 Tr</td><td style="color:red">-200 Tr</td><td style="color:green">700 Tr</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
             </div>
         </div>
     </div>
 
+    <div class="modal-overlay" id="modal-overdue">
+        <div class="modal-confirm">
+            <div class="icon-circle bg-red-light"><i class="fa-solid fa-bell text-red"></i></div>
+            <h2 class="confirm-title">Gửi thông báo Quá hạn?</h2>
+            <p class="confirm-desc">Bạn có muốn gửi thông báo nhắc nhở đóng phí cho hóa đơn <span id="overdue-id">...</span> không?</p>
+            <div class="modal-buttons">
+                <button class="btn-back" onclick="closeModal('modal-overdue')">Hủy</button>
+                <button class="btn-confirm btn-red" onclick="sendOverdue()">Gửi thông báo</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-payment">
+        <div class="modal-confirm">
+            <div class="icon-circle bg-green-light"><i class="fa-solid fa-check text-green"></i></div>
+            <h2 class="confirm-title">Xác nhận Thanh toán?</h2>
+            <p class="confirm-desc">Xác nhận đã nhận đủ tiền cho hóa đơn <span id="payment-id">...</span>?</p>
+            <div class="modal-buttons">
+                <button class="btn-back" onclick="closeModal('modal-payment')">Hủy</button>
+                <button class="btn-confirm btn-green" onclick="confirmPayment()">Xác nhận</button>
+            </div>
+        </div>
+    </div>
+
     <script>
+        let currentId = '';
+
         function switchTab(viewId, element) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.tab-item').forEach(el => el.classList.remove('active'));
-            
             document.getElementById('view-' + viewId).classList.add('active');
             element.classList.add('active');
         }
 
+        function openOverdue(id) {
+            currentId = id;
+            document.getElementById('overdue-id').innerText = id;
+            document.getElementById('modal-overdue').style.display = 'flex';
+        }
+
+        function openPayment(id) {
+            currentId = id;
+            document.getElementById('payment-id').innerText = id;
+            document.getElementById('modal-payment').style.display = 'flex';
+        }
+
+        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+        
+        function sendOverdue() { alert('Đã gửi thông báo quá hạn cho ' + currentId); closeModal('modal-overdue'); }
+        function confirmPayment() { alert('Đã xác nhận thanh toán ' + currentId); closeModal('modal-payment'); }
+
         function exportExcel() {
-            // Demo xuất bảng đơn đăng ký
-            const table = document.querySelector("#view-month .stats-table");
+            const table = document.querySelector('.tab-content.active table');
             const ws = XLSX.utils.table_to_sheet(table);
             const wb = XLSX.utils.book_new();
-            XLSX.utils.book_append_sheet(wb, ws, "BaoCao");
-            XLSX.writeFile(wb, "Bao_Cao_Tong_Hop.xlsx");
+            XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+            XLSX.writeFile(wb, "BaoCao.xlsx");
         }
 
         function exportPDF() {
             const element = document.getElementById('main-export-area');
-            html2pdf().set({ margin: 0.2, filename: 'Bao_Cao.pdf', image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2 }, jsPDF: { unit: 'in', format: 'a4', orientation: 'landscape' } }).from(element).save();
+            html2pdf().set({ margin: 0.2, filename: 'BaoCao.pdf', image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2 }, jsPDF: { unit: 'in', format: 'a4', orientation: 'landscape' } }).from(element).save();
         }
     </script>
 
