@@ -5,25 +5,13 @@ body { background-color: #f5f7fa; height: 100vh; overflow: hidden; }
 .app-container { display: flex; height: 100%; }
 
 /* --- SIDEBAR --- */
-.sidebar {
-    width: 250px; background: white; border-right: 1px solid #e0e0e0;
-    display: flex; flex-direction: column; flex-shrink: 0;
-}
-.sidebar-header {
-    height: 70px; display: flex; align-items: center; justify-content: center;
-    padding: 0 15px; border-bottom: 1px solid #f0f0f0;
-}
+.sidebar { width: 260px; background: white; border-right: 1px solid #e0e0e0; display: flex; flex-direction: column; flex-shrink: 0; }
+.sidebar-header { height: 70px; display: flex; align-items: center; justify-content: center; padding: 0 15px; border-bottom: 1px solid #f0f0f0; }
 .vlu-logo { height: 40px; object-fit: contain; }
-
 .sidebar-menu ul { list-style: none; padding-top: 20px; }
 .sidebar-menu li { margin-bottom: 5px; }
-.sidebar-menu a {
-    display: flex; align-items: center; padding: 12px 20px;
-    text-decoration: none; color: #333; font-weight: 500; font-size: 14px;
-    transition: all 0.2s;
-}
+.sidebar-menu a { display: flex; align-items: center; padding: 12px 20px; text-decoration: none; color: #333; font-weight: 500; font-size: 14px; transition: all 0.2s; }
 .sidebar-menu a i { width: 25px; margin-right: 10px; font-size: 16px; }
-/* Active: Red Background */
 .sidebar-menu li.active a { background-color: #ff0000; color: white; }
 .sidebar-menu li:not(.active) a:hover { background-color: #f9f9f9; }
 

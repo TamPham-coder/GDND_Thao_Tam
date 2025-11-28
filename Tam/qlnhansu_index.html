@@ -9,17 +9,18 @@
 </head>
 <body>
 
-    <div class="app-container">
+    <div class="app-container" id="mainContainer">
         <aside class="sidebar">
             <div class="sidebar-header">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Van_Lang_University_Logo.png/1200px-Van_Lang_University_Logo.png" alt="VLU Logo" class="vlu-logo">
+                <img src="image/logo.png" alt="VLU Logo" class="vlu-logo">
             </div>
             <nav class="sidebar-menu">
                 <ul>
-                    <li><a href="#"><i class="fa-solid fa-house"></i> Tổng quan (Toàn KTX)</a></li>
-                    <li class="active"><a href="#"><i class="fa-solid fa-user-tie"></i> Quản lý Nhân sự</a></li>
-                    <li><a href="#"><i class="fa-solid fa-file-contract"></i> Quản lý Hợp đồng</a></li>
-                    <li><a href="#"><i class="fa-solid fa-chart-pie"></i> Báo cáo Tổng hợp</a></li>
+                    <li><a href="tongquan_qlktx_index.html"><i class="fa-solid fa-house"></i> Tổng quan (Toàn KTX)</a></li>
+                    <li class="active"><a href="qlnhansu_index.html"><i class="fa-solid fa-user-tie"></i> Quản lý Nhân sự</a></li>
+                    <li><a href="qlhopdong_index.html"><i class="fa-solid fa-file-contract"></i> Quản lý Hợp đồng</a></li>
+                    <li><a href="baocao_tonghop_index.html"><i class="fa-solid fa-chart-pie"></i> Báo cáo Tổng hợp</a></li>
+                    <li><a href="dangnhap_index.html"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất </a></li>
                 </ul>
             </nav>
         </aside>
@@ -31,7 +32,7 @@
                     <h1 class="page-title">Ký Túc Xá Trường đại học Văn Lang</h1>
                 </div>
                 <div class="user-info">
-                    <span class="user-name">Mai Văn Nam - 71K29CNTT03</span>
+                    <span class="user-name">Phạm Chí Tâm - 71K29CNTT03</span>
                     <span class="user-role">Quản lý Ký túc xá</span>
                     <div class="user-avatar"><i class="fa-solid fa-user"></i></div>
                 </div>
@@ -56,7 +57,9 @@
                 <div class="hr-section">
                     <div class="section-header"><i class="fa-solid fa-users"></i> Quản lý Nhân sự</div>
                     
-                    <button class="btn-add-hr">+ Thêm Nhân sự</button>
+                    <button class="btn-add-hr" id="btnOpenAddModal">
+                        + Thêm Nhân sự
+                    </button>
 
                     <div class="filter-bar">
                         <div class="filter-item"><label>Vai trò</label><select><option>Tất cả</option></select></div>
@@ -82,17 +85,17 @@
                                     <td>
                                         <div class="user-cell">
                                             <div class="avatar-circle bg-orange">P</div>
-                                            <div class="user-text"><strong>Phạm Chí Tâm</strong><span>@nhanvienphong</span></div>
+                                            <div class="user-text"><strong class="row-name">Trần Minh Huy</strong><span>@nhanvienphong</span></div>
                                         </div>
                                     </td>
-                                    <td>tamg@ktx.edu.vn</td>
+                                    <td>huy@ktx.edu.vn</td>
                                     <td>0900000000</td>
                                     <td><span class="badge-role">Nhân viên Phòng</span></td>
-                                    <td><span class="badge-status">Dang Online</span></td>
+                                    <td><span class="badge-status">Đang Online</span></td>
                                     <td>
-                                        <button class="btn-action btn-detail">Chi tiết</button>
-                                        <button class="btn-action btn-delete">Xóa</button>
-                                        <button class="btn-action btn-edit">Khóa</button>
+                                        <button class="btn-action btn-detail" onclick="showDetail('#1', 'Trần Minh Huy')">Chi tiết</button>
+                                        <button class="btn-action btn-delete" onclick="showConfirm('delete', 'Trần Minh Huy')">Xóa</button>
+                                        <button class="btn-action btn-edit" onclick="showConfirm('lock', 'Trần Minh Huy ')">Khóa</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -100,17 +103,17 @@
                                     <td>
                                         <div class="user-cell">
                                             <div class="avatar-circle bg-orange">H</div>
-                                            <div class="user-text"><strong>Hồ Thị Phương Thảo</strong><span>@nhanvientaichinh</span></div>
+                                            <div class="user-text"><strong class="row-name">Hồ Thị Phương Thảo</strong><span>@nhanvientaichinh</span></div>
                                         </div>
                                     </td>
                                     <td>thao@ktx.edu.vn</td>
                                     <td>0901233333</td>
                                     <td><span class="badge-role">Nhân viên Tài chính</span></td>
-                                    <td><span class="badge-offline">Dang Offline</span></td>
+                                    <td><span class="badge-offline">Đang Offline</span></td>
                                     <td>
-                                        <button class="btn-action btn-detail">Chi tiết</button>
-                                        <button class="btn-action btn-delete">Xóa</button>
-                                        <button class="btn-action btn-edit">Khóa</button>
+                                        <button class="btn-action btn-detail" onclick="showDetail('#2', 'Hồ Thị Phương Thảo')">Chi tiết</button>
+                                        <button class="btn-action btn-delete" onclick="showConfirm('delete', 'Hồ Thị Phương Thảo')">Xóa</button>
+                                        <button class="btn-action btn-edit" onclick="showConfirm('lock', 'Hồ Thị Phương Thảo')">Khóa</button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -120,6 +123,159 @@
             </div>
         </div>
     </div>
+
+    <div class="modal-overlay" id="modalAdd" style="display: none;">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>Chỉnh sửa thông tin nhân sự</h3>
+                <button class="close-btn" onclick="closeAllModals()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form>
+                <div class="form-group">
+                    <label>Họ và tên <span class="required">*</span></label>
+                    <input type="text" value="Trần Thị Bình">
+                </div>
+                <div class="form-group">
+                    <label>Email <span class="required">*</span></label>
+                    <input type="text" value="binh@ktx.edu.vn">
+                </div>
+                <div class="form-group">
+                    <label>Số điện thoại <span class="required">*</span></label>
+                    <input type="text" value="0901234568">
+                </div>
+                <div class="form-group">
+                    <label>Vai trò <span class="required">*</span></label>
+                    <select>
+                        <option selected>👩‍💼 Nhân viên quản lý phòng</option>
+                        <option>👨‍💼 Nhân viên tài chính</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-cancel" onclick="closeAllModals()"><i class="fa-solid fa-xmark"></i> Hủy</button>
+                    <button type="button" class="btn-save" onclick="window.location.href='qlnhansu_index.html'">
+                        Lưu
+                    </button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalDetail" style="display: none;">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>Thông tin chi tiết</h3>
+                <button class="close-btn" onclick="closeAllModals()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="detail-content">
+                <div class="detail-row"><strong>Mã nhân viên:</strong> <span id="d-id">...</span></div>
+                <div class="detail-row"><strong>Họ và tên:</strong> <span id="d-name">...</span></div>
+                <div class="detail-row"><strong>Ngày sinh:</strong> <span>01/01/2005</span></div>
+                <div class="detail-row"><strong>Địa chỉ:</strong> <span>TP. Hồ Chí Minh</span></div>
+                <div class="detail-row"><strong>CCCD:</strong> <span>079123456789</span></div>
+                <div class="detail-row"><strong>Ngày vào làm:</strong> <span>15/08/2023</span></div>
+                <div class="detail-row"><strong>Ghi chú:</strong> <span>Nhân viên gương mẫu, hoàn thành tốt nhiệm vụ.</span></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-save" style="width: 100%;" onclick="closeAllModals()">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalConfirm" style="display: none;">
+        <div class="confirm-box">
+            <div class="confirm-icon-circle" id="c-icon-bg">
+                <i class="fa-solid fa-trash" id="c-icon"></i>
+            </div>
+            
+            <h2 class="confirm-title" id="c-title">Xóa Phòng A101?</h2>
+            <p class="confirm-desc" id="c-desc">
+                Bạn có chắc chắn muốn xóa phòng này không?
+            </p>
+            <p class="confirm-note" id="c-note">
+                </p>
+
+            <div class="confirm-actions">
+                <button class="btn-conf-cancel" onclick="closeAllModals()">Không, quay lại</button>
+                <button class="btn-conf-ok" id="c-btn-ok">Đồng ý xóa</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const mainContainer = document.getElementById('mainContainer');
+        const modalAdd = document.getElementById('modalAdd');
+        const modalDetail = document.getElementById('modalDetail');
+        const modalConfirm = document.getElementById('modalConfirm');
+
+        // Hàm chung để đóng tất cả modal
+        function closeAllModals() {
+            modalAdd.style.display = 'none';
+            modalDetail.style.display = 'none';
+            modalConfirm.style.display = 'none';
+            mainContainer.classList.remove('blur-effect');
+        }
+
+        // 1. Mở Modal Thêm mới
+        document.getElementById('btnOpenAddModal').onclick = function() {
+            modalAdd.style.display = 'flex';
+            mainContainer.classList.add('blur-effect');
+        }
+
+        // 2. Mở Modal Chi tiết
+        function showDetail(id, name) {
+            document.getElementById('d-id').innerText = id;
+            document.getElementById('d-name').innerText = name;
+            modalDetail.style.display = 'flex';
+            mainContainer.classList.add('blur-effect');
+        }
+
+        // 3. Mở Modal Xác nhận (Dùng chung cho Xóa và Khóa)
+        function showConfirm(type, name) {
+            modalConfirm.style.display = 'flex';
+            mainContainer.classList.add('blur-effect');
+            
+            const title = document.getElementById('c-title');
+            const desc = document.getElementById('c-desc');
+            const note = document.getElementById('c-note');
+            const btnOk = document.getElementById('c-btn-ok');
+            const icon = document.getElementById('c-icon');
+            const iconBg = document.getElementById('c-icon-bg');
+
+            if (type === 'delete') {
+                // Giao diện cho XÓA (Màu đỏ)
+                icon.className = 'fa-solid fa-trash';
+                iconBg.style.backgroundColor = '#ffebee'; // Hồng nhạt
+                icon.style.color = '#d32f2f'; // Đỏ
+
+                title.innerText = `Xóa nhân sự ${name}?`;
+                desc.innerText = 'Bạn có chắc chắn muốn xóa nhân sự này khỏi hệ thống không?';
+                note.innerHTML = `<strong>Lưu ý:</strong> Hành động này không thể hoàn tác. Mọi dữ liệu liên quan đến nhân sự này sẽ bị xóa vĩnh viễn.`;
+                
+                btnOk.innerText = 'Đồng ý xóa';
+                btnOk.style.backgroundColor = '#d32f2f';
+            } else {
+                // Giao diện cho KHÓA (Màu cam/vàng hoặc giữ đỏ tùy ý, ở đây mình để đỏ cho giống ảnh mẫu nhưng đổi text)
+                icon.className = 'fa-solid fa-lock';
+                iconBg.style.backgroundColor = '#ffebee'; 
+                icon.style.color = '#d32f2f';
+
+                title.innerText = `Khóa tài khoản ${name}?`;
+                desc.innerText = 'Bạn có chắc chắn muốn vô hiệu hóa tài khoản này không?';
+                note.innerHTML = `<strong>Lưu ý:</strong> Nhân sự sẽ không thể đăng nhập vào hệ thống cho đến khi tài khoản được mở khóa lại bởi Admin.`;
+                
+                btnOk.innerText = 'Xác nhận khóa';
+                btnOk.style.backgroundColor = '#d32f2f';
+            }
+        }
+
+        // Đóng khi click ra ngoài
+        window.onclick = function(event) {
+            if (event.target == modalAdd || event.target == modalDetail || event.target == modalConfirm) {
+                closeAllModals();
+            }
+        }
+    </script>
 
 </body>
 </html>
