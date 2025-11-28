@@ -19,10 +19,21 @@
                 
                 <label class="input-label">Tên đăng nhập / MSSV / CCCD</label>
                 <div class="account-select-stack">
-                    <div class="fake-select active">-- Chọn tài khoản đăng nhập --</div>
-                    <div class="fake-select option">-- Ban quản lý phòng --</div>
-                    <div class="fake-select option">-- Ban quản lý ký túc xá --</div>
-                    <div class="fake-select option">-- Nhân viên tài chỉnh --</div>
+                   <div class="fake-select active" onclick="window.location.href='trangchu.html'">
+                        -- Chọn tài khoản đăng nhập --
+                    </div>
+                    <div class="fake-select option" onclick="window.location.href='trangchu.html'">
+                        -- Ban quản lý phòng --
+                    </div>
+                    <div class="fake-select option" onclick="window.location.href='trangchu.html'">
+                        -- Ban quản lý ký túc xá --
+                    </div>
+                    <div class="fake-select option" onclick="window.location.href='trangchu.html'">
+                        -- Nhân viên tài chỉnh --
+                    </div>
+                    <div class="fake-select option" onclick="window.location.href='tongquan_index.html'">
+                        -- Sinh viên --
+                    </div>
                 </div>
 
                 <div class="input-group">
@@ -30,10 +41,12 @@
                     <input type="password" class="custom-input" value="123456">
                 </div>
 
-                <button type="button" class="btn-login">Đăng nhập</button>
+                <button type="button" class="btn-login" onclick="window.location.href='tongquan_index.html'">
+                    Đăng nhập
+                </button>
 
                 <div class="register-link">
-                    Chưa có tài khoản? <a href="#">Đăng ký ngay</a>
+                    Chưa có tài khoản? <a href="luuy_index.html">Đăng ký ngay</a>
                 </div>
             </form>
         </div>
