@@ -14,14 +14,14 @@
     <div class="app-container" id="main-container">
         <aside class="sidebar">
             <div class="sidebar-header">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Van_Lang_University_Logo.png/1200px-Van_Lang_University_Logo.png" alt="VLU Logo" class="vlu-logo">
+                <img src="image/logo.png" alt="VLU Logo" class="vlu-logo">
             </div>
             <nav class="sidebar-menu">
                 <ul>
-                    <li><a href="#"><i class="fa-solid fa-house"></i> Tổng quan (Toàn KTX)</a></li>
-                    <li><a href="#"><i class="fa-solid fa-user-tie"></i> Quản lý Nhân sự</a></li>
-                    <li class="active"><a href="#"><i class="fa-solid fa-file-contract"></i> Quản lý hợp đồng</a></li>
-                    <li><a href="#"><i class="fa-solid fa-chart-pie"></i> Báo cáo tổng hợp</a></li>
+                    <li><a href="tongquan_qlktx_index.html"><i class="fa-solid fa-house"></i> Tổng quan (Toàn KTX)</a></li>
+                    <li><a href="qlnhansu_index.html"><i class="fa-solid fa-user-tie"></i> Quản lý Nhân sự</a></li>
+                    <li class="active"><a href="qlhopdong_index.html"><i class="fa-solid fa-file-contract"></i> Quản lý hợp đồng</a></li>
+                    <li><a href="baocao_tonghop_index.html"><i class="fa-solid fa-chart-pie"></i> Báo cáo Tổng hợp</a></li>
                 </ul>
             </nav>
         </aside>
@@ -33,7 +33,7 @@
                     <h1 class="page-title">Ký Túc Xá Trường đại học Văn Lang</h1>
                 </div>
                 <div class="user-info">
-                    <span class="user-name">Mai Văn Nam - 71K29CNTT03</span>
+                    <span class="user-name">Phạm Chí Tâm - 71K29CNTT03</span>
                     <span class="user-role">Quản lý Ký túc xá</span>
                     <div class="user-avatar"><i class="fa-solid fa-user"></i></div>
                 </div>
@@ -61,7 +61,10 @@
 
                 <div class="card-section">
                     <div class="section-header"><i class="fa-regular fa-file"></i> Quản lý hợp đồng</div>
-                    <a href="tao-hop-dong.html" class="btn-create-big">+ Tạo hợp đồng</a>
+                    
+                    <button class="btn-create-big" onclick="openCreateModal()">
+                        + Tạo hợp đồng
+                    </button>
 
                     <div class="filter-bar">
                         <div class="filter-item" style="width: 250px;">
@@ -89,7 +92,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><strong>HD00001</strong></td>
+                                    <td><strong>#0001</strong></td>
                                     <td><div class="student-info"><span class="student-name">Phạm Thị Diệu</span><span class="student-code">SV001</span></div></td>
                                     <td><span class="room-info">Phòng A101</span><span class="room-sub">Tòa A</span></td>
                                     <td><div class="time-range"><span>01/09/2024</span><span>-> 30/06/2025</span></div></td>
@@ -98,26 +101,23 @@
                                     <td>
                                         <div class="action-group">
                                             <button class="btn-icon-excel" onclick="exportToExcel()"><i class="fa-solid fa-file-excel"></i></button>
-                                            
                                             <button class="btn-detail-red" onclick="openDetailModal('Phạm Thị Diệu', 'SV001')">Chi tiết</button>
                                             <button class="btn-notify-green" onclick="openNotifyModal('Phạm Thị Diệu')"><i class="fa-regular fa-clock"></i></button>
                                         </div>
                                     </td>
                                 </tr>
-                                
                                 <tr>
-                                    <td><strong>HD00002</strong></td>
-                                    <td><div class="student-info"><span class="student-name">Hoàng Văn Em</span><span class="student-code">SV002</span></div></td>
-                                    <td><span class="room-info">Phòng A101</span><span class="room-sub">Tòa A</span></td>
+                                    <td><strong>#0002</strong></td>
+                                    <td><div class="student-info"><span class="student-name">Hoàng Văn Hóa</span><span class="student-code">SV002</span></div></td>
+                                    <td><span class="room-info">Phòng B102</span><span class="room-sub">Tòa A</span></td>
                                     <td><div class="time-range"><span>01/09/2024</span><span>-> 30/06/2025</span></div></td>
                                     <td class="price">1.500.000 ₫</td>
                                     <td><span class="badge-expired"><span class="badge-dot"></span> Đã hết hạn</span></td>
                                     <td>
                                         <div class="action-group">
                                             <button class="btn-icon-excel" onclick="exportToExcel()"><i class="fa-solid fa-file-excel"></i></button>
-                                            
-                                            <button class="btn-detail-red" onclick="openDetailModal('Hoàng Văn Em', 'SV002')">Chi tiết</button>
-                                            <button class="btn-notify-green" onclick="openNotifyModal('Hoàng Văn Em')"><i class="fa-regular fa-clock"></i></button>
+                                            <button class="btn-detail-red" onclick="openDetailModal('Hoàng Văn Hóa', 'SV002')">Chi tiết</button>
+                                            <button class="btn-notify-green" onclick="openNotifyModal('Hoàng Văn Hóa')"><i class="fa-regular fa-clock"></i></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -178,47 +178,154 @@
         </div>
     </div>
 
+    <div class="modal-overlay" id="modal-create">
+        <div class="modal-box" style="width: 800px; max-height: 90vh; overflow-y: auto;">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-plus-circle"></i> Tạo hợp đồng nội trú mới</h3>
+                <button class="close-btn" onclick="closeModal('modal-create')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="POST">
+                    <h4 style="margin: 0 0 15px; color: #d32f2f; font-size: 14px;">I. Thông tin sinh viên</h4>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Tìm kiếm sinh viên <span class="required">*</span></label>
+                            <input type="text" placeholder="Nhập MSSV hoặc Họ tên để tìm kiếm...">
+                        </div>
+                        <div class="form-group">
+                            <label>Họ và tên</label>
+                            <input type="text" readonly value="Phạm Chí Tâm" style="background: #f0f0f0;">
+                        </div>
+                        <div class="form-group">
+                            <label>MSSV</label>
+                            <input type="text" readonly value="2374802010449" style="background: #f0f0f0;">
+                        </div>
+                        <div class="form-group">
+                            <label>Lớp/Ngành</label>
+                            <input type="text" readonly value="K29 - Công nghệ thông tin" style="background: #f0f0f0;">
+                        </div>
+                    </div>
+
+                    <h4 style="margin: 20px 0 15px; color: #d32f2f; font-size: 14px;">II. Thông tin phòng & Thời hạn</h4>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Chọn Tòa nhà <span class="required">*</span></label>
+                            <select>
+                                <option>-- Chọn tòa --</option>
+                                <option>Tòa A</option>
+                                <option>Tòa B</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Chọn Phòng <span class="required">*</span></label>
+                            <select>
+                                <option>-- Chọn phòng --</option>
+                                <option>A101 (Còn trống 1)</option>
+                                <option>A102 (Còn trống 2)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Ngày bắt đầu <span class="required">*</span></label>
+                            <input type="date">
+                        </div>
+                        <div class="form-group">
+                            <label>Ngày kết thúc (Dự kiến) <span class="required">*</span></label>
+                            <input type="date">
+                        </div>
+                        <div class="form-group">
+                            <label>Giá phòng (VNĐ/Tháng)</label>
+                            <input type="text" value="1.500.000" readonly style="background: #f0f0f0; font-weight: bold; color: #2e7d32;">
+                        </div>
+                        <div class="form-group">
+                            <label>Tiền cọc (VNĐ)</label>
+                            <input type="text" value="3.000.000">
+                        </div>
+                    </div>
+
+                    <h4 style="margin: 20px 0 15px; color: #d32f2f; font-size: 14px;">III. Điều khoản hợp đồng</h4>
+                    <div class="contract-terms">
+                        <p>1. Sinh viên cam kết tuân thủ nội quy ký túc xá...</p>
+                        <p>2. Thanh toán tiền phòng đúng hạn trước ngày 05 hàng tháng...</p>
+                        <p>3. Giữ gìn vệ sinh chung và bảo quản tài sản...</p>
+                        <p>4. Không nấu ăn, không sử dụng chất kích thích...</p>
+                        <p>...</p>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="agree">
+                        <label for="agree" style="display:inline;">Tôi xác nhận thông tin trên là chính xác và sinh viên đã đồng ý với điều khoản.</label>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-cancel" onclick="closeModal('modal-create')">Hủy bỏ</button>
+                        <button type="button" class="btn-submit">Tạo hợp đồng</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script>
         // --- Hàm Xuất Excel ---
         function exportToExcel() {
-            // Lấy bảng theo ID
             const table = document.getElementById("contract-table");
-            
-            // Tạo WorkSheet từ bảng
             const wb = XLSX.utils.table_to_sheet(table);
-            
-            // Tạo WorkBook mới
             const wbook = XLSX.utils.book_new();
-            
-            // Thêm Sheet vào Book
             XLSX.utils.book_append_sheet(wbook, wb, "DanhSachHopDong");
-            
-            // Tải file xuống
             XLSX.writeFile(wbook, "Danh_Sach_Hop_Dong_KTX.xlsx");
         }
 
-        // --- Hàm Modal cũ ---
+        // --- Hàm Quản lý Modal ---
+        const mainContainer = document.getElementById('main-container');
+
+        // Mở Modal Chi tiết
         function openDetailModal(name, mssv) {
             document.getElementById('detail-name').innerText = name;
             document.getElementById('detail-mssv').innerText = mssv;
             document.getElementById('modal-detail').style.display = 'flex';
-            document.getElementById('main-container').classList.add('blur-effect');
+            mainContainer.classList.add('blur-effect');
         }
 
+        // Mở Modal Thông báo
         function openNotifyModal(name) {
             document.getElementById('notify-name').innerText = name;
             document.getElementById('modal-notify').style.display = 'flex';
-            document.getElementById('main-container').classList.add('blur-effect');
+            mainContainer.classList.add('blur-effect');
         }
 
+        // Mở Modal Tạo Mới (Hàm mới thêm)
+        function openCreateModal() {
+            document.getElementById('modal-create').style.display = 'flex';
+            mainContainer.classList.add('blur-effect');
+        }
+
+        // Đóng Modal (Dùng chung)
         function closeModal(modalId) {
             document.getElementById(modalId).style.display = 'none';
-            document.getElementById('main-container').classList.remove('blur-effect');
+            
+            // Kiểm tra xem còn modal nào đang mở không, nếu không thì gỡ blur
+            const modals = document.querySelectorAll('.modal-overlay');
+            let anyOpen = false;
+            modals.forEach(m => {
+                if (m.style.display === 'flex') anyOpen = true;
+            });
+            
+            if (!anyOpen) {
+                mainContainer.classList.remove('blur-effect');
+            }
         }
 
         function sendNotification() {
             alert("Đã gửi thông báo nhắc nhở thành công!");
             closeModal('modal-notify');
+        }
+
+        // Đóng khi click ra ngoài vùng trắng (Overlay)
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal-overlay')) {
+                event.target.style.display = 'none';
+                mainContainer.classList.remove('blur-effect');
+            }
         }
     </script>
 
