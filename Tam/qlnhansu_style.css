@@ -1,3 +1,5 @@
+/* --- GIỮ NGUYÊN CODE CŨ TỪ TRƯỚC ĐẾN DÒNG .btn-save --- */
+
 /* Reset & Base */
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Arial, sans-serif; }
 body { background-color: #f5f7fa; height: 100vh; overflow: hidden; }
@@ -6,32 +8,18 @@ body { background-color: #f5f7fa; height: 100vh; overflow: hidden; }
 .app-container { display: flex; height: 100%; transition: filter 0.3s; }
 
 /* Sidebar */
-.sidebar {
-    width: 250px; background: white; border-right: 1px solid #e0e0e0;
-    display: flex; flex-direction: column; flex-shrink: 0;
-}
-.sidebar-header {
-    height: 70px; display: flex; align-items: center; justify-content: center;
-    padding: 0 15px; border-bottom: 1px solid #f0f0f0;
-}
+.sidebar { width: 260px; background: white; border-right: 1px solid #e0e0e0; display: flex; flex-direction: column; flex-shrink: 0; }
+.sidebar-header { height: 70px; display: flex; align-items: center; justify-content: center; padding: 0 15px; border-bottom: 1px solid #f0f0f0; }
 .vlu-logo { height: 40px; object-fit: contain; }
-
 .sidebar-menu ul { list-style: none; padding-top: 20px; }
 .sidebar-menu li { margin-bottom: 5px; }
-.sidebar-menu a {
-    display: flex; align-items: center; padding: 12px 20px;
-    text-decoration: none; color: #333; font-weight: 500; font-size: 14px;
-    transition: all 0.2s;
-}
+.sidebar-menu a { display: flex; align-items: center; padding: 12px 20px; text-decoration: none; color: #333; font-weight: 500; font-size: 14px; transition: all 0.2s; }
 .sidebar-menu a i { width: 25px; margin-right: 10px; font-size: 16px; }
-/* Active Menu */
 .sidebar-menu li.active a { background-color: #ff0000; color: white; }
 .sidebar-menu li:not(.active) a:hover { background-color: #f9f9f9; }
 
 /* Main Panel */
 .main-panel { flex-grow: 1; display: flex; flex-direction: column; }
-
-/* Header */
 .top-header {
     height: 60px; background-color: #ff0000; color: white;
     display: flex; align-items: center; justify-content: space-between;
@@ -40,7 +28,6 @@ body { background-color: #f5f7fa; height: 100vh; overflow: hidden; }
 .header-left { display: flex; align-items: center; gap: 15px; }
 .menu-toggle { background: none; border: none; color: white; font-size: 20px; cursor: pointer; }
 .page-title { font-size: 18px; font-weight: 700; text-transform: uppercase; }
-
 .user-info { display: flex; align-items: center; gap: 10px; font-size: 12px; text-align: right; }
 .user-name { font-weight: 700; display: block; }
 .user-role { opacity: 0.9; display: block; font-size: 10px; }
@@ -48,8 +35,6 @@ body { background-color: #f5f7fa; height: 100vh; overflow: hidden; }
 
 /* Content Body */
 .content-body { padding: 30px 50px; overflow-y: auto; flex-grow: 1; }
-
-/* 1. Stats Cards */
 .stats-row {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
     margin-bottom: 40px;
@@ -62,27 +47,23 @@ body { background-color: #f5f7fa; height: 100vh; overflow: hidden; }
 .card-img { height: 60%; background: #eee; width: 100%; }
 .card-img img { width: 100%; height: 100%; object-fit: cover; }
 .card-text {
-    height: 40%; background-color: #ffebee; /* Nền hồng nhạt */
+    height: 40%; background-color: #ffebee;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
 }
 .card-text h3 { font-size: 16px; font-weight: 700; margin-bottom: 5px; color: #000; }
 .stat-number { font-size: 20px; font-weight: 800; color: #000; }
 
-/* 2. HR Management Section */
 .hr-section {
     background: white; border-radius: 8px; padding: 25px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05); min-height: 400px;
 }
 .section-header { font-size: 16px; font-weight: 700; color: #333; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
-
 .btn-add-hr {
-    width: 100%; background-color: #e53935; /* Đỏ hơi đậm */
-    color: white; border: none; padding: 10px; border-radius: 5px;
+    width: 100%; background-color: #e53935; color: white; border: none; padding: 10px; border-radius: 5px;
     font-weight: 700; font-size: 13px; cursor: pointer; margin-bottom: 20px;
 }
 .btn-add-hr:hover { background-color: #d32f2f; }
 
-/* Filters */
 .filter-bar { display: flex; gap: 20px; margin-bottom: 20px; }
 .filter-item { display: flex; flex-direction: column; gap: 5px; flex: 1; }
 .search-item { flex: 2; }
@@ -92,7 +73,6 @@ body { background-color: #f5f7fa; height: 100vh; overflow: hidden; }
     background: #f9f9f9; outline: none; font-size: 13px;
 }
 
-/* Table */
 .table-responsive { overflow-x: auto; }
 table { width: 100%; border-collapse: collapse; }
 th {
@@ -102,93 +82,112 @@ th {
 td {
     padding: 12px 10px; font-size: 12px; color: #333; border-bottom: 1px solid #f5f5f5; vertical-align: middle;
 }
-
-/* User Cell */
 .user-cell { display: flex; align-items: center; gap: 10px; }
 .avatar-circle {
     width: 28px; height: 28px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     color: white; font-weight: 600; font-size: 12px;
 }
-.bg-orange { background-color: #ff7043; } /* Màu cam avatar */
+.bg-orange { background-color: #ff7043; }
 .user-text strong { display: block; font-size: 12px; }
 .user-text span { font-size: 10px; color: #888; }
-
-/* Badges & Buttons in Table */
-.badge-role {
-    background-color: #ff0000; color: white;
-    padding: 4px 8px; border-radius: 10px; font-size: 10px; font-weight: 600;
-}
-.badge-status {
-    background-color: #00c853; color: white;
-    padding: 4px 8px; border-radius: 10px; font-size: 10px; font-weight: 600;
-}
-.badge-offline {
-    background-color: #757575; color: white;
-    padding: 4px 8px; border-radius: 10px; font-size: 10px; font-weight: 600;
-}
+.badge-role { background-color: #ff0000; color: white; padding: 4px 8px; border-radius: 10px; font-size: 10px; font-weight: 600; }
+.badge-status { background-color: #00c853; color: white; padding: 4px 8px; border-radius: 10px; font-size: 10px; font-weight: 600; }
+.badge-offline { background-color: #757575; color: white; padding: 4px 8px; border-radius: 10px; font-size: 10px; font-weight: 600; }
 
 .btn-action {
     padding: 5px 10px; border: none; border-radius: 4px;
     color: white; font-size: 10px; font-weight: 600; cursor: pointer; margin-right: 5px;
 }
-.btn-detail { background-color: #3d5afe; } /* Xanh dương */
-.btn-delete { background-color: #d32f2f; } /* Đỏ */
-.btn-edit { background-color: #00c853; } /* Xanh lá */
+.btn-detail { background-color: #3d5afe; }
+.btn-delete { background-color: #d32f2f; }
+.btn-edit { background-color: #00c853; }
 
-
-/* --- MODAL STYLES (Dành cho file 2) --- */
-.blur-effect {
-    filter: blur(4px);
-    pointer-events: none;
-    user-select: none;
-}
-
+/* --- MODAL BASE STYLES --- */
+.blur-effect { filter: blur(4px); pointer-events: none; user-select: none; }
 .modal-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Nền đen mờ */
-    display: flex; align-items: center; justify-content: center;
-    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center; z-index: 1000;
 }
-
 .modal-box {
-    background: white;
-    width: 500px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    padding: 25px;
+    background: white; width: 500px; border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); padding: 25px;
     animation: zoomIn 0.3s ease-out;
 }
 @keyframes zoomIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
-
-.modal-header {
-    display: flex; justify-content: space-between; align-items: center;
-    margin-bottom: 20px;
-}
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
 .modal-header h3 { font-size: 16px; font-weight: 700; color: #333; margin: 0; }
 .close-btn { background: none; border: none; font-size: 18px; color: #666; cursor: pointer; }
-
 .form-group { margin-bottom: 15px; }
-.form-group label {
-    display: block; font-size: 12px; font-weight: 700; color: #333; margin-bottom: 5px;
-}
+.form-group label { display: block; font-size: 12px; font-weight: 700; color: #333; margin-bottom: 5px; }
 .required { color: red; }
 .form-group input, .form-group select {
-    width: 100%; padding: 10px;
-    border: 1px solid #e0e0e0; border-radius: 5px;
-    font-size: 13px; outline: none;
+    width: 100%; padding: 10px; border: 1px solid #e0e0e0; border-radius: 5px; font-size: 13px; outline: none;
 }
-
-.modal-footer {
-    display: flex; gap: 15px; margin-top: 25px;
-}
+.modal-footer { display: flex; gap: 15px; margin-top: 25px; }
 .btn-cancel {
     padding: 10px 20px; border: 1px solid #d32f2f; background: white;
-    color: #d32f2f; border-radius: 5px; font-weight: 600; font-size: 13px; cursor: pointer;
-    display: flex; align-items: center; gap: 5px;
+    color: #d32f2f; border-radius: 5px; font-weight: 600; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 5px;
 }
 .btn-save {
     flex-grow: 1; background-color: #ff0000; color: white; border: none;
     padding: 10px; border-radius: 5px; font-weight: 600; font-size: 13px; cursor: pointer;
 }
 .btn-save:hover { background-color: #d60000; }
+
+/* ---------------------------------------------------- */
+/* --- PHẦN MỚI: CSS CHO MODAL CHI TIẾT --- */
+.detail-content { font-size: 13px; color: #333; }
+.detail-row {
+    padding: 10px 0; border-bottom: 1px solid #f0f0f0; display: flex; justify-content: space-between;
+}
+.detail-row strong { color: #555; }
+
+/* --- PHẦN MỚI: CSS CHO MODAL XÁC NHẬN (GIỐNG ẢNH 2) --- */
+.confirm-box {
+    background: white; width: 400px; border-radius: 12px;
+    padding: 30px 20px; text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    animation: zoomIn 0.3s ease-out;
+    position: relative;
+}
+
+/* Icon tròn đỏ nhạt ở giữa */
+.confirm-icon-circle {
+    width: 70px; height: 70px; border-radius: 50%;
+    background-color: #ffebee; /* Hồng nhạt */
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px auto;
+}
+.confirm-icon-circle i {
+    font-size: 30px; color: #d32f2f; /* Đỏ đậm */
+}
+
+/* Tiêu đề & Nội dung */
+.confirm-title {
+    font-size: 20px; font-weight: 700; color: #2c3e50; margin-bottom: 10px;
+}
+.confirm-desc {
+    font-size: 14px; color: #666; margin-bottom: 10px; line-height: 1.5;
+}
+.confirm-note {
+    font-size: 13px; color: #444; margin-bottom: 25px; line-height: 1.4;
+    padding: 0 10px;
+}
+.confirm-note strong { color: #d32f2f; }
+
+/* Button Group Xác nhận */
+.confirm-actions {
+    display: flex; gap: 15px; justify-content: center;
+}
+.btn-conf-cancel {
+    background: white; border: 1px solid #ccc; color: #555;
+    padding: 10px 20px; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 14px;
+    flex: 1;
+}
+.btn-conf-ok {
+    background: #d32f2f; border: none; color: white;
+    padding: 10px 20px; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 14px;
+    flex: 1;
+}
+.btn-conf-ok:hover { background: #b71c1c; }
