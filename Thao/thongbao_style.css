@@ -1,21 +1,23 @@
-/* style.css */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
-
+/* Reset cơ bản */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
 }
 
 body {
     background-color: #f5f7fa;
     height: 100vh;
-    display: flex;
     overflow: hidden;
 }
 
-/* --- SIDEBAR (Menu trái) --- */
+.app-container {
+    display: flex;
+    height: 100%;
+}
+
+/* --- SIDEBAR --- */
 .sidebar {
     width: 260px;
     background-color: white;
@@ -33,51 +35,55 @@ body {
     border-bottom: 1px solid #f0f0f0;
 }
 
-.logo-img {
-    height: 40px; /* Giả lập kích thước logo */
+.vlu-logo {
+    height: 40px;
     object-fit: contain;
 }
 
-.menu-list {
+.sidebar-menu ul {
     list-style: none;
     padding-top: 20px;
 }
 
-.menu-item a {
+.sidebar-menu li {
+    margin-bottom: 5px;
+}
+
+.sidebar-menu a {
     display: flex;
     align-items: center;
     padding: 12px 20px;
     text-decoration: none;
     color: #333;
-    font-weight: 500;
-    font-size: 15px;
+    font-weight: 600;
+    font-size: 14px;
     transition: all 0.2s;
 }
 
-.menu-item i {
+.sidebar-menu a i {
     width: 25px;
     margin-right: 10px;
-    font-size: 18px;
+    font-size: 16px;
 }
 
-/* Trạng thái Active (Màu đỏ) */
-.menu-item.active a {
-    background-color: #ff0000;
+/* Style cho mục đang chọn (Active) */
+.sidebar-menu li.active a {
+    background-color: #ff0000; /* Màu đỏ VLU */
     color: white;
 }
 
-.menu-item:not(.active) a:hover {
+.sidebar-menu li:not(.active) a:hover {
     background-color: #f5f5f5;
 }
 
-/* --- MAIN CONTENT --- */
-.main-content {
+/* --- MAIN PANEL --- */
+.main-panel {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
-/* Top Header (Thanh đỏ) */
+/* Top Header */
 .top-header {
     height: 70px;
     background-color: #ff0000;
@@ -85,23 +91,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0 30px;
     flex-shrink: 0;
 }
 
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.hamburger-btn {
-    font-size: 20px;
-    cursor: pointer;
-}
-
 .page-title {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 700;
     text-transform: uppercase;
 }
@@ -114,8 +109,8 @@ body {
 }
 
 .user-name {
-    font-size: 14px;
     font-weight: 700;
+    font-size: 13px;
     display: block;
 }
 
@@ -128,11 +123,12 @@ body {
 .user-avatar {
     width: 35px;
     height: 35px;
-    background-color: rgba(255,255,255,0.3);
+    background-color: rgba(255,255,255,0.2);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 18px;
 }
 
 /* Content Body */
@@ -143,187 +139,93 @@ body {
 }
 
 .card {
-    background: white;
+    background-color: white;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    padding: 20px;
-    min-height: 500px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    min-height: 80vh; /* Chiều cao tối thiểu cho giống ảnh */
 }
 
-.card-title {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-/* --- STYLES CHO TRANG HÓA ĐƠN --- */
-.filters {
-    display: flex;
-    gap: 30px;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #eee;
-}
-
-.filter-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 48%;
-}
-
-.filter-group label {
-    font-weight: 600;
-    font-size: 13px;
-    color: #333;
-}
-
-.filter-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: #f9f9f9;
-    outline: none;
-    font-size: 14px;
-}
-
-/* Table Styles */
-.invoice-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.invoice-table th {
-    text-align: left;
-    font-size: 12px;
-    color: #666;
-    text-transform: uppercase;
-    padding: 15px 10px;
-    border-bottom: 1px solid #eee;
-}
-
-.invoice-table td {
-    padding: 20px 10px;
-    font-size: 14px;
-    border-bottom: 1px solid #eee;
-    vertical-align: middle;
-}
-
-.room-info {
-    font-weight: 700;
-    color: #333;
-}
-.room-sub {
-    font-size: 12px;
-    color: #888;
-    font-weight: 400;
-    display: block;
-    margin-top: 3px;
-}
-
-.money {
-    color: #4252ef; /* Màu xanh dương giống ảnh */
-    font-weight: 700;
-}
-
-.date-highlight {
-    font-weight: 700;
-}
-
-/* Badges Trạng thái */
-.badge {
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.badge-overdue {
-    background-color: #fdecec;
-    color: #d32f2f;
-}
-.badge-dot-red {
-    width: 8px; height: 8px; background: #d32f2f; border-radius: 50%; display: inline-block;
-}
-
-.badge-paid {
-    background-color: #e8f5e9;
-    color: #2e7d32;
-}
-
-.badge-pending {
-    background-color: #fff8e1;
-    color: #f57c00;
-}
-
-/* Buttons */
-.btn-action {
-    width: 100%;
-    padding: 10px;
-    background-color: #ff0000;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-weight: 600;
-    cursor: pointer;
-    font-size: 13px;
-}
-
-.btn-action:hover {
-    background-color: #cc0000;
-}
-
-/* --- STYLES CHO TRANG THÔNG BÁO --- */
-.search-bar {
-    background-color: #dcdcdc;
-    padding: 12px 20px;
-    border-radius: 5px;
-    color: #666;
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 30px;
-    display: flex;
-    align-items: center;
-}
-
-.noti-section-title {
-    font-size: 12px;
-    color: #888;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-}
-
-.noti-item {
-    display: flex;
-    gap: 20px;
-    padding: 10px 0;
-    border-bottom: 1px solid #f5f5f5;
-}
-
-.noti-index {
-    font-weight: 700;
-    color: #666;
-    font-size: 14px;
-    min-width: 30px;
-}
-
-.noti-content h3 {
+.section-title {
     font-size: 16px;
     font-weight: 700;
     color: #333;
+    margin-bottom: 15px;
+}
+
+/* Search Bar */
+.search-container {
+    margin-bottom: 30px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #dcdcdc; /* Màu xám giống ảnh */
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    color: #333;
+    font-weight: 600;
+    outline: none;
+}
+
+.search-input::placeholder {
+    color: #666;
+    font-weight: 600;
+}
+
+/* Notification List */
+.notification-list-container {
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+.list-header {
+    background-color: #fcfcfc;
+    padding: 15px 20px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #666;
+    text-transform: uppercase;
+    border-bottom: 1px solid #eee;
+}
+
+.notification-item {
+    display: flex;
+    padding: 25px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.noti-id {
+    font-weight: 700;
+    color: #333;
+    width: 50px; /* Khoảng cách cho số thứ tự */
+    font-size: 14px;
+    padding-top: 2px;
+}
+
+.noti-content {
+    flex-grow: 1;
+}
+
+.noti-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: #2c3e50;
     margin-bottom: 10px;
 }
 
-.noti-content p {
-    font-size: 14px;
-    color: #333;
+.noti-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #f0f0f0; /* Đường kẻ mờ bên dưới tiêu đề */
+    margin-bottom: 15px;
+    width: 30%; /* Chỉ dài một đoạn như ảnh */
+}
+
+.noti-desc {
+    font-size: 16px;
+    color: #000;
     line-height: 1.5;
 }

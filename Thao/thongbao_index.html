@@ -9,57 +9,79 @@
 </head>
 <body>
 
-    <aside class="sidebar">
-        <div class="sidebar-header">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Van_Lang_University_Logo.png/1200px-Van_Lang_University_Logo.png" alt="Logo" class="logo-img">
-        </div>
-        <ul class="menu-list">
-            <li class="menu-item"><a href="#"><i class="fa-solid fa-house"></i> Tổng quan</a></li>
-            <li class="menu-item"><a href="#"><i class="fa-solid fa-clipboard-user"></i> Hồ sơ cá nhân</a></li>
-            <li class="menu-item"><a href="#"><i class="fa-solid fa-file-pen"></i> Quản lý đơn</a></li>
-            <li class="menu-item active"><a href="#"><i class="fa-regular fa-bell"></i> Thông báo</a></li>
-            <li class="menu-item"><a href="#"><i class="fa-solid fa-hand-holding-dollar"></i> Hóa đơn & Phí</a></li>
-        </ul>
-    </aside>
+    <div class="app-container">
+        
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="img/logoVLU.png" alt="VLU Logo" class="vlu-logo">
+            </div>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="tongquan_index.html"><i class="fa-solid fa-house"></i> Tổng quan</a>
+                    </li>
+                    <li>
+                        <a href="hosocanhan_index.html"><i class="fa-solid fa-clipboard-user"></i> Hồ sơ cá nhân</a>
+                    </li>
+                    <li>
+                        <a href="quanlydon_index.html"><i class="fa-solid fa-file-pen"></i> Quản lý đơn</a>
+                    </li>
+                    <li class="active">
+                        <a href="thongbao_index.html"><i class="fa-solid fa-bell"></i> Thông báo</a>
+                    </li>
+                    <li>
+                        <a href="hoadon_index.html"><i class="fa-solid fa-hand-holding-dollar"></i> Hóa đơn & Phí</a>
+                    </li>
+                     <li>
+                        <a href="dangnhap_index.html"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
 
-    <div class="main-content">
-        <header class="top-header">
-            <div class="header-left">
-                <i class="fa-solid fa-bars hamburger-btn"></i>
+        <div class="main-panel">
+            <header class="top-header">
                 <h1 class="page-title">Ký Túc Xá Trường đại học Văn Lang</h1>
-            </div>
-            <div class="user-info">
-                <div>
-                    <span class="user-name">Hồ Thị Phương Thảo - 71K29CNTT03</span>
-                    <span class="user-role">Sinh viên</span>
-                </div>
-                <div class="user-avatar">
-                    <i class="fa-solid fa-user"></i>
-                </div>
-            </div>
-        </header>
-
-        <div class="content-body">
-            <div class="card">
-                <h2 class="card-title">Thông báo tổng</h2>
-
-                <div class="search-bar">
-                    Nhập từ khóa tìm kiếm
-                </div>
-
-                <div class="noti-list">
-                    <div class="noti-section-title">THÔNG BÁO MỚI</div>
-
-                    <div class="noti-item">
-                        <div class="noti-index">01</div>
-                        <div class="noti-content">
-                            <h3>Xác nhận vào ở</h3>
-                            <p>Xác nhận vào ở thành công. Chúc mừng Trần Minh Quân vào ở KTX.</p>
-                        </div>
+                <div class="user-info">
+                    <div class="user-details">
+                        <span class="user-name">Hồ Thị Phương Thảo - 71K29CNTT03</span>
+                        <span class="user-role">Sinh viên</span>
                     </div>
+                    <div class="user-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-body">
+                <div class="card">
+                    <h2 class="section-title">Thông báo tổng</h2>
+
+                    <div class="search-container">
+                        <input type="text" placeholder="Nhập từ khóa tìm kiếm" class="search-input">
+                    </div>
+
+                    <div class="notification-list-container">
+                        <div class="list-header">
+                            THÔNG BÁO MỚI
+                        </div>
+
+                        <div class="notification-item">
+                            <div class="noti-id">01</div>
+                            <div class="noti-content">
+                                <h3 class="noti-title">Đăng ký phòng</h3>
+                                <div class="noti-divider"></div>
+                                <p class="noti-desc">
+                                    Chúc mừng Hồ Thị Phương Thảo đã được “Duyệt” vào ở KTX. Hãy xem hợp đồng và xác nhận vào ở.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        </div>
                 </div>
             </div>
         </div>
     </div>
+
 </body>
 </html>
