@@ -289,3 +289,213 @@ tr:last-child td {
     padding: 5px;
     border-radius: 4px;
 }
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.45);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-box {
+    width: 550px;
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    position: relative;
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.95);}
+    to   {opacity: 1; transform: scale(1);}
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: none;
+    background: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.modal-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+
+.form-group select, 
+.form-group input,
+.form-group textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn-cancel {
+    width: 140px;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ff0000;
+    color: #ff0000;
+    font-size: 15px;
+    cursor: pointer;
+    background: white;
+}
+
+.btn-submit {
+    flex-grow: 1;
+    margin-left: 15px;
+    padding: 12px;
+    border-radius: 6px;
+    background: #ff0000;
+    color: white;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+/* --- MODAL STYLE UPDATE GIỐNG ẢNH --- */
+
+/* Input và Select box chung */
+.form-group label {
+    font-weight: 600;
+    font-size: 13px;
+    color: #212529;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Dấu sao đỏ bắt buộc */
+.form-group label span.required {
+    color: #dc3545;
+    margin-left: 3px;
+}
+
+/* Style cho các ô input giống ảnh (nền xám, bo góc) */
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #f7f9fc; /* Màu nền xám nhạt */
+    border: 1px solid #eef0f3;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #495057;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.form-control:focus {
+    background-color: #fff;
+    border-color: #4a6cf7;
+    box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.1);
+}
+
+.form-control::placeholder {
+    color: #adb5bd;
+}
+
+/* Layout Grid 2 cột cho đơn Thân nhân */
+.form-row {
+    display: flex;
+    gap: 20px; /* Khoảng cách giữa 2 cột */
+    margin-bottom: 20px;
+}
+
+.form-col {
+    flex: 1; /* Chia đều độ rộng */
+}
+
+/* Nút bấm Footer */
+.modal-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+/* Nút Hủy: Viền xanh, chữ xanh, icon đỏ (Giống ảnh) */
+.btn-cancel {
+    width: 120px;
+    background: #fff;
+    border: 1px solid #5d78ff;
+    color: #5d78ff;
+    font-weight: 600;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column; /* Icon trên chữ hoặc ngang */
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.btn-cancel i {
+    color: #dc3545; /* Icon X màu đỏ */
+    font-weight: bold;
+}
+
+/* Nút Nộp đơn: Màu đỏ full */
+.btn-submit {
+    flex-grow: 1;
+    background: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background 0.2s;
+}
+
+.btn-submit:hover {
+    background: #d90000;
+}
+
+/* Tùy chỉnh input File (Đơn chuyển phòng) */
+.file-input-wrapper {
+    display: flex;
+    align-items: center;
+    background: #f7f9fc;
+    border: 1px solid #eef0f3;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.file-input-wrapper input[type=file] {
+    border: none;
+    background: transparent;
+    font-size: 13px;
+}
+
+.note-text {
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+}
