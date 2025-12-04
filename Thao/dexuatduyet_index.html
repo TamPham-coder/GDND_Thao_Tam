@@ -6,6 +6,160 @@
     <title>Đề xuất duyệt hồ sơ - KTX Văn Lang</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="dexuatduyet_style.css">
+
+    <style>
+        /* Reset & Base */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Arial, sans-serif; }
+body { background-color: #f5f7fa; height: 100vh; overflow: hidden; }
+
+/* Layout */
+.app-container { display: flex; height: 100%; }
+
+/* --- SIDEBAR --- */
+.sidebar {
+    width: 260px;
+    background: white;
+    border-right: 1px solid #e0e0e0;
+    display: flex; flex-direction: column; flex-shrink: 0;
+}
+.sidebar-header {
+    height: 70px;
+    display: flex; align-items: center; justify-content: center;
+    padding: 0 15px; border-bottom: 1px solid #f0f0f0;
+}
+.vlu-logo { height: 40px; object-fit: contain; }
+
+.sidebar-menu ul { list-style: none; padding-top: 20px; }
+.sidebar-menu li { margin-bottom: 5px; }
+.sidebar-menu a {
+    display: flex; align-items: center;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500; font-size: 14px;
+    transition: all 0.2s;
+}
+.sidebar-menu a i { width: 25px; margin-right: 10px; font-size: 16px; }
+
+/* Active Menu Item (Red) */
+.sidebar-menu li.active a { background-color: #ff0000; color: white; }
+.sidebar-menu li:not(.active) a:hover { background-color: #f9f9f9; }
+
+/* --- MAIN PANEL --- */
+.main-panel { flex-grow: 1; display: flex; flex-direction: column; }
+
+/* Header */
+.top-header {
+    height: 60px;
+    background-color: #ff0000;
+    color: white;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 20px; flex-shrink: 0;
+}
+.header-left { display: flex; align-items: center; gap: 15px; }
+.menu-toggle { background: none; border: none; color: white; font-size: 20px; cursor: pointer; }
+.page-title { font-size: 18px; font-weight: 700; text-transform: uppercase; }
+
+.user-info { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+.user-name { font-weight: 700; }
+.user-role { opacity: 0.9; font-size: 11px; }
+.user-avatar {
+    width: 30px; height: 30px;
+    background-color: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+}
+
+/* Content Body */
+.content-body {
+    padding: 30px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+/* Card Container */
+.card {
+    background: white;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    min-height: 80vh;
+}
+
+.card-title { font-size: 16px; font-weight: 700; color: #333; margin-bottom: 20px; }
+
+/* Big Red Button */
+.btn-add-large {
+    width: 100%;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: 30px;
+    transition: background 0.2s;
+}
+.btn-add-large:hover { background-color: #d60000; }
+
+/* Table Styles */
+.table-container { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+
+th {
+    text-align: left;
+    font-size: 11px; color: #666; text-transform: uppercase; font-weight: 700;
+    padding: 15px 10px; border-bottom: 1px solid #eee;
+}
+
+td {
+    padding: 20px 10px; /* Tăng padding dọc để giống ảnh (hàng cao) */
+    font-size: 13px; color: #333; border-bottom: 1px solid #f5f5f5; vertical-align: middle;
+}
+
+/* Student Info Column */
+.student-info { display: flex; flex-direction: column; }
+.student-info .name { font-weight: 600; color: #333; font-size: 13px; }
+.student-info .mssv { font-size: 12px; color: #888; margin-top: 3px; }
+
+/* Badge (Trạng thái) */
+.badge {
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 12px; font-weight: 700;
+    display: inline-block;
+}
+.badge.pending {
+    background-color: #fff8e1; /* Màu kem nhạt */
+    color: #5d4037; /* Màu chữ nâu đen */
+}
+
+/* Action Buttons (Circle) */
+.actions { display: flex; gap: 12px; }
+.actions button {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    transition: transform 0.2s;
+}
+.actions button:hover { transform: scale(1.1); }
+
+.btn-approve {
+    background-color: #b9f6ca; /* Xanh lá nhạt */
+    color: #00c853; /* Icon xanh đậm */
+}
+
+.btn-reject {
+    background-color: #ff5252; /* Đỏ */
+    color: white; /* Icon trắng */
+}
+    </style>         
+
 </head>
 <body>
 
@@ -26,7 +180,7 @@
                         <a href="xetduyetdon_index.html"><i class="fa-solid fa-file-signature"></i> Xét duyệt đơn</a>
                     </li>
                     <li class="active">
-                        <a href="dexuatduyet_index.html"><i class="fa-solid fa-file-arrow-up"></i> Đề xuất duyệt hồ sơ</a>
+                        <a href="dexuatduyet_index.html"><i class="fa-solid fa-file-arrow-up"></i> Xuất duyệt hồ sơ</a>
                     </li>
                     <li>
                         <a href="baocaophong_index.html"><i class="fa-solid fa-chart-line"></i> Báo cáo (Phòng)</a>
@@ -44,7 +198,7 @@
                 </div>
                 <div class="user-info">
                     <span class="user-name">Trần Minh Huy - 71K29CNTT04</span>
-                    <span class="user-role">Sinh viên</span>
+                    <span class="user-role">Quản lý phòng</span>
                     <div class="user-avatar"><i class="fa-solid fa-user"></i></div>
                 </div>
             </header>
@@ -180,6 +334,201 @@
             </div>
         </div>
     </div>
+<div id="registrationModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2 class="modal-title">Tạo hợp đồng đăng ký phòng</h2>
 
+        <div class="form-section">
+            <h3 class="section-title">I. Thông tin sinh viên</h3>
+            <div class="form-row">
+                <div class="form-group half-width">
+                    <label for="searchStudent">Tìm kiếm sinh viên <span class="required-star">*</span></label>
+                    <input type="text" id="searchStudent" placeholder="Nhập MSSV hoặc Họ tên để tìm kiếm...">
+                </div>
+                <div class="form-group half-width">
+                    <label for="fullName">Họ và tên</label>
+                    <input type="text" id="fullName" value="Hồ Thị Phương Thảo" readonly>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group half-width">
+                    <label for="mssv">MSSV</label>
+                    <input type="text" id="mssv" value="2374802010471" readonly>
+                </div>
+                <div class="form-group half-width">
+                    <label for="classMajor">Lớp/Ngành</label>
+                    <input type="text" id="classMajor" value="K29 - Công nghệ thông tin" readonly>
+                </div>
+            </div>
+        </div>
+        
+        <hr class="section-divider">
+
+        <div class="form-section">
+            <h3 class="section-title">II. Thông tin phòng & Thời hạn</h3>
+            <div class="form-row">
+                <div class="form-group half-width">
+                    <label for="selectBuilding">Chọn Tòa</label>
+                    <select id="selectBuilding">
+                        <option>-- Tất cả --</option>
+                        <option value="cs3">CS3 Gò Vấp</option>
+                        <option value="pinh">160/B Phan Huy Ích</option>
+                        </select>
+                </div>
+                <div class="form-group half-width">
+                    <label for="selectRoom">Chọn Phòng <span class="required-star">*</span></label>
+                    <select id="selectRoom">
+                        <option value="">-- Để hệ thống tự động xếp --</option>
+                        <option value="2p">Phòng 2 người</option>
+                        <option value="4p">Phòng 4 người</option>
+                        <option value="6p">Phòng 6 người</option>
+                        <option value="8p">Phòng 8 người</option>
+                        </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group half-width">
+                    <label for="startDate">Ngày bắt đầu <span class="required-star">*</span></label>
+                    <div class="date-input-container">
+                        <input type="text" id="startDate" placeholder="mm/dd/yyyy">
+                        <i class="fa-solid fa-calendar-alt calendar-icon"></i>
+                    </div>
+                </div>
+                <div class="form-group half-width">
+                    <label for="endDate">Ngày kết thúc (Dự kiến) <span class="required-star">*</span></label>
+                    <div class="date-input-container">
+                        <input type="text" id="endDate" placeholder="mm/dd/yyyy">
+                        <i class="fa-solid fa-calendar-alt calendar-icon"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group half-width">
+                    <label for="roomPrice">Giá phòng (VNĐ/Tháng)</label>
+                    <input type="text" id="roomPrice" value="1.500.000" readonly>
+                </div>
+                <div class="form-group half-width">
+                    <label for="deposit">Tiền cọc (VNĐ)</label>
+                    <input type="text" id="deposit" value="3.000.000">
+                </div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="form-section">
+            <h3 class="section-title">III. Điều khoản hợp đồng</h3>
+            <div class="terms-list">
+                <ol>
+                    <li>Sinh viên cam kết tuân thủ nội quy ký túc xá...</li>
+                    <li>Thanh toán tiền phòng đúng hạn trước ngày 05 hàng tháng...</li>
+                    <li>Giữ gìn vệ sinh chung và bảo quản tài sản...</li>
+                    <li>Không nấu ăn, không sử dụng chất kích thích...</li>
+                    <li>...</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="agreement-checkbox">
+            <input type="checkbox" id="agreement">
+            <label for="agreement">Tôi xác nhận thông tin trên là chính xác và sinh viên đã đồng ý với điều khoản.</label>
+        </div>
+
+        <div class="modal-actions">
+            <button class="btn-cancel" onclick="closeModal()">Hủy bỏ</button>
+            <button class="btn-submit">Tạo hợp đồng</button>
+        </div>
+    </div>
+</div>
+<script>
+    // 1. Lấy các phần tử cần thiết
+    const modal = document.getElementById("registrationModal");
+    const btnAddLarge = document.querySelector(".btn-add-large");
+    const closeBtn = document.querySelector(".close-btn");
+    const btnCancel = document.querySelector(".btn-cancel");
+    const btnSubmit = document.querySelector(".btn-submit");
+
+    const selectRoom = document.getElementById("selectRoom");
+    const roomPriceInput = document.getElementById("roomPrice");
+    const depositInput = document.getElementById("deposit");
+
+    // Dữ liệu giá phòng và tiền cọc mô phỏng (Giá/tháng, Tiền cọc = 2 tháng)
+    const roomPrices = {
+        "2p": { price: "2.500.000", deposit: "5.000.000" },
+        "4p": { price: "1.500.000", deposit: "3.000.000" }, // Giá mặc định 1.5tr
+        "6p": { price: "1.200.000", deposit: "2.400.000" },
+        "8p": { price: "1.000.000", deposit: "2.000.000" }
+    };
+
+    // 2. Hàm xử lý cập nhật thông tin phòng
+    function updateRoomInfo() {
+        const selectedRoomType = selectRoom.value;
+        if (selectedRoomType && roomPrices[selectedRoomType]) {
+            roomPriceInput.value = roomPrices[selectedRoomType].price;
+            depositInput.value = roomPrices[selectedRoomType].deposit;
+        } else {
+            // Mặc định hoặc khi chọn "-- Để hệ thống tự động xếp --"
+            roomPriceInput.value = "1.500.000"; 
+            depositInput.value = "3.000.000"; 
+        }
+    }
+
+    // 3. Hàm mở/đóng modal
+    function openModal() {
+        modal.style.display = "block";
+        modal.focus(); 
+        updateRoomInfo(); // Cập nhật thông tin phòng ban đầu
+    }
+
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    // 4. Gắn sự kiện
+    btnAddLarge.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    btnCancel.addEventListener('click', closeModal);
+
+    // Sự kiện khi thay đổi loại phòng
+    selectRoom.addEventListener('change', updateRoomInfo);
+
+    // 5. Xử lý đóng modal khi click ra ngoài
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+
+    // 6. Xử lý sự kiện khi nhấn nút "Tạo hợp đồng" (giữ nguyên logic kiểm tra)
+    btnSubmit.addEventListener('click', function(event) {
+        event.preventDefault(); 
+        
+        const studentName = document.getElementById('fullName').value;
+        const agreementChecked = document.getElementById('agreement').checked;
+
+        if (!agreementChecked) {
+            alert("Bạn phải đồng ý với điều khoản để tạo hợp đồng!");
+            return;
+        }
+
+        alert(`Đã tạo hợp đồng đăng ký phòng cho sinh viên: ${studentName}.`);
+        closeModal();
+    });
+
+    // 7. Xử lý tìm kiếm sinh viên (Giữ nguyên logic mô phỏng)
+    const searchInput = document.getElementById('searchStudent');
+    searchInput.addEventListener('change', function() {
+        if (searchInput.value.includes('2374802010471') || searchInput.value.includes('Thảo')) {
+            document.getElementById('fullName').value = "Hồ Thị Phương Thảo";
+            document.getElementById('mssv').value = "2374802010471";
+            document.getElementById('classMajor').value = "K29 - Công nghệ thông tin";
+        } else if (searchInput.value) {
+            document.getElementById('fullName').value = "Không tìm thấy";
+            document.getElementById('mssv').value = "";
+            document.getElementById('classMajor').value = "";
+        }
+    });
+</script>
 </body>
 </html>
