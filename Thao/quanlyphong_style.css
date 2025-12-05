@@ -514,3 +514,106 @@ textarea {
     from {opacity: 0; transform: translateY(-10px);}
     to {opacity: 1; transform: translateY(0);}
 }
+/* Popup nền */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* Khung popup — CHUẨN THEO HÌNH + chỉnh kích thước theo yêu cầu */
+.modal-box {
+    width: 640px;          /* rộng hơn hình 1 chút */
+    max-height: 480px;     /* thấp hơn hình để “ngắn lại” */
+    background: #fff;
+    padding: 20px 28px;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    overflow-y: auto;
+}
+
+/* Nút X đóng */
+.close-btn {
+    position: absolute;
+    right: 16px;
+    top: 14px;
+    font-size: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Grid 2 cột */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 18px;
+}
+
+/* Nhãn + input */
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* Tiện nghi */
+.tag-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    padding: 6px 12px;
+    border-radius: 10px;
+    background: #f1f1f1;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.tag.active {
+    background: #ffe4e5;
+    color: #d9262d;
+    font-weight: 600;
+}
+
+/* Footer buttons */
+.btn-cancel {
+    padding: 10px 18px;
+    background: #f0f0f0;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-confirm {
+    padding: 10px 18px;
+    background: #ff3b30;
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
